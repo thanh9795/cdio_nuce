@@ -12,7 +12,6 @@
  				</ul>
  			</li>
  			<li><a href="<?=base_url('Tintuc') ?>"><i class="fa fa-desktop"></i> Quản lý tin tức</a></li>
- 			<li><a href="<?=base_url('Decuong') ?>"><i class="fa fa-desktop"></i> Đề cương học phần</a></li>
  			<li><a><i class="fa fa-table"></i> Quản lý hình ảnh</a></li>
  			<li><a href="<?=base_url('Vanban') ?>"><i class="fa fa-bar-chart-o"></i> Quản lý văn bản điều hành</a></li>
  			<li><a><i class="fa fa-clone"></i> Quản lý CTĐT <span class="fa fa-chevron-down"></span></a>
