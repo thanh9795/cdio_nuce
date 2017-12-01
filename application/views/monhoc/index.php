@@ -184,6 +184,12 @@
 		  	  console.log(err);
 		  	});
 		  },
+		  reset(){
+		  	this.link="";
+		    this.type=1;
+		    $('#fileDecuong').val("");
+
+		  },
 		  deleteitem:function (id,index) {
 	 			var self=this;
 	 			
@@ -234,6 +240,7 @@
 					console.log(response);
 		  			this.getDecuong(this.currentid);
 		  			NProgress.done();
+		  			this.reset();
 		  			swal({
 		  				icon:response.body.code,
 		  				text:response.body.message
@@ -259,6 +266,8 @@
 				this.$http.post(this.base+'/decuong/add', formData).then(response => {
 					console.log(response);
 					NProgress.done() ;
+					this.getDecuong(this.currentid);
+		  			this.reset();
 					swal({
 		  				icon:response.body.code,
 		  				text:response.body.message

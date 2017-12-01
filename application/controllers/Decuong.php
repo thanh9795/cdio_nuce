@@ -32,7 +32,23 @@ class Decuong extends CI_Controller {
 					echo json_encode(['code'=>'error','message'=>"Đường dẫn không được để trống"]);
 				}
 			}else{
+				$config['upload_path']          = './assets/decuong';
+				$config['allowed_types']        = TYPEALLOW;
+				$config['max_size']             = 20000;
 
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload('fileattach'))
+				{
+					echo json_encode(['code'=>'error','message'=>strip_tags($this->upload->display_errors())]);
+				}
+				else
+				{
+					$data = array('upload_data' => $this->upload->data());
+					$path="assets/decuong/".$this->upload->data()['file_name'];
+					$this->Decuong_model->insert(['type'=>$type,'link'=>$path,'id_monhoc'=>$this->input->post('id_monhoc')]);
+					echo json_encode(['code'=>'success','message'=>"Thêm mới đề cương thành công"]);
+				}
 			}
 		}
 	}
