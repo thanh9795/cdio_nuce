@@ -15,7 +15,12 @@ class Decuong extends CI_Controller {
 	public function index( $id )
 	{
 		if ($id!=NULL) {
-			echo json_encode($this->Decuong_model->get_all('','id,type,link,date_created',['id_monhoc'=>$id]));	
+			$data=$this->Decuong_model->get_all('','id,type,link,date_created',['id_monhoc'=>$id]);
+			foreach ($data as $key => $value) {
+				$data[$key]->date_created=date("d/m/Y H:i",strtotime($value->date_created));
+				$data[$key]->type=$data[$key]->type==1?"Đường dẫn":"Tệp đính kèm";
+			}
+			echo json_encode($data);	
 		}
 	}
 
