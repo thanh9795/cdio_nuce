@@ -76,7 +76,7 @@
 								<tbody>
 									<tr v-for="item in decuongs">
 										<td>{{item.type}}</td>
-										<td><a :href="this.base+item.link">{{item.link|shorter}}</a></td>
+										<td><a :href="base+item.link">{{item.link|shorter}}</a></td>
 										<td>{{item.date_created}}</td>
 									</tr>
 								</tbody>
