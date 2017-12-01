@@ -1,0 +1,44 @@
+.ui-pnotify.ui-pnotify-in{
+    display: none!important;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+    border-right:0; 
+    box-shadow:0 0 0; 
+    border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+    margin-bottom: 0px!important;
+}
+.row-fluid{
+    margin-bottom: 20px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.hockyhead {
+    background: #0f297e;
+    color: #fff!important;
+    height: 49px!important;
+    vertical-align: middle;
+}
+
+.panelhk {
+    margin: 0;
+    border-radius: 0px;
+}
+
+.panelhk .panel-body {
+    padding: 5px!important;
+    text-align: center;
+    height: 77px;
+}
+.mygrid-wrapper-div{
+    width: 255px !important;
+}
