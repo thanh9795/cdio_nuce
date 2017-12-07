@@ -7,18 +7,27 @@
             <?=$tintucitems->tieude?>
         </h1>
         <p><?=$tintucitems->chi_tiet?></p>
+        <ul style="margin-left: 20px;list-style: none">
+            <?php foreach ($dinhkems as $dk): ?>
+            <li>
+                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                <?= attach($dk) ?>
+            </li>
+            <?php endforeach ?>
+        </ul>
     </div>
     <div id="ctl10_ucLoadControl_ctl00_pnOther">
 
         <div class="otherNews">
             <h1>Các tin tức khác</h1>
             <?php foreach ($all as $tt): ?>
-                <div class="newOtherItem">
-                    <a href=""><?=$tt->tieude?></a>
-                    <span>(<?=$tt->date_created?>)</span>
+                <div title="<?=$tt->tieude?>" class="newOtherItem">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i> 
+                    <a href="<?= base_url('home/detailTintuc/'.$tt->id) ?>"><?=$tt->tieude?></a>
+                    <span> (<?=date("d/m/Y H:i",strtotime($tt->date_created))?>)</span>
                 </div>
-        <?php endforeach?>
-            </div>
+            <?php endforeach?>
+        </div>
 
     </div>
 

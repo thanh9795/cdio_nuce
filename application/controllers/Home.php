@@ -28,13 +28,17 @@ class Home extends CI_Controller {
 
 	public function detailTintuc($id) {
 
+		$this->load->helper('Attach');
 		$this->load->model('Tintuc_model');
+		$this->load->model('Tintuc_dinhkem_model');
+
 		$tintucitem = $this->Tintuc_model->get($id);
-		$all = $this->Tintuc_model->get_all();
+		$all = $this->Tintuc_model->get_all('','',['id!='=>$id]);
 		$data = [
 			'subview' => "tintuc_detail",
 			'subdata' => [
 				'tintucitems' => $tintucitem,
+				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('','',['id_tintuc'=>$id]),
 				'all' => $all,
 			],
 		];
@@ -44,8 +48,9 @@ class Home extends CI_Controller {
 
 	}
 	public function detailVanban($id) {
-
+		$this->load->helper('Attach');
 		$this->load->model('Vanban_model');
+		$this->load->model('Vanban_dinhkem_model');
 		$vanban = $this->Vanban_model->get($id);
 		$all = $this->Vanban_model->get_all();
 		$data = [
@@ -53,6 +58,7 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'vanbans' => $vanban,
 				'all' => $all,
+				'dinhkems' => $this->Vanban_dinhkem_model->get_all('','',['id_vanban'=>$id]),
 			],
 		];
 

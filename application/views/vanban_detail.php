@@ -8,6 +8,14 @@
         </h1>
         <h2><?=$vanbans->so_ky_hieu_vb?></h2>
         <strong>Nội dung: </strong><p><?=$vanbans->trich_yeu?></p>
+         <ul style="margin-left: 20px;list-style: none">
+            <?php foreach ($dinhkems as $dk): ?>
+            <li>
+                <i class="fa fa-paperclip" aria-hidden="true"></i>
+                <?= attach($dk) ?>
+            </li>
+            <?php endforeach ?>
+        </ul>
     </div>
     <div id="ctl10_ucLoadControl_ctl00_pnOther">
 
