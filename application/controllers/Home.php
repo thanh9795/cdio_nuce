@@ -26,6 +26,41 @@ class Home extends CI_Controller {
 		$this->load->view('master_home', $data);
 	}
 
+	public function detailTintuc($id) {
+
+		$this->load->model('Tintuc_model');
+		$tintucitem = $this->Tintuc_model->get($id);
+		$all = $this->Tintuc_model->get_all();
+		$data = [
+			'subview' => "tintuc_detail",
+			'subdata' => [
+				'tintucitems' => $tintucitem,
+				'all' => $all,
+			],
+		];
+
+		//var_dump($tintucitem);
+		$this->load->view('master_home', $data);
+
+	}
+	public function detailVanban($id) {
+
+		$this->load->model('Vanban_model');
+		$vanban = $this->Vanban_model->get($id);
+		$all = $this->Vanban_model->get_all();
+		$data = [
+			'subview' => "vanban_detail",
+			'subdata' => [
+				'vanbans' => $vanban,
+				'all' => $all,
+			],
+		];
+
+		//var_dump($tintucitem);
+		$this->load->view('master_home', $data);
+
+	}
+
 	public function vanban() {
 		/*$this->load->model('Vanban_model');
 			$vanban = $this->Vanban_model->get_all();
@@ -72,15 +107,14 @@ class Home extends CI_Controller {
 		];
 		$this->load->view('master_home', $data);
 	}
-	public function decuonghocphan()
-	{
+	public function decuonghocphan() {
 		$this->load->model('Monhoc_model');
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Monhoc_model->countall($key);
 		$itemsPerPage = 20;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
-		$urlPattern = base_url('home/decuonghocphan?key='.$this->input->get('key').'&page=(:num)');
+		$urlPattern = base_url('home/decuonghocphan?key=' . $this->input->get('key') . '&page=(:num)');
 		$offset = ($currentPage - 1) * 20;
 		$monhocs = $this->Monhoc_model->getall($key, 20, $offset);
 
@@ -157,7 +191,7 @@ class Home extends CI_Controller {
 	}
 	public function chitietCtDaotao($id) {
 		$data = [
-			'subview' => "chitietNganhdaotao",
+			'subview' => "chitietnganhdt",
 			'subdata' => [
 			],
 		];

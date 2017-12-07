@@ -6,7 +6,7 @@
                 <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
                 <span class="input-group-addon">
                     <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
+                       <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
             </div>
@@ -21,7 +21,7 @@
     	<?php foreach ($tintucs as $tintuc): ?>
 
        <div class="newItem">
-       	<a class="itemTitle" href="#" title="<?php echo $tintuc->tieude ?>"><?php echo $tintuc->tieude ?></a>
+       	<a class="itemTitle" href="<?=base_url('home/detailTintuc/' . $tintuc->id)?>" title="<?php echo $tintuc->tieude ?>"><?php echo $tintuc->tieude ?></a>
        	<div class="itemDes"><?php echo $tintuc->mota ?></div>
        </div>
     	<?php endforeach?>

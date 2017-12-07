@@ -41,6 +41,11 @@ class Api extends CI_Controller {
 		$gt = $this->Gioithieu_model->get_all();
 		echo json_encode($gt);
 	}
+	public function getdetailtintuc($id) {
+		$this->load->model('Tintuc_model');
+		$tintucitem = $this->Tintuc_model->get($id);
+		echo json_encode($tintucitem);
+	}
 
 }
 

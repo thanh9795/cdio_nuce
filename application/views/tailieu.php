@@ -6,7 +6,7 @@
                 <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
                 <span class="input-group-addon">
                     <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
+                        <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
             </div>
@@ -27,9 +27,9 @@
                             <div class="edocman-description-details">
                                 <div style="float: left; margin-right: 10px;">
                                     <?php
-                                        $ext = explode('.', $tailieu->link_tai_lieu);
-                                        $ext = end($ext);
-                                        ?>
+$ext = explode('.', $tailieu->link_tai_lieu);
+$ext = end($ext);
+?>
                                     <i class="fa fa-3x <?php echo get_icon($ext) ?>"></i>
                                 </div>
                                 <p></p>
@@ -37,8 +37,8 @@
                             <div class="clearfix"></div>
                             <div class="edocman-taskbar clearfix">
                                 <ul>
-                                   <li><a class="btn btnDownload" download="" data-value="1015" href="<?= $tailieu->link_tai_lieu ?>"><i class="edocman-icon-download"></i>Tải xuống</a></li>
-                                   <li><a class="btn btnView2" href="<?= in_array($ext, explode("|", READABLE))?"http://docs.google.com/gview?url=".$tailieu->link_tai_lieu:"javascript:void(0)" ?>"><i class="edocman-icon-eye-open"></i>Xem</a></li>
+                                   <li><a class="btn btnDownload" download="" data-value="1015" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-download"></i>Tải xuống</a></li>
+                                   <li><a class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . $tailieu->link_tai_lieu : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a></li>
                                    <li><a href="#" class="btn btn-primary btnDetail" data-value="1015" data-toggle="modal" data-target="#modelDetail">Chi tiết</a></li>
                                </ul>
                            </div>

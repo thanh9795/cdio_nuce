@@ -5,7 +5,7 @@
                 <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
                 <span class="input-group-addon">
                     <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
+                       <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </span>
             </div>
@@ -25,8 +25,8 @@
 
             <tr>
                <td align="center">1</td>
-               <td><a class="itemTitle" href="#" title=" KH-CDIO"><?php echo $vb->so_ky_hieu_vb ?></a></td>
-               <td><a class="itemTitleAb" href="#" title=" KH-CDIO"><?php echo $vb->trich_yeu ?></a></td>
+               <td><a class="itemTitle" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->so_ky_hieu_vb ?></a></td>
+               <td><a class="itemTitleAb" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->trich_yeu ?></a></td>
                <td align="center"><?php echo date('d-m-Y', strtotime($vb->date_created)) ?></td>
             </tr>
 

@@ -1,15 +1,17 @@
-          <form action="">
-          	<div id="imaginary_container">
-          		<div class="input-group stylish-input-group">
-          			<input type="text" class="form-control" name="key" placeholder="Search" >
-          			<span class="input-group-addon">
-          				<button type="submit">
-          					<span class="glyphicon glyphicon-search"></span>
-          				</button>
-          			</span>
-          		</div>
-          	</div>
-          </form>
+<div class="form-search pull-right" style="max-width: 280px;margin-right: 29px;padding: 10px 0; padding-top: 35px;">
+    <form action="">
+        <div id="imaginary_container">
+            <div class="input-group stylish-input-group">
+                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
+                <span class="input-group-addon">
+                    <button type="submit">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
           <div id="pageDetail">
           	<h1 id="pageDetailTitle">
 
