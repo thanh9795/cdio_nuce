@@ -97,7 +97,7 @@ class Nganhdaotao extends CI_Controller {
 				'table' => 'monhoc',
 				'on' => 'monhoc.id=ctdao_tao.ma_mon',
 			],
-		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,de_cuong,hoc_ky', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
+		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,hoc_ky', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
 		$hocky = [];
 		for ($i = 1; $i <= 10; $i++) {
 			$tem = [];

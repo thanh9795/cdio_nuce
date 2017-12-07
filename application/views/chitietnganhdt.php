@@ -3,8 +3,8 @@
   <button class="tablinks" onclick="openCity(event, 'Paris')">Chương trình đào tạo kiểu 1</button>
 </div>
 
-<div id="London" class="tabcontent">
-    <div id="pageDetail">
+<div id="pageDetail">
+  <div id="London" class="tabcontent">
     <h1 id="pageDetailTitle">
 
       Chương trình đào tạo ngành {{title}}
@@ -41,63 +41,89 @@
       </div>
     </div>
   </div>
+  <div id="Paris" class="tabcontent">
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Mã học phần</th>
+        <th>Tên học phần</th>
+        <th>STC</th>
+        <th>Số tiết lý thuyết</th>
+        <th>Số tiết thực hành</th>
+        <th>Mã học phần tiên quyết</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item,index) in monhocs">
+        <td>{{index+1}}</td>
+        <td>{{item.ma_mon}}</td>
+        <td>{{item.ten_mon}}</td>
+        <td>{{item.so_tin_chi}}</td>
+        <td>{{item.so_tiet_ly_thuyet}}</td>
+        <td>{{item.so_tiet_thuc_hanh}}</td>
+        <td>{{item.ma_hoc_phan_tien_quyet}}</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
+
 <style>
 div.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    height: 35px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  height: 35px;
 }
 
 /* Style the buttons inside the tab */
 div.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px 16px;
-    transition: 0.3s;
-    font-size: 17px;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 16px;
+  transition: 0.3s;
+  font-size: 17px;
 }
 
 /* Change background color of buttons on hover */
 div.tab button:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 div.tab button.active {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 /* Style the tab content */
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
 }
 </style>
 <script>
-function openCity(evt, cityName) {
+  function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+      tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
-}
+  }
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
@@ -108,6 +134,7 @@ document.getElementById("defaultOpen").click();
     el: "#pageDetail",
     data () {
       return {
+        monhocs:[],
         base:'<?php echo base_url() ?>',
         title:"",
         dtid:'<?php echo $this->uri->segment(3) ?>',
@@ -128,13 +155,6 @@ document.getElementById("defaultOpen").click();
       },
     },
     watch: {
-      key: function (val) {
-        this.getMonHoc(val);
-
-      },
-      monhocs:function (val) {
-        this.saveinBack();
-      },
       ctdt: {
         handler(val){
           var self=this;
@@ -170,7 +190,7 @@ document.getElementById("defaultOpen").click();
             self.tinchi.push(totalki);
             self.total+=totalki;
           });
-          console.log(monhocs);
+          self.monhocs=monhocs;
         },
         deep: true
       }
