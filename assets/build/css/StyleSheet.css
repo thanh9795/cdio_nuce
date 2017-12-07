@@ -112,7 +112,7 @@ img{ max-width:100%; height:auto}
 .box-login-right .title{ font-weight:bold; font-size:14px; line-height:30px; margin-bottom:25px; text-align:left; background-color:#464646; color:#fff; padding-left:10px; box-shadow:5px 5px 0 0px #C5C5C5}
 .box-login-right .content{ }
 .login-right{ float:right; margin-bottom:10px}
-.panel{ overflow:auto; padding:20px}
+.panel{ overflow:auto; padding:0px!important}
 .List{ width:100%}
 .List tr.mousehover{ background:#ccc !important}
 .ketquabaitest{}

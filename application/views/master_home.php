@@ -34,118 +34,65 @@
 	<!-- <link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/css/StyleSheet.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
-	nav{
-		background: none;
-		border:none;
-	}
-	#main-nav{
-		background: #0f297e;
-	}
-	#main-nav a{
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 700;
-		font-size: 13px;
-	}
-	#main-nav li:active {
-		border-top: 3px solid #c00 !important;
-		background: #fff;
-	}
-	#main-nav li:active {
-		border-top: 3px solid #c00 !important;
-		background: #fff;
-	}
-	#main-nav li a: active{
-		background: #fff;
-		color: #0f297e;
-	}
-	.panel-default{
-		margin-top: 15px;
-	}
-	.navbar{
-		margin-bottom: 0px;
 
-	}
-	.dropdown:hover .dropdown-menu{
-		display: block;
-	}
-	.navbar-nav> .active{
-		background: rgb(11, 54, 191);
-	}
-	.navbar-nav> li:hover .dropdown-toggle{
-		background: #fff;
-		color: #fff!important;
-	}
-	.navbar-nav> li:hover{
-		border-top: 3px solid #c00 !important;
-	}
-	.navbar-nav> .active>a{
-		background-color: rgba(231, 231, 231, 0)!important;
-	}
-	.nav > li > a {
-		padding: 7px 10px !important;
-	}
-	.navbar-default{
-		background-color: #fff !important;
-		border-color: #fff !important;
-	}
-	.dropdown-menu{
-		background: #0f297e;
-		opacity: 0.8;
-	}
-	.dropdown-menu>li>a{
-		color: #fff;
-	}
-	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
-		background: #0f297e !important;
-		opacity: 0.8;
-		}.dropdown-menu > li > a:hover{
-			background: #0f297e !important;
-			opacity: 0.8;
-		}
-
-		/* menu */
-		.sidenav {
-			height: 100%;
-			width: 0;
-			position: fixed;
-			z-index: 1;
-			top: 0;
-			left: 0;
-			background-color: #111;
-			overflow-x: hidden;
-			transition: 0.5s;
-			padding-top: 60px;
-		}
-
-		.sidenav a {
-			padding: 8px 8px 8px 32px;
-			text-decoration: none;
-			font-size: 25px;
-			color: #818181;
-			display: block;
-			transition: 0.3s;
-		}
-
-		.sidenav a:hover {
-			color: #f1f1f1;
-		}
-
-		.sidenav .closebtn {
-			position: absolute;
-			top: 0;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-		}
-
-		@media screen and (max-height: 450px) {
-			.sidenav {padding-top: 15px;}
-			.sidenav a {font-size: 18px;}
-		}
 		.mySidenav ul li a{
 			font-size: 10px;
 		}
+		nav{
+			min-height: 40px!important;
+			background: #0F297E!important;
+		}
+		.navbar{
+			margin-bottom: 0px!important;
+			border-radius: 0px!important;
+		}
+		.navbar-nav>ul>li>a{
+			padding-top: 0px!important;
+			padding-bottom: 0px!important;
+		}
+		.open{
+			border-top: 1px solid red;
+		}
+				.open>a{
+			background: #fff!important;
+			color: #000;
+			border-color: red!important;
+		}
+		.navbar-nav>.open>a:focus{
+						background: #fff!important;
+			color: #000!important;
+			border-color: red!important;
+		}
+		.navbar-nav>.open>a:hover{
+						background: #fff!important;
+			color: #000!important;
+			border-color: red!important;
+		}
+		.navbar-nav>li>a{
+			padding-top: 10px!important;
+			padding-bottom: 8px!important;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 700;
+			color: #fff!important;
+		}
+
+		.navbar-nav>li>a:hover{
+			border-top: 1px solid red;
+						background: #fff!important;
+			color: #000 !important;
+			border-color: red!important;
+		}
+		.dropdown-menu{
+			background: #0f297e !important;
+		}
+		.dropdown-menu li a{
+			color:#fff !important;
+		}
+		.dropdown-menu li a:hover span{
+			color:#0f297e !important;
+		}
+
 	</style>
 </head>
 <body>
@@ -162,17 +109,17 @@
 						<img src="<?=base_url('assets')?>/build/images/logo-mobile.png" alt="">
 					</p>
 				</div>
-				<nav class="navbar navbar-default" role="navigation">
+				<!-- <nav class="navbar navbar-default" role="navigation">
 					<div id="main-nav" class="container">
-						<!-- Brand and toggle get grouped for better mobile display -->
+						Brand and toggle get grouped for better mobile display
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 								<span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
 							</button>
-							<!-- <a class="navbar-brand" href="#">Title</a> -->
+							<a class="navbar-brand" href="#">Title</a>
 						</div>
 
-						<!-- Collect the nav links, forms, and other content for toggling -->
+						Collect the nav links, forms, and other content for toggling
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav">
 								<li class=""><a href="<?=base_url('home')?>" title="Giới thiệu"><span>Giới thiệu</span></a></li>
@@ -180,7 +127,7 @@
 								<li class=""><a href="<?=base_url('home/vanban')?>" title="Văn bản"><span>Văn bản</span></a></li>
 								<li class=""><a href="<?=base_url('home/tailieu')?>" title="Tài liệu - Biểu mẫu"><span>Tài liệu-Biểu mẫu</span></a></li>
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chuẩn đầu ra <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="/quyet-dinh-ban-hanh-chuan-dau-ra.html" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
 										<li><a href="/chuan-dau-ra-cac-nganh.html" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
@@ -196,75 +143,50 @@
 								<li class=""><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần"><span>Đề cương học phần</span></a></li>
 								<li class=""><a href="http://forum.cdio.nuce.edu.vn/" title="Thảo luận"><span>Thảo luận</span></a></li>
 							</ul>
+						</div>/.navbar-collapse
+					</div>
+				</nav> -->
+
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse navbar-ex1-collapse">
+							<ul class="nav navbar-nav">
+								<li class=""><a href="<?=base_url('home')?>" title="Giới thiệu">Giới thiệu</a></li>
+								<li><a href="<?=base_url('home/tintuc')?>" title="Tin tức - Sự kiện">Tin tức-Sự kiện</a></li>
+								<li><a href="<?=base_url('home/vanban')?>" title="Văn bản">Văn bản</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
+										<li><a href="#" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">CTĐT <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><a href="#" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;QĐ ban hành chương trình đào tạo</span></a></li>
+										<li><a href="<?=base_url('home/ctdaotao')?>" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Khung CTĐT các ngành</span></a></li>
+									</ul>
+								</li>
+								<li><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần">Đề cương học phần</a></li>
+								<li><a href="http://forum.cdio.nuce.edu.vn/" title="Văn bản">Thảo luận</a></li>
+							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
 				</nav>
 
-<!-- 				<div id="cssmenu">
-	<div id="menu-button">Menu</div>
-	<ul class="menu_home">
-		<li class=""><a href="<?=base_url('home')?>" title="Giới thiệu"><span>Giới thiệu</span></a></li>
-		<li class=""><a href="<?=base_url('home/tintuc')?>" title="Tin tức - Sự kiện"><span>Tin tức - Sự kiện</span></a></li>
-		<li class=""><a href="<?=base_url('home/vanban')?>" title="Văn bản"><span>Văn bản</span></a></li>
-		<li class=""><a href="<?=base_url('home/tailieu')?>" title="Tài liệu - Biểu mẫu"><span>Tài liệu - Biểu mẫu</span></a></li>
-		<li class=" has-sub">
-			<a href="#" title="Chuẩn đầu ra"><span>Chuẩn đầu ra</span></a>
-			<ul>
-				<li><a href="/quyet-dinh-ban-hanh-chuan-dau-ra.html" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>Quyết định ban hành chuẩn đầu ra</span></a></li>
-				<li><a href="/chuan-dau-ra-cac-nganh.html" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>Chuẩn đầu ra các ngành</span></a></li>
-			</ul>
-		</li>
-		<li class=" has-sub">
-			<a href="#" title="CTĐT"><span>CTĐT</span></a>
-			<ul>
-				<li><a href="/qd-ban-hanh-chuong-trinh-dao-tao.html" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>QĐ ban hành chương trình đào tạo</span></a></li>
-				<li><a href="<?=base_url('home/ctdaotao')?>" title="Khung CTĐT các ngành"><span><i class="fa fa-arrow-circle-right"></i>Khung CTĐT các ngành</span></a></li>
-			</ul>
-		</li>
-		<li class=""><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần"><span>Đề cương học phần</span></a></li>
-		<li class=""><a href="http://forum.cdio.nuce.edu.vn/" title="Thảo luận"><span>Thảo luận</span></a></li>
-	</ul>
-</div>
 
-<script>
-	(function ($) {
-		$(document).ready(function () {
-			$('#cssmenu').prepend('<div id="menu-button">Menu</div>');
-			$('#cssmenu #menu-button').on('click', function () {
-				var menu = $(this).next('ul');
-				if (menu.hasClass('open')) {
-					menu.removeClass('open');
-				}
-				else {
-					menu.addClass('open');
-				}
-			});
-		});
-	})(jQuery);
-</script>
--->
-</div>
-<div id="mySidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<a href="<?=base_url('home')?>" title="Giới thiệu"><span>Giới thiệu</span></a>
-	<a href="<?=base_url('home/tintuc')?>" title="Tin tức - Sự kiện"><span>Tin tức-Sự kiện</span></a>
-	<a href="<?=base_url('home/vanban')?>" title="Văn bản"><span>Văn bản</span></a>
-	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-			<li><a href="/quyet-dinh-ban-hanh-chuan-dau-ra.html" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
-			<li><a href="/chuan-dau-ra-cac-nganh.html" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
-		</ul>
-	</li>
-	<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">CTĐT <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-			<li><a href="/qd-ban-hanh-chuong-trinh-dao-tao.html" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;QĐ ban hành chương trình đào tạo</span></a></li>
-			<li><a href="<?=base_url('home/ctdaotao')?>" title="Khung CTĐT các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Khung CTĐT các ngành</span></a></li>
-		</ul>
-	</li>
-	<a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần"><span>Đề cương học phần</span></a>
-	<a href="http://forum.cdio.nuce.edu.vn/" title="Thảo luận"><span>Thảo luận</span></a>
 </div>
 
 </div>
@@ -305,12 +227,3 @@
 
 </body>
 </html>
-<script>
-	function openNav() {
-		document.getElementById("mySidenav").style.width = "250px";
-	}
-
-	function closeNav() {
-		document.getElementById("mySidenav").style.width = "0";
-	}
-</script>
