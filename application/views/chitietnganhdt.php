@@ -1,4 +1,4 @@
-<div class="tab">
+<div class="tab" style="background-color: #0f297e; color:#fff;">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Chương trình đào tạo kiểu 1</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Chương trình đào tạo kiểu 2</button>
 </div>
@@ -15,7 +15,7 @@
             </div>
           </div>
           <div v-for="item in max" class="panelhk" style="padding-top: 5px;">
-            <div class=""  style="line-height: 6; text-align: center;">
+            <div class=""  style="line-height: 8; text-align: center;">
               {{item}}
             </div>
           </div>

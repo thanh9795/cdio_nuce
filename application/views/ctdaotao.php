@@ -13,11 +13,12 @@
     </form>
 </div>
           <div id="pageDetail">
-          	<h1 id="pageDetailTitle">
+<!--             <h1 id="pageDetailTitle">
 
-          		Khung CTĐT các ngành
-          	</h1>
+  Khung CTĐT các ngành
+</h1> -->
           	<div class="pageDetailContent">
+
           		<table class="table table-hover">
           			<thead>
           				<tr>

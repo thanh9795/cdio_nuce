@@ -24,7 +24,7 @@
          <?php foreach ($vanbans as $vb): ?>
 
             <tr>
-               <td align="center">1</td>
+               <td align="center"><?php echo $vb->id ?></td>
                <td><a class="itemTitle" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->so_ky_hieu_vb ?></a></td>
                <td><a class="itemTitleAb" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->trich_yeu ?></a></td>
                <td align="center"><?php echo date('d-m-Y', strtotime($vb->date_created)) ?></td>
