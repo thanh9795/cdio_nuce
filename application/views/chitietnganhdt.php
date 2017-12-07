@@ -1,48 +1,43 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Chương trình đào tạo kiểu 1</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Chương trình đào tạo kiểu 1</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Chương trình đào tạo kiểu 2</button>
 </div>
 
 <div id="pageDetail">
   <div id="London" class="tabcontent">
-    <h1 id="pageDetailTitle">
-
-      Chương trình đào tạo ngành {{title}}
     </h1>
-    <div class="pageDetailContent">
       <div class="row">
-        <div class="col-md-2 nopad">
-          <div class="panel panel-default panelhk">
-            <div class="panel-body hockyhead">
+        <div class="col-md-1 nopad" style="padding-right: 0px!important;padding-left: 2px!important;">
+          <div class="panelhk">
+            <div class="hockyhead" style="padding: 5px 10px 5px 10px;">
               Tổng
               <p>({{total}} tín chỉ)</p>
             </div>
           </div>
-          <div v-for="item in max" class="panel panel-default panelhk">
-            <div class="panel-body" >
+          <div v-for="item in max" class="panelhk" style="padding-top: 5px;">
+            <div class=""  style="line-height: 6; text-align: center;">
               {{item}}
             </div>
           </div>
         </div>
-        <div class="col-md-1 nopad" v-for="item in ctdt['so_hoc_ky']">
-          <div class="panel panel-default panelhk">
-            <div class="panel-body hockyhead">
+        <div class="col-md-1 nopad" style="padding-right: 0px!important;padding-left: 2px!important;" v-for="item in ctdt['so_hoc_ky']">
+          <div class="panelhk">
+            <div class="hockyhead" style="padding: 5px 10px 10px 10px;">
               Học kỳ {{item}}
               <p> STC: {{tinchi[item-1]}}</p>
             </div>
           </div>
-          <div v-for="item in ctdt['hocki'+item]" class="panel panel-default panelhk">
-            <div class="panel-body" :style="{background:item.bg,color:item.color}">
+          <div v-for="item in ctdt['hocki'+item]" class="panelhk" style="padding-top: 5px;">
+            <div class="" :style="{background:item.bg,color:item.color}" style="padding: 10px;">
               <p style="text-decoration: underline;">{{item.ma_mon}} - {{item.so_tin_chi}}</p>
               {{item.ten_mon}}
             </div>
           </div>
         </div>
       </div>
-    </div>
   </div>
   <div id="Paris" class="tabcontent">
-  
+
   <table class="table table-hover">
     <thead>
       <tr>

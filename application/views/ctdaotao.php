@@ -34,7 +34,6 @@
           						<td><?php echo $nganhdaotao->ma_nganh ?></td>
           						<td><?php echo $nganhdaotao->ten_nganh ?></td>
           						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>">Xem chi tiết</a></td>
-          						<td><a href="<?php echo base_url('home/chitietCtDaotao2/' . $nganhdaotao->id) ?>">Xem chi tiết 2</a></td>
           					</tr>
           				<?php endforeach?>
           			</tbody>
