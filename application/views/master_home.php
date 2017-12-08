@@ -69,12 +69,16 @@
 			border-color: red!important;
 		}
 		.navbar-nav>li>a{
-			padding-top: 10px!important;
+			padding: 10px 7px!important;
 			padding-bottom: 8px!important;
 			text-transform: uppercase;
 			font-size: 14px;
 			font-weight: 700;
 			color: #fff!important;
+		}
+		.container-fluid{
+			padding-right: 0px!important;
+			padding-left: 0px!important;
 		}
 
 		.navbar-nav>li>a:hover{
