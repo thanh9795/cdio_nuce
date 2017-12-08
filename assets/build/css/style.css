@@ -1,3 +1,10 @@
+.tab{
+    background-color: #0f297e!important;
+}
+#pageDetail{
+    padding-top: 20px;
+}
+
 .ui-pnotify.ui-pnotify-in{
     display: none!important;
 }
@@ -41,10 +48,4 @@
 }
 .mygrid-wrapper-div{
     width: 255px !important;
-}
-.tab{
-    background-color: #0f297e!important;
-}
-#pageDetail{
-    padding-top: 20px;
 }

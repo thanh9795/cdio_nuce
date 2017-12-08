@@ -35,69 +35,74 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 
-		.mySidenav ul li a{
-			font-size: 10px;
-		}
-		nav{
-			min-height: 40px!important;
-			background: #0F297E!important;
-		}
-		.navbar{
-			margin-bottom: 0px!important;
-			border-radius: 0px!important;
-		}
-		.navbar-nav>ul>li>a{
-			padding-top: 0px!important;
-			padding-bottom: 0px!important;
-		}
-		.open{
-			border-top: 1px solid red;
-		}
-				.open>a{
-			background: #fff!important;
-			color: #000;
-			border-color: red!important;
-		}
-		.navbar-nav>.open>a:focus{
-						background: #fff!important;
-			color: #000!important;
-			border-color: red!important;
-		}
-		.navbar-nav>.open>a:hover{
-						background: #fff!important;
-			color: #000!important;
-			border-color: red!important;
-		}
-		.navbar-nav>li>a{
-			padding: 10px 7px!important;
-			padding-bottom: 8px!important;
-			text-transform: uppercase;
-			font-size: 14px;
-			font-weight: 700;
-			color: #fff!important;
-		}
-		.container-fluid{
-			padding-right: 0px!important;
-			padding-left: 0px!important;
-		}
+	.mySidenav ul li a{
+		font-size: 10px;
+	}
+	nav{
+		min-height: 40px!important;
+		background: #0F297E!important;
+	}
+	.navbar{
+		margin-bottom: 0px!important;
+		border-radius: 0px!important;
+	}
+	.navbar-nav>ul>li>a{
+		padding-top: 0px!important;
+		padding-bottom: 0px!important;
+	}
+	.open{
+		border-top: 1px solid red;
+	}
+	.open>a{
+		background: #fff!important;
+		color: #000;
+		border-color: red!important;
+	}
+	.navbar-nav>.open>a:focus{
+		background: #fff!important;
+		color: #000!important;
+		border-color: red!important;
+	}
+	.navbar-nav>.open>a:hover{
+		background: #fff!important;
+		color: #000!important;
+		border-color: red!important;
+	}
+	.navbar-nav>li>a{
+		padding: 10px 7px!important;
+		padding-bottom: 8px!important;
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 700;
+		color: #fff!important;
+	}
+	.container-fluid{
+		padding-right: 0px!important;
+		padding-left: 0px!important;
+	}
 
-		.navbar-nav>li>a:hover{
-			border-top: 1px solid red;
-						background: #fff!important;
-			color: #000 !important;
-			border-color: red!important;
-		}
-		.dropdown-menu{
-			background: #0f297e !important;
-		}
-		.dropdown-menu li a{
-			color:#fff !important;
-		}
-		.dropdown-menu li a:hover span{
-			color:#0f297e !important;
-		}
+	.navbar-nav>li>a:hover{
+		border-top: 1px solid red;
+		background: #fff!important;
+		color: #000 !important;
+		border-color: red!important;
+	}
+	.dropdown-menu{
+		background: #0f297e !important;
+	}
+	.dropdown-menu li a{
+		color:#fff !important;
+	}
+	.dropdown-menu li a:hover span{
+		color:#0f297e !important;
+	}
 
-	</style>
+	iframe{
+		width: 100% !important;
+	}
+
+
+</style>
 </head>
 <body>
 	<div class="container" style=" max-width: 980px !important;">
@@ -192,43 +197,43 @@
 				</nav>
 
 
-</div>
+			</div>
 
-</div>
-<div class="row">
+		</div>
+		<div class="row">
 
-	<div class="body" style="padding-top: 0px;">
-		<?php $this->load->view($subview, $subdata);?>
-	</div>
+			<div class="body" style="padding-top: 0px;">
+				<?php $this->load->view($subview, $subdata);?>
+			</div>
 
 
-	<div id="footer-wrapper">
-		<div class="container-fluid text-center">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="content relative">
-						<ul class="menu clearfix">
-						</ul>
+			<div id="footer-wrapper">
+				<div class="container-fluid text-center">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="content relative">
+								<ul class="menu clearfix">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="content">
+								<p>
+									<strong>Copyright ©2017 phòng Đào tạo - Trường Đại học Xây dựng
+										<br>
+									ĐT: 04.38691300. Email: phongdaotao@nuce.edu.vn</strong>
+								</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="content">
-						<p>
-							<strong>Copyright ©2017 phòng Đào tạo - Trường Đại học Xây dựng
-								<br>
-							ĐT: 04.38691300. Email: phongdaotao@nuce.edu.vn</strong>
-						</p>
-					</div>
-				</div>
-			</div>
+
+			<a href="javascript:" id="toTop"></a>
 		</div>
 	</div>
-
-	<a href="javascript:" id="toTop"></a>
-</div>
-</div>
 
 </body>
 </html>

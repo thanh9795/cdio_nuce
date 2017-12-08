@@ -3,24 +3,24 @@
 if (!function_exists('get_icon')) {
 	function get_icon($ext) {
 		if (in_array($ext, ['doc', 'docx'])) {
-			return "fa-file-word-o";
+			return "assets/build/images/Default-Doc.png";
 		}
 		if (in_array($ext, ['xls', 'xlsx'])) {
-			return "fa-file-excel-o";
+			return "assets/build/images/excel.png";
 		}
 		if (in_array($ext, ['png', 'jpg', 'gif'])) {
-			return "fa-file-image-o";
+			return "assets/build/images/png-icon.png";
 		}
 		if (in_array($ext, ['ppt', 'pptx'])) {
-			return "fa-file-powerpoint-o ";
+			return "assets/build/images/pwp.png ";
 		}
 		if (in_array($ext, ['pdf'])) {
-			return "fa-file-pdf-o";
+			return "assets/build/images/Default-PDF.png";
 		}
 		if (in_array($ext, ['zip', 'rar', '7z', 'tar', 'gz'])) {
-			return "fa-file-archive-o";
+			return "assets/build/images/Default-Zip.png";
 		}
-		return "fa-file-o";
+		return "assets/build/images/DEFAULT.png";
 	}
 }
 ?>

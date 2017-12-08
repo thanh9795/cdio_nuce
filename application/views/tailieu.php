@@ -1,22 +1,22 @@
 <div id="ctl10_ucLoadControl_ctl00_pnDS">
-<div class="form-search pull-right" style="max-width: 280px;margin-right: 29px;padding: 10px 0;">
-    <form action="">
-        <div id="imaginary_container">
-            <div class="input-group stylish-input-group">
-                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
-                <span class="input-group-addon">
-                    <button type="submit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </span>
+    <div class="form-search pull-right" style="max-width: 280px;margin-right: 29px;padding: 10px 0;">
+        <form action="">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
     <?php foreach ($tailieus as $tailieu): ?>
-    <div id="s5_component_wrap">
-        <div id="edocman-category-page-default" class="edocman-container">
-            <div class="clearfix"></div>
+        <div id="s5_component_wrap">
+            <div id="edocman-category-page-default" class="edocman-container">
+                <div class="clearfix"></div>
 
                 <div id="edocman-documents" class="row-fluid clearfix list">
                     <div class="edocman-document row-fluid">
@@ -30,24 +30,24 @@
 $ext = explode('.', $tailieu->link_tai_lieu);
 $ext = end($ext);
 ?>
-                                    <i class="fa fa-3x <?php echo get_icon($ext) ?>"></i>
+                                    <img src="<?=base_url(get_icon($ext))?>" alt="">
                                 </div>
                                 <p></p>
                             </div>
                             <div class="clearfix"></div>
                             <div class="edocman-taskbar clearfix">
                                 <ul>
-                                   <li><a class="btn btnDownload" download="" data-value="1015" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-download"></i>Tải xuống</a></li>
-                                   <li><a class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . $tailieu->link_tai_lieu : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a></li>
-                                   <li><a href="#" class="btn btn-primary btnDetail" data-value="1015" data-toggle="modal" data-target="#modelDetail">Chi tiết</a></li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <div id="modelDetail" class="modal fade" role="dialog">
+                                 <li><a class="btn btnDownload" download="" data-value="1015" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-download"></i>Tải xuống</a></li>
+                                 <li><a class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . $tailieu->link_tai_lieu : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a></li>
+                                 <li><a href="#" class="btn btn-primary btnDetail" data-value="1015" data-toggle="modal" data-target="#modelDetail">Chi tiết</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div id="modelDetail" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,8 +114,8 @@ $ext = end($ext);
             </div>
         </div>
     </div>
-    <?php endforeach?>
-    <?php echo $paginator ?>
+<?php endforeach?>
+<?php echo $paginator ?>
  <!--    <script>
      $(".btnDownload").on("click", function () {
          var curId = parseInt($(this).attr("data-value"));
