@@ -8,11 +8,11 @@ class Home extends CI_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Tintuc_model->countall($key);
-		$itemsPerPage = 2;
+		$itemsPerPage = 15;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('home/tintuc?key=' . $key . '&page=(:num)');
-		$offset = ($currentPage - 1) * 2;
-		$tintuc = $this->Tintuc_model->getall($key, 2, $offset);
+		$offset = ($currentPage - 1) * 15;
+		$tintuc = $this->Tintuc_model->getall($key, 15, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -33,12 +33,12 @@ class Home extends CI_Controller {
 		$this->load->model('Tintuc_dinhkem_model');
 
 		$tintucitem = $this->Tintuc_model->get($id);
-		$all = $this->Tintuc_model->get_all('','',['id!='=>$id]);
+		$all = $this->Tintuc_model->get_all('', '', ['id!=' => $id]);
 		$data = [
 			'subview' => "tintuc_detail",
 			'subdata' => [
 				'tintucitems' => $tintucitem,
-				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('','',['id_tintuc'=>$id]),
+				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('', '', ['id_tintuc' => $id]),
 				'all' => $all,
 			],
 		];
@@ -58,7 +58,7 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'vanbans' => $vanban,
 				'all' => $all,
-				'dinhkems' => $this->Vanban_dinhkem_model->get_all('','',['id_vanban'=>$id]),
+				'dinhkems' => $this->Vanban_dinhkem_model->get_all('', '', ['id_vanban' => $id]),
 			],
 		];
 
@@ -82,11 +82,11 @@ class Home extends CI_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Vanban_model->countall($key);
-		$itemsPerPage = 2;
+		$itemsPerPage = 15;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('home/vanban?key=' . $key . '&page=(:num)');
-		$offset = ($currentPage - 1) * 2;
-		$vanban = $this->Vanban_model->getall($key, 2, $offset);
+		$offset = ($currentPage - 1) * 15;
+		$vanban = $this->Vanban_model->getall($key, 15, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -143,11 +143,11 @@ class Home extends CI_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Tailieu_model->countall($key);
-		$itemsPerPage = 2;
+		$itemsPerPage = 15;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('home/tailieu?key=' . $key . '&page=(:num)');
-		$offset = ($currentPage - 1) * 2;
-		$tailieu = $this->Tailieu_model->getall($key, 2, $offset);
+		$offset = ($currentPage - 1) * 15;
+		$tailieu = $this->Tailieu_model->getall($key, 15, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -178,11 +178,11 @@ class Home extends CI_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Nganhdaotao_model->countall($key);
-		$itemsPerPage = 2;
+		$itemsPerPage = 15;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('home/ctdaotao?key=' . $key . '&page=(:num)');
-		$offset = ($currentPage - 1) * 2;
-		$nganhdaotao = $this->Nganhdaotao_model->getall($key, 2, $offset);
+		$offset = ($currentPage - 1) * 15;
+		$nganhdaotao = $this->Nganhdaotao_model->getall($key, 15, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
