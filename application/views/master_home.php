@@ -168,14 +168,14 @@
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><a href="#" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
+										<li><a href="<?=base_url('home/qd_chuandaura')?>" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
 										<li><a href="#" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">CTĐT <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><a href="#" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;QĐ ban hành chương trình đào tạo</span></a></li>
+										<li><a href="<?=base_url('home/qd_ctdt')?>" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;QĐ ban hành chương trình đào tạo</span></a></li>
 										<li><a href="<?=base_url('home/ctdaotao')?>" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Khung CTĐT các ngành</span></a></li>
 									</ul>
 								</li>

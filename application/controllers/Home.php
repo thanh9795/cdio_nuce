@@ -52,7 +52,7 @@ class Home extends CI_Controller {
 		$this->load->model('Vanban_model');
 		$this->load->model('Vanban_dinhkem_model');
 		$vanban = $this->Vanban_model->get($id);
-		$all = $this->Vanban_model->get_all('','',['id!='=>$id]);
+		$all = $this->Vanban_model->get_all('', '', ['id!=' => $id]);
 		$data = [
 			'subview' => "vanban_detail",
 			'subdata' => [
@@ -102,7 +102,7 @@ class Home extends CI_Controller {
 	public function index() {
 		$this->load->model('Gioithieu_model');
 		$gt = $this->Gioithieu_model->get_all();
-		$gt=array_shift($gt);
+		$gt = array_shift($gt);
 		/*	echo "<pre>";
 			print_r ($vanban);
 		*/
@@ -110,6 +110,36 @@ class Home extends CI_Controller {
 			'subview' => "gioithieu",
 			'subdata' => [
 				'gts' => $gt,
+			],
+		];
+		$this->load->view('master_home', $data);
+	}
+	public function qd_chuandaura() {
+		$this->load->model('Quyetdinh_chuandaura_model');
+		$qd = $this->Quyetdinh_chuandaura_model->get_all();
+		$qd = array_shift($qd);
+		/*	echo "<pre>";
+			print_r ($vanban);
+		*/
+		$data = [
+			'subview' => "qd_chuandaura_view",
+			'subdata' => [
+				'qds' => $qd,
+			],
+		];
+		$this->load->view('master_home', $data);
+	}
+	public function qd_ctdt() {
+		$this->load->model('Qd_ctdt_model');
+		$qdctdt = $this->Qd_ctdt_model->get_all();
+		$qdctdt = array_shift($qdctdt);
+		/*	echo "<pre>";
+			print_r ($vanban);
+		*/
+		$data = [
+			'subview' => "qd_ctdt_view",
+			'subdata' => [
+				'qdctdts' => $qdctdt,
 			],
 		];
 		$this->load->view('master_home', $data);

@@ -16,6 +16,16 @@ class Api extends CI_Controller {
 			'gioithieu' => "",
 		]);
 	}
+	public function qd_chuandaura() {
+		echo json_encode([
+			'qd' => "",
+		]);
+	}
+	public function qd_ctdt() {
+		echo json_encode([
+			'qdctdt' => "",
+		]);
+	}
 	public function getalltintuc() {
 		$this->load->model('Tintuc_model');
 		$tintuc = $this->Tintuc_model->get_all();
