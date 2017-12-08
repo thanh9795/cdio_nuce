@@ -23,7 +23,8 @@
             <h1>Các tin tức khác</h1>
             <?php foreach ($all as $vb): ?>
                 <div class="newOtherItem">
-                    <a href=""><?=$vb->so_ky_hieu_vb?></a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="<?= base_url('home/detailVanban/'.$vb->id) ?>"><?=$vb->so_ky_hieu_vb?></a>
                     <span>(<?=$vb->date_created?>)</span>
                 </div>
         <?php endforeach?>

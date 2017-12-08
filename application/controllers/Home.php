@@ -52,7 +52,7 @@ class Home extends CI_Controller {
 		$this->load->model('Vanban_model');
 		$this->load->model('Vanban_dinhkem_model');
 		$vanban = $this->Vanban_model->get($id);
-		$all = $this->Vanban_model->get_all();
+		$all = $this->Vanban_model->get_all('','',['id!='=>$id]);
 		$data = [
 			'subview' => "vanban_detail",
 			'subdata' => [
@@ -102,6 +102,7 @@ class Home extends CI_Controller {
 	public function index() {
 		$this->load->model('Gioithieu_model');
 		$gt = $this->Gioithieu_model->get_all();
+		$gt=array_shift($gt);
 		/*	echo "<pre>";
 			print_r ($vanban);
 		*/
