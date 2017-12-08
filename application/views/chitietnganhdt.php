@@ -1,9 +1,9 @@
-<div class="tab" style="background-color: #0f297e; color:#fff;">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Chương trình đào tạo kiểu 1</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Chương trình đào tạo kiểu 2</button>
+<div class="tab" style="background-color: #0f297e; color:#fff; margin-top: 10px;">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Xem theo học kỳ</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Xem theo khối lượng giảng dạy</button>
 </div>
 
-<div id="pageDetail">
+<div id="pageDetail" style="padding-top: 0px !important;">
   <div id="London" class="tabcontent">
     </h1>
       <div class="row">
@@ -14,7 +14,7 @@
               <p>({{total}} tín chỉ)</p>
             </div>
           </div>
-          <div v-for="item in max" class="panelhk" style="padding-top: 5px;">
+          <div v-for="item in max" class="panel panel-default panelhk" style="padding-top: 5px;">
             <div class=""  style="line-height: 8; text-align: center;">
               {{item}}
             </div>
@@ -27,9 +27,9 @@
               <p> STC: {{tinchi[item-1]}}</p>
             </div>
           </div>
-          <div v-for="item in ctdt['hocki'+item]" class="panelhk" style="padding-top: 5px;">
-            <div class="" :style="{background:item.bg,color:item.color}" style="padding: 10px;">
-              <p style="text-decoration: underline;">{{item.ma_mon}} - {{item.so_tin_chi}}</p>
+          <div v-for="item in ctdt['hocki'+item]" class="panel panel-default panelhk" :style="{background:item.bg,color:item.color}" style="padding-top: 5px;">
+            <div class="" style="padding: 10px;">
+              <p style="text-decoration: underline; font-weight: 700;">{{item.ma_mon}} - {{item.so_tin_chi}}</p>
               {{item.ten_mon}}
             </div>
           </div>
@@ -48,6 +48,7 @@
         <th>Số tiết lý thuyết</th>
         <th>Số tiết thực hành</th>
         <th>Mã học phần tiên quyết</th>
+        <th>Học kỳ</th>
       </tr>
     </thead>
     <tbody>
@@ -59,8 +60,7 @@
         <td>{{item.so_tiet_ly_thuyet}}</td>
         <td>{{item.so_tiet_thuc_hanh}}</td>
         <td>{{item.ma_hoc_phan_tien_quyet}}</td>
-        <td></td>
-        <td></td>
+        <td>{{item.hoc_ky}}</td>
       </tr>
     </tbody>
   </table>

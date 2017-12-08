@@ -34,7 +34,7 @@
 			<form action="">
 				<div id="imaginary_container">
 					<div class="input-group stylish-input-group">
-						<input type="text" v-model="key" class="form-control" name="key" placeholder="Search" >
+						<input type="text" v-model="key" class="form-control" name="key" placeholder="Tìm kiếm theo tên ngành" >
 						<span class="input-group-addon">
 							<button type="submit">
 								<span class="glyphicon glyphicon-search"></span>

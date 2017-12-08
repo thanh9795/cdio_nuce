@@ -3,7 +3,7 @@
     <form action="">
         <div id="imaginary_container">
             <div class="input-group stylish-input-group">
-                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
+                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Tìm kiếm theo tên tin tức" >
                 <span class="input-group-addon">
                     <button type="submit">
                        <i class="fa fa-search" aria-hidden="true"></i>
