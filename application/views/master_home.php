@@ -165,6 +165,7 @@
 								<li class=""><a href="<?=base_url('home')?>" title="Giới thiệu">Giới thiệu</a></li>
 								<li><a href="<?=base_url('home/tintuc')?>" title="Tin tức - Sự kiện">Tin tức-Sự kiện</a></li>
 								<li><a href="<?=base_url('home/vanban')?>" title="Văn bản">Văn bản</a></li>
+								<li><a href="<?=base_url('home/tailieu')?>" title="Văn bản">Tài liệu - biểu mẫu</a></li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
 									<ul class="dropdown-menu">
