@@ -37,8 +37,22 @@ $ext = end($ext);
                             <div class="clearfix"></div>
                             <div class="edocman-taskbar clearfix">
                                 <ul>
-                                 <li><a class="btn btnDownload" download="" data-value="1015" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-download"></i>Tải xuống</a></li>
-                                 <li><a class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . $tailieu->link_tai_lieu : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a></li>
+                                 <li>
+                                    <?php if ($tailieu->loai_link==1): ?>
+                                        
+                                    <?php else: ?>
+                                        <a class="btn btnDownload" download="" data-value="1015"
+                                            href="<?=base_url($tailieu->link_tai_lieu)?>"><i class="edocman-icon-download"></i>Tải xuống</a>
+                                    <?php endif ?>
+                                    </li>
+                                 <li>
+                                    <?php if ($tailieu->loai_link==2): ?>
+
+                                    <a class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . base_url($tailieu->link_tai_lieu) : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                    <?php else: ?>
+                                         <a class="btn btnView2" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                    <?php endif ?>
+                                </li>
                                  <li><a href="#" class="btn btn-primary btnDetail" data-value="1015" data-toggle="modal" data-target="#modelDetail">Chi tiết</a></li>
                              </ul>
                          </div>

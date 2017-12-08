@@ -53,7 +53,7 @@ class Tailieu extends CI_Controller {
 				}
 				else
 				{
-					$link_tai_lieu=base_url('public/tailieu/'.$this->upload->data()['file_name']);
+					$link_tai_lieu='public/tailieu/'.$this->upload->data()['file_name'];
 					$this->Tailieu_model->insert([
 						'ten_tai_lieu' => $this->input->post('ten_tai_lieu'),
 						'mota' => $this->input->post('mota'),
@@ -111,7 +111,7 @@ class Tailieu extends CI_Controller {
 				}
 				else
 				{
-					$link_tai_lieu=base_url('public/tailieu/'.$this->upload->data()['file_name']);
+					$link_tai_lieu=('public/tailieu/'.$this->upload->data()['file_name']);
 					$this->Tailieu_model->update([
 						'ten_tai_lieu' => $this->input->post('ten_tai_lieu'),
 						'mota' => $this->input->post('mota'),
