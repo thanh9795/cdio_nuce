@@ -102,11 +102,11 @@
 	}
 
 	.panel.panel-default.panelhk {
-		height: 140px;
-		font-size: 13px;
+		height: 115px;
+		font-size: 14px;
 	}
 	.col-md-1.nopad {
-		width: 86px;
+		width: 105px;
 	}
 	#pageDetail {
     text-align: inherit;

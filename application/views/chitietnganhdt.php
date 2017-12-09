@@ -42,13 +42,14 @@
     <thead>
       <tr>
         <th>STT</th>
-        <th>Mã học phần</th>
-        <th>Tên học phần</th>
+        <th>Mã hp</th>
+        <th>Tên hp</th>
         <th>STC</th>
-        <th>Số tiết lý thuyết</th>
-        <th>Số tiết thực hành</th>
-        <th>Mã học phần tiên quyết</th>
+        <th>Số tiết LT</th>
+        <th>Số tiết TH</th>
+        <th>Mã hp tiên quyết</th>
         <th>Học kỳ</th>
+        <th>Thao tác</th>
       </tr>
     </thead>
     <tbody>
@@ -61,6 +62,7 @@
         <td>{{item.so_tiet_thuc_hanh}}</td>
         <td>{{item.ma_hoc_phan_tien_quyet}}</td>
         <td>{{item.hoc_ky}}</td>
+        <td><a href="">Xem chi tiết</a></td>
       </tr>
     </tbody>
   </table>
