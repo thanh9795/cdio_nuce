@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 05:56 AM
+-- Generation Time: Dec 11, 2017 at 10:48 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -19,6 +19,49 @@ SET time_zone = "+00:00";
 --
 -- Database: `cdio`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chucnang`
+--
+
+CREATE TABLE `chucnang` (
+  `id` int(11) NOT NULL,
+  `tenchucnang` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `trangthai` tinyint(4) NOT NULL,
+  `url` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `f_order` int(11) NOT NULL,
+  `id_parent` int(11) NOT NULL,
+  `accept_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `shown` tinyint(4) NOT NULL,
+  `icon` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `havenochild` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `chucnang`
+--
+
+INSERT INTO `chucnang` (`id`, `tenchucnang`, `trangthai`, `url`, `f_order`, `id_parent`, `accept_url`, `shown`, `icon`, `havenochild`) VALUES
+(1, 'DASHBOARD', 1, 'Page', 1, 0, 'Page|Page/index|page/index', 1, 'fa fa-home', 0),
+(2, 'Quản lý tài liệu', 1, '', 2, 0, 'Tailieu|Tailieu/index|Tailieu/update|Tailieu/add|Tailieu/delete', 1, 'fa fa-file-text', 1),
+(3, 'Danh sách tài liệu', 1, 'Tailieu', 2, 2, '', 1, '', 0),
+(4, 'Nhóm tài liệu', 1, 'Nhomtailieu', 3, 2, '', 1, '', 0),
+(6, 'Quản lý tin tức', 1, 'Tintuc', 1, 0, 'Tintuc', 1, 'fa fa-newspaper-o', 0),
+(7, 'Quản lý hình ảnh', 1, 'Hinhanh', 1, 0, '', 1, 'fa fa-file-image-o', 0),
+(8, 'Văn bản điều hành\r\n', 1, 'Vanban', 1, 0, '', 1, 'fa fa-folder-open-o', 0),
+(9, 'Quản lý CTĐT', 1, '', 2, 0, '', 1, 'fa fa-graduation-cap', 1),
+(10, 'Quyết định CTĐT', 1, 'Qd_ctdt', 3, 9, '', 1, '', 0),
+(11, 'Quản lý các ngành đào tạo\r\n', 1, 'Nganhdaotao', 3, 9, '', 1, '', 0),
+(12, 'Quản lý môn học\r\n', 1, 'Monhoc', 3, 9, '', 1, '', 0),
+(13, 'QĐ chuẩn đầu ra', 1, '', 2, 0, '', 1, 'fa fa-sign-out', 1),
+(14, 'Quyết định đầu ra', 1, 'Qd_chuandaura', 3, 13, '', 1, '', 0),
+(15, 'Quản lý website', 1, '', 2, 0, '', 1, 'fa fa-globe', 1),
+(16, 'Quản lý menu', 1, 'Menu', 3, 15, '', 1, '', 0),
+(17, 'Quản lý người dùng', 1, 'User', 3, 15, '', 1, '', 0),
+(18, 'Quản lý nhóm người dùng', 1, 'Nhom', 3, 15, '', 1, '', 0),
+(19, 'Nội dung trang chủ', 1, 'gioithieu', 3, 15, '', 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -42,57 +85,57 @@ CREATE TABLE `ctdao_tao` (
 --
 
 INSERT INTO `ctdao_tao` (`id`, `ma_mon`, `ma_nganh`, `hoc_ky`, `nhan`, `position`, `date_updated`, `date_created`) VALUES
-(10972, 2, 1, 1, 0, 0, '2017-11-25 14:38:40', '2017-11-25 14:38:40'),
-(10973, 1620, 1, 1, 0, 1, '2017-11-25 14:38:40', '2017-11-25 14:38:40'),
-(10974, 1623, 1, 1, 0, 2, '2017-11-25 14:38:40', '2017-11-25 14:38:40'),
-(10975, 4, 1, 1, 0, 3, '2017-11-25 14:38:40', '2017-11-25 14:38:40'),
-(10976, 19, 1, 1, 0, 4, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10977, 5, 1, 1, 0, 5, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10978, 1, 1, 1, 0, 6, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10979, 1707, 1, 2, 0, 0, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10980, 1621, 1, 2, 0, 1, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10981, 1628, 1, 2, 0, 2, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10982, 7, 1, 2, 0, 3, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10983, 3, 1, 2, 0, 4, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10984, 9, 1, 2, 0, 5, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10985, 10, 1, 2, 0, 6, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10986, 11, 1, 2, 0, 7, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10987, 1708, 1, 3, 0, 0, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10988, 14, 1, 3, 0, 1, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10989, 17, 1, 3, 0, 2, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10990, 12, 1, 3, 0, 3, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10991, 20, 1, 3, 0, 4, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10992, 13, 1, 3, 0, 5, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10993, 16, 1, 3, 0, 6, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10994, 18, 1, 3, 0, 7, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10995, 1709, 1, 4, 0, 0, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10996, 23, 1, 4, 0, 1, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10997, 24, 1, 4, 0, 2, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10998, 25, 1, 4, 0, 3, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(10999, 26, 1, 5, 0, 0, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(11000, 27, 1, 5, 0, 1, '2017-11-25 14:38:41', '2017-11-25 14:38:41'),
-(11001, 28, 1, 5, 0, 2, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11002, 1710, 1, 5, 0, 3, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11003, 29, 1, 5, 0, 4, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11004, 30, 1, 5, 0, 5, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11005, 32, 1, 5, 0, 6, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11006, 31, 1, 6, 0, 0, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11007, 34, 1, 6, 0, 1, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11008, 35, 1, 6, 0, 2, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11009, 36, 1, 6, 0, 3, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11010, 37, 1, 6, 0, 4, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11011, 39, 1, 7, 0, 0, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11012, 41, 1, 7, 0, 1, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11013, 40, 1, 7, 0, 2, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11014, 46, 1, 7, 0, 3, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11015, 45, 1, 8, 0, 0, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11016, 48, 1, 8, 0, 1, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11017, 47, 1, 8, 0, 2, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11018, 49, 1, 9, 0, 0, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11019, 50, 1, 9, 0, 1, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11020, 52, 1, 9, 0, 2, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11021, 55, 1, 9, 0, 3, '2017-11-25 14:38:42', '2017-11-25 14:38:42'),
-(11022, 54, 1, 10, 0, 0, '2017-11-25 14:38:42', '2017-11-25 14:38:42');
+(14187, 1, 1, 1, 0, 0, '2017-12-10 22:58:53', '2017-12-10 22:58:53'),
+(14188, 3, 1, 1, 0, 1, '2017-12-10 22:58:53', '2017-12-10 22:58:53'),
+(14189, 9, 1, 1, 0, 2, '2017-12-10 22:58:53', '2017-12-10 22:58:53'),
+(14190, 10, 1, 1, 0, 3, '2017-12-10 22:58:53', '2017-12-10 22:58:53'),
+(14191, 4, 1, 1, 0, 4, '2017-12-10 22:58:53', '2017-12-10 22:58:53'),
+(14192, 8, 1, 1, 0, 5, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14193, 14, 1, 1, 0, 6, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14194, 7, 1, 2, 0, 0, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14195, 11, 1, 2, 0, 1, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14196, 12, 1, 2, 0, 2, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14197, 13, 1, 2, 0, 3, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14198, 16, 1, 2, 0, 4, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14199, 21, 1, 3, 0, 0, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14200, 17, 1, 3, 0, 1, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14201, 15, 1, 3, 0, 2, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14202, 20, 1, 3, 0, 3, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14203, 19, 1, 3, 0, 4, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14204, 18, 1, 3, 0, 5, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14205, 24, 1, 3, 0, 6, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14206, 25, 1, 4, 0, 0, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14207, 23, 1, 4, 0, 1, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14208, 56, 1, 4, 0, 2, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14209, 22, 1, 4, 0, 3, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14210, 29, 1, 4, 0, 4, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14211, 26, 1, 4, 0, 5, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14212, 31, 1, 5, 0, 0, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14213, 33, 1, 5, 0, 1, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14214, 30, 1, 5, 0, 2, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14215, 32, 1, 5, 0, 3, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14216, 34, 1, 5, 0, 4, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14217, 27, 1, 5, 0, 5, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14218, 28, 1, 5, 0, 6, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14219, 2, 1, 6, 0, 0, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14220, 6, 1, 6, 0, 1, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14221, 5, 1, 6, 0, 2, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14222, 38, 1, 6, 0, 3, '2017-12-10 22:58:54', '2017-12-10 22:58:54'),
+(14223, 40, 1, 6, 0, 4, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14224, 39, 1, 6, 0, 5, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14225, 41, 1, 6, 0, 6, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14226, 42, 1, 7, 0, 0, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14227, 44, 1, 7, 0, 1, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14228, 43, 1, 7, 0, 2, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14229, 45, 1, 7, 0, 3, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14230, 46, 1, 7, 0, 4, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14231, 37, 1, 8, 0, 0, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14232, 35, 1, 8, 0, 1, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14233, 36, 1, 8, 0, 2, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14234, 48, 1, 8, 0, 3, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14235, 60, 1, 8, 0, 4, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14236, 47, 1, 8, 0, 5, '2017-12-10 22:58:55', '2017-12-10 22:58:55'),
+(14237, 62, 1, 8, 0, 6, '2017-12-10 22:58:55', '2017-12-10 22:58:55');
 
 -- --------------------------------------------------------
 
@@ -115,7 +158,6 @@ CREATE TABLE `decuong` (
 
 INSERT INTO `decuong` (`id`, `id_monhoc`, `link`, `type`, `date_created`, `date_updated`) VALUES
 (2, 0, 'https://vuejs.org/v2/guide/forms.html', 1, '2017-12-01 10:11:42', '2017-12-01 10:11:42'),
-(3, 1, 'https://vuejs.org/v2/guide/forms.html', 1, '2017-12-01 10:12:44', '2017-12-01 10:12:44'),
 (4, 1, 'https://vuejs.org/v2/guide/forms.html#Multiline-text', 1, '2017-12-01 10:14:45', '2017-12-01 10:14:45'),
 (5, 1, 'https://vuejs.org/v2/guide/forms.html#Multiline-text', 1, '2017-12-01 10:14:50', '2017-12-01 10:14:50'),
 (6, 1, 'https://forum.vuejs.org/', 1, '2017-12-01 10:15:39', '2017-12-01 10:15:39'),
@@ -123,7 +165,13 @@ INSERT INTO `decuong` (`id`, `id_monhoc`, `link`, `type`, `date_created`, `date_
 (8, 1, 'http://ricostacruz.com/nprogress/', 1, '2017-12-01 10:21:42', '2017-12-01 10:21:42'),
 (9, 1, 'http://ricostacruz.com/nprogress/', 1, '2017-12-01 10:21:45', '2017-12-01 10:21:45'),
 (10, 1, 'http://ricostacruz.com/nprogress/', 1, '2017-12-01 10:21:47', '2017-12-01 10:21:47'),
-(11, 1, 'https://www.google.com.vn/search?q=user+png&tbm=isch&source=iu&ictx=1&fir=FiYI9CQ6bBBX-M%253A%252CaElycYJMwOJZlM%252C_&usg=___dgncIz7POsS0_KfXTzXWluRJD0%3D&sa=X&ved=0ahUKEwi-9eT51-fXAhVCipQKHTPmBIYQ9QEIKjAA#imgrc=CRnY8psxz2WEvM:', 1, '2017-12-01 10:31:21', '2017-12-01 10:31:21');
+(13, 1, 'assets/decuong/15578875a8de243.jpg', 2, '2017-12-01 12:51:59', '2017-12-01 12:51:59'),
+(14, 1, 'assets/decuong/15578875a8de2431.jpg', 2, '2017-12-01 12:52:09', '2017-12-01 12:52:09'),
+(15, 1, 'assets/decuong/IMG_10102017_151531_0.png', 2, '2017-12-01 12:52:51', '2017-12-01 12:52:51'),
+(16, 1, 'assets/decuong/IMG_10102017_151531_01.png', 2, '2017-12-01 12:52:54', '2017-12-01 12:52:54'),
+(17, 1, 'assets/decuong/IMG_06102017_154157_0.png', 2, '2017-12-01 12:53:43', '2017-12-01 12:53:43'),
+(18, 1, 'https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp', 1, '2017-12-01 13:00:08', '2017-12-01 13:00:08'),
+(19, 1, 'assets/decuong/IMG_10102017_152833_0.png', 2, '2017-12-01 13:00:16', '2017-12-01 13:00:16');
 
 -- --------------------------------------------------------
 
@@ -149,20 +197,57 @@ INSERT INTO `gioithieu` (`id`, `txt_content`, `date_created`, `date_updated`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `highdecuong`
+--
+
+CREATE TABLE `highdecuong` (
+  `id` int(11) NOT NULL,
+  `id_monhoc` int(11) NOT NULL,
+  `id_nganh` int(11) NOT NULL,
+  `link` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `highdecuong`
+--
+
+INSERT INTO `highdecuong` (`id`, `id_monhoc`, `id_nganh`, `link`, `type`, `date_updated`, `date_created`) VALUES
+(10, 1, 1, 'https://www.facebook.com/', 1, '2017-12-09 15:09:48', '2017-12-09 15:09:48'),
+(11, 1, 1, 'https://9gag.com/', 1, '2017-12-09 15:10:39', '2017-12-09 15:10:39'),
+(13, 1, 1, 'assets/decuong/CSDL_timphongtro.png', 2, '2017-12-09 15:12:16', '2017-12-09 15:12:16'),
+(14, 9, 1, 'http://localhost/phpmyadmin/sql.php?server=1&db=cdio&table=chucnang&pos=0&token=464694fccb0e44119fc6955cdeb1ecd2', 1, '2017-12-10 22:58:09', '2017-12-10 22:58:09'),
+(15, 9, 1, 'http://localhost/phpmyadmin/sql.php?server=1&db=cdio&table=chucnang&pos=0&token=464694fccb0e44119fc6955cdeb1ecd2', 1, '2017-12-10 22:58:17', '2017-12-10 22:58:17'),
+(16, 9, 1, 'assets/decuong/-thi-th-44.pdf', 2, '2017-12-10 22:58:45', '2017-12-10 22:58:45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hinh_anh`
 --
 
 CREATE TABLE `hinh_anh` (
   `id` int(11) NOT NULL,
-  `ten` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `mota` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `anh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `duong_dan` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `target` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `stt` int(11) NOT NULL,
-  `hienthi` tinyint(1) NOT NULL
+  `link` text COLLATE utf8_unicode_ci NOT NULL,
+  `linkto` text COLLATE utf8_unicode_ci NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `target` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `position` tinyint(4) NOT NULL,
+  `hienthi` tinyint(1) NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `hinh_anh`
+--
+
+INSERT INTO `hinh_anh` (`id`, `mota`, `link`, `linkto`, `type`, `target`, `position`, `hienthi`, `date_updated`, `date_created`) VALUES
+(2, 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg\r\nhttp://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeghttp://www.cdio.nuce.edu.v', 'assets/images/jquery12_colorcharge1.png', 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg', 2, NULL, 1, 0, '2017-12-11 10:30:28', '2017-12-10 22:15:53'),
+(4, 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 1, NULL, 0, 0, '2017-12-11 10:30:28', '2017-12-10 23:37:25');
 
 -- --------------------------------------------------------
 
@@ -172,17 +257,65 @@ CREATE TABLE `hinh_anh` (
 
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `link` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `title` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `link` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `position` mediumint(9) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `title`, `link`) VALUES
-(1, 'Quản lý chung', 'Page'),
-(2, 'Quản lý tin tức', 'Tintuc');
+INSERT INTO `menu` (`id`, `title`, `link`, `parent_id`, `position`, `date_created`, `date_updated`) VALUES
+(54, 'Các khóa học đồ họa', 'http://itplus-academy.edu.vn/Cac-khoa-hoc-do-hoa.html', 53, 4, '2017-08-30 03:23:32', '2017-12-08 08:55:22'),
+(53, 'Đào tạo chuyên đề', 'http://itplus-academy.edu.vn/Dao-tao-chuyen-de.html', 0, 3, '2017-08-30 03:22:57', '2017-12-08 08:55:22'),
+(52, 'Hợp tác DGIST Hàn Quốc', 'http://itplus-academy.edu.vn/Hop-tac-DGIST-University-Han-Quoc.html', 45, 7, '2017-08-30 03:21:39', '2017-12-08 08:55:22'),
+(51, 'Giải Sao Khuê 2017', 'http://itplus-academy.edu.vn/ITPlus-nhan-Giai-Sao-Khue-2017.html', 45, 3, '2017-08-30 03:21:02', '2017-12-08 08:55:22'),
+(50, 'Doanh nghiệp & đối tác', 'http://itplus-academy.edu.vn/Doanh-nghiep--Doi-tac.html', 45, 8, '2017-08-30 03:19:28', '2017-12-08 08:55:22'),
+(49, 'Cơ sở vật chất', 'http://itplus-academy.edu.vn/Co-so-vat-chat.html', 45, 5, '2017-08-28 07:22:18', '2017-12-08 08:55:22'),
+(48, 'Giảng viên', 'http://itplus-academy.edu.vn/Giang-vien.html', 45, 4, '2017-08-28 07:21:49', '2017-12-08 08:55:22'),
+(45, 'Giới thiệu', 'http://itplus-academy.edu.vn/Gioi-thieu.html', 0, 2, '2017-08-28 07:21:24', '2017-12-08 08:55:22'),
+(40, 'Trang chủ', '/', 0, 1, '2017-08-28 06:11:37', '2017-12-08 08:55:22'),
+(55, 'Các khóa học lập trình', 'http://itplus-academy.edu.vn/Cac-khoa-hoc-lap-trinh.html', 53, 5, '2017-08-30 03:24:01', '2017-12-08 08:55:22'),
+(56, 'Khóa thiết kế đồ họa chuyên nghiệp', 'http://itplus-academy.edu.vn/Khoa-thiet-ke-do-hoa-chuyen-nghiep.html', 54, 5, '2017-08-30 03:24:48', '2017-12-08 08:55:22'),
+(57, 'Quay dựng video', 'http://itplus-academy.edu.vn/Quay-dung-video.html', 54, 6, '2017-08-30 03:25:12', '2017-12-08 08:55:22'),
+(58, 'Thiết kế diễn họa nội thất', 'http://itplus-academy.edu.vn/Thiet-ke-dien-hoa-noi-that.html', 54, 7, '2017-08-30 03:27:03', '2017-12-08 08:55:22'),
+(59, 'Đào tạo chuyên sâu', 'http://itplus-academy.edu.vn/Dao-tao-chuyen-sau.html', 0, 4, '2017-08-30 03:30:27', '2017-12-08 08:55:22'),
+(60, 'Các chương trình đào tạo', 'http://itplus-academy.edu.vn/Cac-chuong-trinh-dao-tao.html', 59, 5, '2017-08-30 03:31:11', '2017-12-08 08:55:22'),
+(61, 'Lập trình ứng dụng', 'http://itplus-academy.edu.vn/Lap-trinh-ung-dung.html', 60, 6, '2017-08-30 03:32:05', '2017-12-08 08:55:22'),
+(62, 'Thiết kế đồ họa - Truyền thông đa phương tiện', 'http://itplus-academy.edu.vn/Thiet-ke-do-hoa-Truyen-thong-da-phuong-tien.html', 60, 7, '2017-08-30 03:32:50', '2017-12-08 08:55:22'),
+(63, 'Phim hoạt hình 3D và Quảng Cáo', 'http://itplus-academy.edu.vn/Phim-hoat-hinh-3D-va-Quang-Cao.html', 60, 8, '2017-08-30 03:33:06', '2017-12-08 08:55:22'),
+(64, 'Quay, Dựng phim và Biên tập Video', 'http://itplus-academy.edu.vn/Quay-Dung-phim-va-Bien-tap-Video.html', 60, 9, '2017-08-30 03:33:22', '2017-12-08 08:55:22'),
+(65, 'Thiết kế và Diễn họa nội thất', 'http://itplus-academy.edu.vn/Thiet-ke-va-Dien-hoa-noi-that.html', 60, 10, '2017-08-30 03:33:45', '2017-12-08 08:55:22'),
+(66, 'Tuyển sinh 2018', 'http://itplus-academy.edu.vn/Tuyen-sinh-2017.html', 59, 6, '2017-08-30 03:35:56', '2017-12-08 08:55:22'),
+(67, 'Đăng kí thi Kỹ năng CNTT', 'http://itplus-academy.edu.vn/Dang-ki-thi-Ky-nang-CNTT.html', 59, 7, '2017-08-30 03:36:16', '2017-12-08 08:55:22'),
+(68, 'Tra cứu điểm thi THPT', 'http://itplus-academy.edu.vn/tra-cuu.html', 59, 8, '2017-08-30 03:37:06', '2017-12-08 08:55:22'),
+(69, 'Những điều cần biết', 'http://itplus-academy.edu.vn/Nhung-dieu-can-biet.html', 59, 9, '2017-08-30 03:37:33', '2017-12-08 08:55:22'),
+(70, 'Hồ sơ nhập học', 'http://itplus-academy.edu.vn/Ho-so-nhap-hoc.html', 69, 10, '2017-08-30 03:38:03', '2017-12-08 08:55:22'),
+(71, 'Đề kiểm tra mẫu', 'http://itplus-academy.edu.vn/De-kiem-tra-mau.html', 69, 11, '2017-08-30 03:38:17', '2017-12-08 08:55:22'),
+(72, 'Thi trực tuyến', 'http://itplus-academy.edu.vn/dang-ky-kiem-tra.html', 69, 12, '2017-08-30 03:38:48', '2017-12-08 08:55:22'),
+(73, 'Quy trình tuyển sinh', 'http://itplus-academy.edu.vn/Quy-trinh-tuyen-sinh.html', 69, 13, '2017-08-30 03:39:02', '2017-12-08 08:55:22'),
+(74, 'Tin Tức', 'http://itplus-academy.edu.vn/Tin-Tuc.html', 0, 5, '2017-08-30 03:40:13', '2017-12-08 08:55:22'),
+(75, 'Bản tin ITPlus Academy', 'http://itplus-academy.edu.vn/Ban-tin-ITPlus-Academy.html', 74, 6, '2017-08-30 03:40:57', '2017-12-08 08:55:22'),
+(76, 'Tin công nghệ ', 'http://itplus-academy.edu.vn/Tin-cong-nghe.html', 74, 7, '2017-08-30 03:41:09', '2017-12-08 08:55:22'),
+(77, 'Tin tuyển dụng', 'http://itplus-academy.edu.vn/Tin-tuyen-dung.html', 74, 8, '2017-08-30 03:41:22', '2017-12-08 08:55:22'),
+(79, 'Học viên', 'http://itplus-academy.edu.vn/Hoc-vien.html', 0, 6, '2017-08-30 03:42:12', '2017-12-08 08:55:22'),
+(93, 'Thông báo cho học viên', 'http://itplus-academy.edu.vn/Thong-bao-cho-hoc-vien.html', 79, 10, '2017-09-19 04:40:34', '2017-12-08 08:55:22'),
+(80, 'Học viên tiêu biểu', 'http://itplus-academy.edu.vn/Hoc-vien-tieu-bieu.html', 79, 7, '2017-08-30 03:43:19', '2017-12-08 08:55:22'),
+(81, 'Cảm nhận học viên', 'http://itplus-academy.edu.vn/Cam-nhan-hoc-vien.html', 79, 8, '2017-08-30 03:43:39', '2017-12-08 08:55:22'),
+(82, 'Sản phẩm học viên', 'http://itplus-academy.edu.vn/San-pham-hoc-vien.html', 79, 9, '2017-08-30 04:06:06', '2017-12-08 08:55:22'),
+(83, 'Kiến thức', 'http://itplus-academy.edu.vn/Kien-thuc.html', 0, 7, '2017-08-30 04:08:01', '2017-12-08 08:55:22'),
+(84, 'Lập trình', 'http://itplus-academy.edu.vn/Lap-trinh.html', 83, 8, '2017-08-30 04:08:25', '2017-12-08 08:55:22'),
+(85, 'Đồ họa', 'http://itplus-academy.edu.vn/Do-hoa.html', 83, 9, '2017-08-30 04:08:49', '2017-12-08 08:55:22'),
+(86, 'Hướng nghiệp', 'http://itplus-academy.edu.vn/Huong-nghiep.html', 0, 8, '2017-08-30 04:09:13', '2017-12-08 08:55:22'),
+(87, 'Tư vấn ngành nghề', 'http://itplus-academy.edu.vn/Tu-van-nganh-nghe.html', 86, 9, '2017-08-30 04:09:36', '2017-12-08 08:55:22'),
+(88, 'Bài học cuộc sống', 'http://itplus-academy.edu.vn/Bai-hoc-cuoc-song.html', 86, 10, '2017-08-30 04:09:49', '2017-12-08 08:55:22'),
+(89, 'Tuyển Dụng & Việc Làm', 'http://itplus-academy.edu.vn/Tuyen-Dung--Viec-Lam.html', 86, 11, '2017-08-30 04:10:00', '2017-12-08 08:55:22'),
+(94, 'Hợp tác Học Viện Công Nghệ Bưu Chính Viễn Thông', 'http://itplus-academy.edu.vn/hop-tac-hoc-vien-cong-nghe-buu-chinh-vien-thong.html', 45, 6, '2017-11-14 08:32:51', '2017-12-08 08:55:22'),
+(92, 'Liên hệ', 'http://itplus-academy.edu.vn/lien-he.html', 0, 9, '2017-09-04 04:20:57', '2017-12-08 08:55:22');
 
 -- --------------------------------------------------------
 
@@ -2436,10 +2569,8 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `tieude`, `chi_tiet`, `mota`, `stt`, `date_created`, `date_updated`, `file1`, `file2`, `file3`) VALUES
-(1, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '08:00 - 11:00, 17/05/2017: Phòng 305 nhà A1Tập huấn kinh nghiệm xây dựng chuẩn đầu raTP: Bộ phận thường trực Ban chỉ đạo; Phòng Đào tạo Chủ trì: PGS.TS Phạm Xuân Anh', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'thanhthanh', '', ''),
-(2, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '08:00 - 11:00, 17/05/2017: Phòng 305 nhà A1Tập huấn kinh nghiệm xây dựng chuẩn đầu raTP: Bộ phận thường trực Ban chỉ đạo; Phòng Đào tạo Chủ trì: PGS.TS Phạm Xuân Anh', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'thanh///thanh', '', ''),
-(3, 'adsds', 'dsfdsf', 'sdafsdf', 0, '2017-10-29 17:14:31', '2017-10-29 17:14:31', 'sdsafsd', '', ''),
-(4, '2', '2', '2', 2, '2017-11-08 09:09:52', '2017-11-08 09:09:52', '2', '2', '');
+(1, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '<p>08:00 - 11:00, 17/05/2017: Ph&ograve;ng 305 nh&agrave; A1Tập huấn kinh nghiệm x&acirc;y dựng chuẩn đầu ra</p>\r\n\r\n<p><strong>TP:&nbsp;Bộ phận thường trực Ban chỉ đạo;</strong></p>\r\n\r\n<p><strong>&nbsp;Ph&ograve;ng Đ&agrave;o tạo&nbsp;Chủ tr&igrave;: PGS.TS Phạm Xu&acirc;n Anh</strong></p>\r\n', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 5, '0000-00-00 00:00:00', '2017-12-07 18:47:10', NULL, NULL, NULL),
+(2, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '<p>08:00 - 11:00, 17/05/2017: Ph&ograve;ng 305 nh&agrave; A1</p>\r\n\r\n<p>Tập huấn kinh nghiệm x&acirc;y dựng chuẩn đầu raTP:&nbsp;Bộ phận thường trực Ban chỉ đạo;</p>\r\n\r\n<p><strong>&nbsp;Ph&ograve;ng Đ&agrave;o tạo&nbsp;Chủ tr&igrave;: PGS.TS Phạm Xu&acirc;n Anh</strong></p>\r\n', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 2, '0000-00-00 00:00:00', '2017-12-07 17:38:38', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2477,6 +2608,54 @@ INSERT INTO `nganh_dao_tao` (`id`, `ma_nganh`, `ten_nganh`, `date_created`, `dat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nguoidung`
+--
+
+CREATE TABLE `nguoidung` (
+  `id` int(11) NOT NULL,
+  `username` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `hoten` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `gioitinh` tinyint(4) NOT NULL,
+  `avatar` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_nhom` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `nguoidung`
+--
+
+INSERT INTO `nguoidung` (`id`, `username`, `password`, `hoten`, `gioitinh`, `avatar`, `email`, `id_nhom`) VALUES
+(2, 'admin', '25a895eaa2b5f677009866f1595b7266', 'admin', 0, '', '', 1),
+(3, 'thanhnt', 'eb74cd3d436d8156f1fa6060c74cc744', 'Nguyễn Thị Thanh', 0, '', '', 2),
+(4, 'manager', '57a93f0e5f1a388520ea465c622b00f1', 'manager', 0, '', '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nhomnguoidung`
+--
+
+CREATE TABLE `nhomnguoidung` (
+  `id` int(11) NOT NULL,
+  `tennhom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `id_phongban` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `nhomnguoidung`
+--
+
+INSERT INTO `nhomnguoidung` (`id`, `tennhom`, `type`, `id_phongban`) VALUES
+(1, 'Admin', 0, 0),
+(2, 'Biên tập viên', 0, 0),
+(3, 'Quản lý CTĐT', 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nhom_tai_lieu`
 --
 
@@ -2496,6 +2675,87 @@ INSERT INTO `nhom_tai_lieu` (`id`, `ten_nhom`, `stt`, `date_created`, `date_upda
 (1, 'Tài liệu - Biểu mẫu', 1, '2017-10-02 00:00:00', '2017-11-07 00:00:00'),
 (2, 'Văn bản - Hành chính', 2, '2017-09-01 00:00:00', '2017-10-08 00:00:00'),
 (3, 'Quảng cáo', 3, '2017-11-09 15:32:07', '2017-11-09 15:32:07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `phanquyen`
+--
+
+CREATE TABLE `phanquyen` (
+  `id` int(11) NOT NULL,
+  `id_nhom` int(11) NOT NULL,
+  `id_chucnang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `phanquyen`
+--
+
+INSERT INTO `phanquyen` (`id`, `id_nhom`, `id_chucnang`) VALUES
+(19, 1, 1),
+(20, 1, 2),
+(21, 1, 3),
+(22, 1, 4),
+(23, 1, 6),
+(24, 1, 7),
+(25, 1, 8),
+(26, 1, 9),
+(27, 1, 10),
+(28, 1, 11),
+(29, 1, 12),
+(30, 1, 13),
+(31, 1, 14),
+(32, 1, 15),
+(33, 1, 16),
+(34, 1, 17),
+(35, 1, 18),
+(36, 1, 19),
+(37, 2, 6),
+(38, 3, 9),
+(39, 3, 11),
+(40, 3, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quyetdinh_chuandaura`
+--
+
+CREATE TABLE `quyetdinh_chuandaura` (
+  `id` int(11) NOT NULL,
+  `noidung` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `quyetdinh_chuandaura`
+--
+
+INSERT INTO `quyetdinh_chuandaura` (`id`, `noidung`, `date_created`, `date_updated`) VALUES
+(1, '<iframe src="https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview" width="640" height="480"></iframe>', '0000-00-00 00:00:00', '2017-12-08 03:23:23'),
+(2, 'thanh', '2017-12-13 00:00:00', '2017-12-23 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quyetdinh_ctdt`
+--
+
+CREATE TABLE `quyetdinh_ctdt` (
+  `id` int(11) NOT NULL,
+  `noidung` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `quyetdinh_ctdt`
+--
+
+INSERT INTO `quyetdinh_ctdt` (`id`, `noidung`, `date_created`, `date_updated`) VALUES
+(1, '<iframe src="https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview" width="100%" height="480"></iframe>', '2017-12-01 00:00:00', '2017-12-08 05:29:17');
 
 -- --------------------------------------------------------
 
@@ -2522,12 +2782,31 @@ CREATE TABLE `tai_lieu` (
 --
 
 INSERT INTO `tai_lieu` (`id`, `ten_tai_lieu`, `mota`, `loai_link`, `link_tai_lieu`, `luot_xem`, `luot_tai`, `date_created`, `date_updated`, `stt`, `ma_nhom`) VALUES
-(1, 'Tài liệu xây dựng CTĐT theo CDIO', 'Tài liệu xây dựng CTĐT theo CDIO', 2, 'http://localhost/Cdio_nuce/public/tailieu/Mt_s_yu_cu_phn_mm_CRM.docx', 0, 0, '0000-00-00', '2017-11-27', 0, 2),
-(2, 'Hướng dẫn quy trình xây dựng chuẩn đầu ra (21/04/2017)', 'Hướng dẫn quy trình xây dựng chuẩn đầu ra (21/04/2017)', 2, 'sadahsvdhgsavdsa.zip', 122, 32, '2017-10-04', '2017-10-28', 0, 2),
-(4, '1112', '1111', 2, 'sdsnagvd jsahvdsadsa.rar', 22, 222, '2017-11-08', '2017-11-08', 4, 2),
-(5, 'ádsư2233232', 'ada434434', 2, 'asdmh savdsahda.ppt', 22, 33, '2017-11-09', '2017-11-09', 8, 1),
-(6, 'ewqrew', 'rewqrew', 2, 'sadhbsads.excel', 23, 43, '2017-11-09', '2017-11-09', 8, 1),
-(7, 'TESST', 'TESST', 2, 'http://localhost/Cdio_nuce/public/tailieu/Một_số_yêu_cầu_phần_mềm_CRM6.docx', 0, 0, '2017-11-25', '2017-11-25', 10, 3);
+(9, 'Tài liệu tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 'Tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 1, 'public/tailieu/-thi-th-4.pdf', 0, 0, '2017-12-08', '2017-12-08', 0, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tintuc_dinhkem`
+--
+
+CREATE TABLE `tintuc_dinhkem` (
+  `id` int(11) NOT NULL,
+  `id_tintuc` int(11) NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `link` text COLLATE utf8_unicode_ci NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tintuc_dinhkem`
+--
+
+INSERT INTO `tintuc_dinhkem` (`id`, `id_tintuc`, `type`, `link`, `date_updated`, `date_created`) VALUES
+(2, 1, 1, 'https://ckeditor.com/old/forums/Support/File-Browser-Uploader', '2017-12-08 00:34:11', '2017-12-08 00:34:11'),
+(3, 1, 2, 'assets/tintuc/15578875a8de243.jpg', '2017-12-08 00:35:01', '2017-12-08 00:35:01'),
+(5, 2, 2, 'assets/tintuc/IMG_05122017_160754_0.png', '2017-12-08 00:47:34', '2017-12-08 00:47:34');
 
 -- --------------------------------------------------------
 
@@ -2557,6 +2836,31 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `sdt`, `level`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `vanban_dinhkem`
+--
+
+CREATE TABLE `vanban_dinhkem` (
+  `id` int(11) NOT NULL,
+  `id_vanban` int(11) NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  `link` text COLLATE utf8_unicode_ci NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `date_created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `vanban_dinhkem`
+--
+
+INSERT INTO `vanban_dinhkem` (`id`, `id_vanban`, `type`, `link`, `date_updated`, `date_created`) VALUES
+(1, 2, 1, 'https://ckeditor.com/old/forums/Support/File-Browser-Uploader', '2017-12-08 01:20:07', '2017-12-08 01:20:07'),
+(2, 2, 2, 'assets/vanban/115754f13ae8cca.jpg', '2017-12-08 01:20:20', '2017-12-08 01:20:20'),
+(3, 3, 1, 'http://www.cdio.nuce.edu.vn/#', '2017-12-10 22:56:00', '2017-12-10 22:56:00'),
+(4, 3, 2, 'assets/vanban/banner_tester_web_-01(1).jpg', '2017-12-10 22:56:17', '2017-12-10 22:56:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `van_ban_dieu_hanh`
 --
 
@@ -2576,8 +2880,8 @@ CREATE TABLE `van_ban_dieu_hanh` (
 --
 
 INSERT INTO `van_ban_dieu_hanh` (`id`, `so_ky_hieu_vb`, `trich_yeu`, `noi_dung`, `date_created`, `date_updated`, `file_dinh_kem`, `stt`) VALUES
-(2, '88/TB-ĐHXD', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', '0000-00-00 00:00:00', '2017-11-08 03:53:50', '', 1),
-(3, '191/TB-ĐHXD-ĐT', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', 'sdfzdsfds', '2017-11-01 00:00:00', '2017-11-08 02:56:29', '', 2),
+(2, '88/TB-ĐHXD', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', '0000-00-00 00:00:00', '2017-12-10 16:51:05', '', 10),
+(3, '191/TB-ĐHXD-ĐT', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', 'TEST', '0000-00-00 00:00:00', '2017-12-10 16:55:33', '', 2),
 (7, '191/TB-ĐHXD-ĐT', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', '2017-10-05 00:00:00', '2017-10-20 00:00:00', 'qqqqqqqqqwwwwwwwwwwww', 7),
 (8, '55/TB-ĐHXD', 'V/v Thành lập Ban Chỉ đạo đề án đổi mới chương trình đào tạo đại học và sau đại học', 'V/v Thành lập Ban Chỉ đạo đề án đổi mới chương trình đào tạo đại học và sau đại học', '2017-11-01 00:00:00', '2017-11-08 03:55:25', '', 12),
 (9, '22/TB-ĐHXD', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', '2017-08-30 00:00:00', '2017-09-19 00:00:00', 'ssssssssssssssss', 14),
@@ -2586,6 +2890,12 @@ INSERT INTO `van_ban_dieu_hanh` (`id`, `so_ky_hieu_vb`, `trich_yeu`, `noi_dung`,
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chucnang`
+--
+ALTER TABLE `chucnang`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ctdao_tao`
@@ -2605,6 +2915,12 @@ ALTER TABLE `decuong`
 -- Indexes for table `gioithieu`
 --
 ALTER TABLE `gioithieu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `highdecuong`
+--
+ALTER TABLE `highdecuong`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2639,9 +2955,40 @@ ALTER TABLE `nganh_dao_tao`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `nguoidung`
+--
+ALTER TABLE `nguoidung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nhomnguoidung`
+--
+ALTER TABLE `nhomnguoidung`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `nhom_tai_lieu`
 --
 ALTER TABLE `nhom_tai_lieu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `quyetdinh_chuandaura`
+--
+ALTER TABLE `quyetdinh_chuandaura`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `quyetdinh_ctdt`
+--
+ALTER TABLE `quyetdinh_ctdt`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2652,9 +2999,21 @@ ALTER TABLE `tai_lieu`
   ADD KEY `ma_nhom` (`ma_nhom`);
 
 --
+-- Indexes for table `tintuc_dinhkem`
+--
+ALTER TABLE `tintuc_dinhkem`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vanban_dinhkem`
+--
+ALTER TABLE `vanban_dinhkem`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2668,30 +3027,40 @@ ALTER TABLE `van_ban_dieu_hanh`
 --
 
 --
+-- AUTO_INCREMENT for table `chucnang`
+--
+ALTER TABLE `chucnang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
 -- AUTO_INCREMENT for table `ctdao_tao`
 --
 ALTER TABLE `ctdao_tao`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11023;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14238;
 --
 -- AUTO_INCREMENT for table `decuong`
 --
 ALTER TABLE `decuong`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `gioithieu`
 --
 ALTER TABLE `gioithieu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `highdecuong`
+--
+ALTER TABLE `highdecuong`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
 -- AUTO_INCREMENT for table `hinh_anh`
 --
 ALTER TABLE `hinh_anh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `monhoc`
 --
@@ -2701,26 +3070,61 @@ ALTER TABLE `monhoc`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `nganh_dao_tao`
 --
 ALTER TABLE `nganh_dao_tao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT for table `nguoidung`
+--
+ALTER TABLE `nguoidung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `nhomnguoidung`
+--
+ALTER TABLE `nhomnguoidung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `nhom_tai_lieu`
 --
 ALTER TABLE `nhom_tai_lieu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT for table `quyetdinh_chuandaura`
+--
+ALTER TABLE `quyetdinh_chuandaura`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `quyetdinh_ctdt`
+--
+ALTER TABLE `quyetdinh_ctdt`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `tai_lieu`
 --
 ALTER TABLE `tai_lieu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `tintuc_dinhkem`
+--
+ALTER TABLE `tintuc_dinhkem`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `vanban_dinhkem`
+--
+ALTER TABLE `vanban_dinhkem`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `van_ban_dieu_hanh`
