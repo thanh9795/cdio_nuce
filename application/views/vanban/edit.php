@@ -9,7 +9,7 @@
 		<?php endif ?>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Form Basic Elements <small>different form elements</small></h2>
+				<h2><?= $vanban->so_ky_hieu_vb ?> <small>Chỉnh sửa thông tin văn bản</small></h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -41,31 +41,13 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<textarea class="form-control custom-control" name="noi_dung" value="<?= $vanban->noi_dung ?>" rows="4" style="resize:none"></textarea>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Ngày tạo</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="date" name="date_created" value="<?= $vanban->date_created ?>" >
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Ngày sửa</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="date" name="date_updated" value="<?= $vanban->date_updated ?>" >
+							<textarea class="form-control custom-control" name="noi_dung" rows="4" style="resize:none"><?= $vanban->noi_dung ?></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số thứ tự</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" name="stt" value="<?= $vanban->stt ?>" class="form-control" >
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">File đính kèm</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="file" name="file_dinh_kem" value="<?= $vanban->file_dinh_kem ?>" class="form-control" >
 						</div>
 					</div>
 					

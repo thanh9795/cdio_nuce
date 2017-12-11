@@ -102,6 +102,8 @@ class Home extends CI_Controller {
 	public function index() {
 		$this->load->model('Gioithieu_model');
 		$gt = $this->Gioithieu_model->get_all();
+		$this->load->model('Hinhanh_model');
+		$hinhanhs=$this->Hinhanh_model->get_all('','',[],'','','',['position','ASC']);
 		$gt = array_shift($gt);
 		/*	echo "<pre>";
 			print_r ($vanban);
@@ -110,6 +112,7 @@ class Home extends CI_Controller {
 			'subview' => "gioithieu",
 			'subdata' => [
 				'gts' => $gt,
+				'hinhanhs' => $hinhanhs,
 			],
 		];
 		$this->load->view('master_home', $data);

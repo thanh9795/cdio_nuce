@@ -8,7 +8,7 @@
 				<form action="">
 					<div id="imaginary_container"> 
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control" name="key" placeholder="Search" >
+							<input type="text" class="form-control" name="key" value="<?= $this->input->get('key') ?>" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>

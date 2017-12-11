@@ -34,6 +34,7 @@
     <script src="<?=base_url('assets') ?>/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url('assets/')?>build/js/custom.js"></script>
+    <script src="<?=base_url('assets/')?>build/js/nestable.js"></script>
     <script src="<?=base_url('assets/')?>swal/sweetalert.js"></script>
 
 

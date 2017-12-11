@@ -1,4 +1,5 @@
 <div class="row" id="monhoc">
+
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
@@ -55,7 +56,7 @@
 								<td><?=$vb->so_tiet_thuc_hanh?></td>
 								<td><?=$vb->ma_hoc_phan_tien_quyet?></td>
 								<td>
-									<button @click="ShowListTailieu(<?= $vb->id ?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-default"><?= $vb->attachnumber>0?$vb->attachnumber:"" ?> Tài liệu</button>
+									<!-- <button @click="ShowListTailieu(<?= $vb->id ?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-default"><?= $vb->attachnumber>0?$vb->attachnumber:"" ?> Tài liệu</button> -->
 									<a href="<?=base_url('monhoc/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>

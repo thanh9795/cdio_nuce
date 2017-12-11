@@ -14,6 +14,7 @@ class Vanban_model extends Cdio_Model {
 	{
 		if ($key!=NULL) {
 			$this->db->like('so_ky_hieu_vb', $key);
+			$this->db->or_like('trich_yeu', $key);
 		}
 		return $this->db->count_all_results($this->table_name); 
 	}
@@ -22,8 +23,10 @@ class Vanban_model extends Cdio_Model {
 	{
 		if ($key!=NULL) {
 			$this->db->like('so_ky_hieu_vb', $key);
+			$this->db->or_like('trich_yeu', $key);
 		}
 		$this->db->limit($limit,$offset);
+		$this->db->order_by('stt', 'asc');
 		return $this->db->get($this->table_name)->result();
 	}
 

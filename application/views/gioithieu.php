@@ -4,29 +4,34 @@
     GIỚI THIỆU
   </h1>
   <div class="pageDetailContent">
-      <?php echo $gts->txt_content ?>
-      <div id="slide">
-      	<div id="carousel-id" class="carousel slide" data-ride="carousel">
-      		<ol class="carousel-indicators">
-      			<li data-target="#carousel-id" data-slide-to="0" class=""></li>
-      			<li data-target="#carousel-id" data-slide-to="1" class=""></li>
-      			<li data-target="#carousel-id" data-slide-to="2" class="active"></li>
-      		</ol>
-      		<div class="carousel-inner">
-      			<div class="item">
-      				<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="assets/build/images/cdio_taphuan_1.jpeg">
-      			</div>
-      			<div class="item">
-      				<img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="assets/build/images/cdio_taphuan_2_0.jpeg">
-      			</div>
-      			<div class="item active">
-      				<img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="assets/build/images/cdio_2017_3.jpeg">
-      			</div>
-      		</div>
-      		<a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      		<a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-      	</div>
+    <?php echo $gts->txt_content ?>
+    <div id="slide">
+      <div id="carousel-id" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <?php foreach ($hinhanhs as $key=> $ha): ?>
+           <li data-target="#carousel-id" data-slide-to="<?= $key ?>" class="<?= $key==0?'active':'' ?>"></li>
+          <?php endforeach ?>
+        </ol>
+        <div class="carousel-inner">
+          <?php foreach ($hinhanhs as $key=> $ha): ?>
+
+          <div class="item <?= $key==0?'active':'' ?>">
+            <img src="<?= $ha->link ?>">
+            <div class="container">
+              <div class="carousel-caption">
+                <p><?= $ha->mota ?></p>
+                <p><a class="btn btn-lg btn-primary" href="<?= $ha->linkto ?>" role="button">Xem chi tiết</a></p>
+              </div>
+            </div>
+          </div>
+          <?php endforeach ?>
+
+
+        </div>
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
       </div>
+    </div>
   </div>
 
 </div>

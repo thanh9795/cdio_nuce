@@ -20,7 +20,7 @@
     <!-- iCheck -->
     <link href="<?=base_url('assets/vendors')?>/iCheck/skins/flat/green.css" rel="stylesheet">
     <link href="<?=base_url('assets/vendors')?>/switchery/dist/switchery.min.css" rel="stylesheet">
-
+    
     <!-- bootstrap-progressbar -->
     <link href="<?=base_url('assets/vendors')?>/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -47,6 +47,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="<?=base_url('assets/')?>build/css/custom.min.css" rel="stylesheet">
+        <link href="<?=base_url('assets/')?>build/css/nestable.css" rel="stylesheet">
         <link href="<?=base_url('assets/')?>build/css/style.css" rel="stylesheet">
 
         <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>

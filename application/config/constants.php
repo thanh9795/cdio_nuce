@@ -88,3 +88,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('TYPEALLOW')      OR define('TYPEALLOW', "zip|rar|doc|docx|ppt|pptx|xls|xlsx|cad|tar|gz|jpg|png|gif|ai|psd|mp3|mp4|pdf"); 
 defined('READABLE')      OR define('READABLE', "doc|docx|ppt|pptx|xls|xlsx|pdf"); 
+defined('SALT')      OR define('SALT', "CDIO"); 

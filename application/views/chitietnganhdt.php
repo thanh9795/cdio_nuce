@@ -4,6 +4,45 @@
 </div>
 
 <div id="pageDetail" style="padding-top: 0px !important;">
+
+
+  <div class="modal fade" id="modal-decuong">
+    <div class="modal-dialog" style="width: 80%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Danh sách tài liệu:<!--  {{monhoc}} --></h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Kiểu</th>
+                    <th>Đường dẫn</th>
+                    <th>Ngày tạo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item,index) in decuongs">
+                    <td>{{item.type}}</td>
+                    <td><a :href="item.type2==2?base+item.link:item.link">{{item.link|shorter}}</a></td>
+                    <td>{{item.date_created}}</td>
+                  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="London" class="tabcontent">
     </h1>
       <div class="row">
@@ -62,7 +101,7 @@
         <td>{{item.so_tiet_thuc_hanh}}</td>
         <td>{{item.ma_hoc_phan_tien_quyet}}</td>
         <td>{{item.hoc_ky}}</td>
-        <td><a href="">Xem chi tiết</a></td>
+        <td><a href="#" @click.prevent="OpenDecuong(item)" >Xem đề cương</a></td>
       </tr>
     </tbody>
   </table>
@@ -131,6 +170,7 @@ document.getElementById("defaultOpen").click();
     el: "#pageDetail",
     data () {
       return {
+        decuongs:[],
         monhocs:[],
         base:'<?php echo base_url() ?>',
         title:"",
@@ -143,6 +183,23 @@ document.getElementById("defaultOpen").click();
       };
     },
     methods: {
+      OpenDecuong(item){
+        $("#modal-decuong").modal("show");
+        /*this.monhoc=item.ten_mon;
+        this.id_monhoc=item.id;
+          this.getDecuong();*/
+        let data={
+        id_monhoc:item.id,
+        id_nganh:this.dtid
+      };
+        this.$http.get(this.base+'Highdecuong/index/',{params:data}).then(res => {
+          console.log(res);
+          this.decuongs=res.body;
+        }).catch(err => {
+          console.log(err);
+        });
+
+      },
       gethocky() {
         this.$http.get(this.base+'nganhdaotao/apihocky',{params:{id:this.dtid}}).then(res => {
           this.ctdt=res.body;

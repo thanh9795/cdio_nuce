@@ -20,15 +20,97 @@
 	height: 60px;
 }
 .con{
+	width: 150px;
 	display: inline-flex;
 	padding-right: 10px;
 	padding-left: 10px;
 }
 .nopad{
-	padding: 0px
+	padding: 0px;
+}
+.decuong{
+	position: absolute;
 }
 </style>
 <div class="container" id="ctdtao">
+	<div class="modal fade" id="modal-decuong">
+		<div class="modal-dialog" style="width: 80%">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Danh sách tài liệu: {{monhoc}}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-8">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Kiểu</th>
+										<th>Đường dẫn</th>
+										<th>Ngày tạo</th>
+										<th>Xóa</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="(item,index) in decuongs">
+										<td>{{item.type}}</td>
+										<td><a :href="item.link">{{item.link|shorter}}</a></td>
+										<td>{{item.date_created}}</td>
+										<td><button @click="deleteitem(item.id,index)" type="button" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-4">
+							<form @submit.prevent="SaveFiles" action="" method="POST" role="form">
+								<legend>Thêm mới tài liệu</legend>
+							
+								<div class="form-group">
+									<label for="">Kiểu</label>
+									<div class="radio">
+										<label>
+											<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
+											Link
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="type" id="" value="2" v-model="type">
+											Đính kèm
+										</label>
+									</div>
+								</div>
+								<div v-if="type==1">
+									
+									<div class="form-group">
+										<label for="">Đường dẫn</label>
+										<input type="text" v-model="link" class="form-control" id="" >
+									</div>
+									
+								</div>
+								<div v-else>
+									<div class="form-group">
+										<label for="">Chọn file upload</label>
+										<input type="file"  class="form-control" id="fileDecuong" >
+									</div>
+								
+								</div>
+									
+								
+								
+							
+								<button type="submit" class="btn btn-primary">Thêm mới</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-3 col-sm-3 col-xs-12">
 			<form action="">
@@ -64,15 +146,6 @@
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="#">Settings 1</a>
-								</li>
-								<li><a href="#">Settings 2</a>
-								</li>
-							</ul>
-						</li>
 						<li><a class="close-link"><i class="fa fa-close"></i></a>
 						</li>
 					</ul>
@@ -99,8 +172,11 @@
 								<draggable v-model="ctdt['hocki'+item]" class="dragArea dra-content" :options="{group:'monhoc'}">
 									<div v-for="item in ctdt['hocki'+item]" class="con">
 										<div class="panel panel-default">
-											<div class="panel-heading">
+											<div class="panel-heading" style="position: relative;">
 												{{item.ma_mon}} - {{item.so_tin_chi}}
+												<div class="decuong">
+													<button @click="OpenDecuong(item)" type="button" class="btn btn-default btn-xs">Đề cương</button>
+												</div>
 											</div>
 											<div class="panel-body">
 												{{item.ten_mon}}
@@ -184,6 +260,11 @@
 		el: "#ctdtao",
 		data () {
 			return {
+		   		type:1,
+		  	link:"",
+		  		id_monhoc:0,
+		    	monhoc:"",
+		    	decuongs:[],
 				tinchi:[],
 				total:0,
 				max:0,
@@ -197,6 +278,123 @@
 			};
 		},
 		methods: {
+			getDecuong(){
+			let data={
+				id_monhoc:this.id_monhoc,
+				id_nganh:this.dtid
+			};
+		  	this.$http.get(this.base+'Highdecuong/index/',{params:data}).then(res => {
+		  	  console.log(res);
+		  	  this.decuongs=res.body;
+		  	}).catch(err => {
+		  	  console.log(err);
+		  	});
+		  },
+		  reset(){
+		  	this.link="";
+		    this.type=1;
+		    $('#fileDecuong').val("");
+
+		  },
+		  deleteitem:function (id,index) {
+	 			var self=this;
+	 			
+	 			swal({ title: "Thông báo",
+	 				text: "Bạn có chắc chắn muốn đề cương: "+ self.decuongs[index].link,
+	 				type: "warning",
+	 				showCancelButton: true,
+	 				confirmButtonColor: "#DD6B55",
+	 				confirmButtonText: "Ok, xóa nó đi!",
+	 				closeOnConfirm: false}).then(
+	 				function(result) {
+	 					if (result) {
+	 						self.$http.post(self.base+'/decuong/delete', {id: self.decuongs[index].id}).then(response => {
+	 							self.decuongs.splice(index,1);
+	 							swal("Đã xóa!", "", "success")
+	 						}, response => {
+							    // error callback
+							});
+	 					}
+					    // handle Confirm button click
+					    // result is an optional parameter, needed for modals with input
+					}, function(dismiss) {
+					    // dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+					}
+					);
+	 			 /*this.$http.post(this.base+'/hopgiaoban/delete', {id: id}).then(response => {
+	 			 	this.lichgiaoban.splice(index,1);
+
+				  }, response => {
+				    // error callback
+				});*/
+			},	
+		  ShowListTailieu (id,tenmon) {
+		  	this.currentid=id;
+		  	this.getDecuong(id);
+		  	this.monhoc=tenmon;
+		    $("#modal-show").modal("show");
+		  },
+		  OpenDecuong(item){
+				$("#modal-decuong").modal("show");
+				this.monhoc=item.ten_mon;
+				this.id_monhoc=item.id;
+		  		this.getDecuong();
+
+			},
+
+		  SaveFiles(){
+		  	NProgress.start() 
+		  	if (this.type==1) {
+		  		let data={
+		  			id_monhoc:this.id_monhoc,
+		  			id_nganh:this.dtid,
+		  			type:this.type,
+		  			link:this.link
+		  		}
+		  		this.$http.post(this.base+'Highdecuong/add', data).then(response => {
+					console.log(response);
+		  			this.getDecuong(this.currentid);
+		  			NProgress.done();
+		  			this.reset();
+		  			swal({
+		  				icon:response.body.code,
+		  				text:response.body.message
+		  			});
+				  }, response => {
+				    // error callback
+				  });
+		  	}else{
+ 				var formData = new FormData();
+ 				var file=$('#fileDecuong')[0].files[0];
+				if (file!=null) {
+					formData.append('fileattach',file) ;
+				}else{
+					swal({
+						icon:'error',
+						text:'Bạn phải chọn file trước khi upload'
+					});
+					return;
+				}
+ 				formData.append('type',this.type);
+ 				formData.append('id_monhoc',this.id_monhoc);
+ 				formData.append('id_nganh',this.dtid);
+ 				var self=this;
+				this.$http.post(this.base+'Highdecuong/add', formData).then(response => {
+					console.log(response);
+					NProgress.done() ;
+					this.getDecuong(this.currentid);
+		  			this.reset();
+					swal({
+		  				icon:response.body.code,
+		  				text:response.body.message
+		  			});
+				  }, response => {
+				    // error callback
+				  });
+
+		  	}
+		  },
+			
 			gethocky() {
 				this.$http.get(this.base+'nganhdaotao/apihocky',{params:{id:this.dtid}}).then(res => {
 					console.log(res);
