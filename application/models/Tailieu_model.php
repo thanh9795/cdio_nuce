@@ -28,7 +28,18 @@ class Tailieu_model extends Cdio_Model {
 		$this->db->limit($limit,$offset);
 		return $this->db->get($this->table_name)->result();
 	}
-
+	function incDown($id)
+	{
+		$this->db->set('luot_tai', 'luot_tai+1', FALSE);
+		$this->db->where('id', $id, FALSE);
+		$this->db->update($this->table_name);
+	}
+	function incView($id)
+	{
+		$this->db->set('luot_xem', 'luot_xem+1', FALSE);
+		$this->db->where('id', $id, FALSE);
+		$this->db->update($this->table_name);
+	}
 }
 
 /* End of file Tailieu_model.php */

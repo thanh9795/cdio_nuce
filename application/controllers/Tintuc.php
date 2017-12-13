@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tintuc extends CI_Controller {
+class Tintuc extends CDIO_Controller {
 
 	public function __construct()
 	{
@@ -53,20 +53,18 @@ class Tintuc extends CI_Controller {
 
 	public function add()
 	{
+		$this->load->helper('Slug');
 		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required',['required'=>"%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('mota', 'Mô tả ', 'trim|required',['required'=>"%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
-			$this->Tintuc_model->insert([
+			$insert_id=$this->Tintuc_model->insert([
 				'tieude'=>$this->input->post('tieude'),
 				'mota'=>$this->input->post('mota'),
 				'chi_tiet'=>$this->input->post('chi_tiet'),
 				'stt'=>$this->input->post('stt'),
-				'date_created'=>$this->input->post('date_created'),
-				'date_updated'=>$this->input->post('date_updated'),
-				'file1'=>$this->input->post('file1'),
-				'file2'=>$this->input->post('file2'),
-				'file3'=>$this->input->post('file3'),
 			]);	
+			$slug=to_slug($this->input->post('tieude'))."-".$insert_id;
+			$this->Tintuc_model->update(['slug'=>$slug],$insert_id);
 		}
 		$data=[
 			'content'=>'tin_tuc/add',

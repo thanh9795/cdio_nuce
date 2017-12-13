@@ -48,15 +48,15 @@
             $this->load->model('phanquyen');
 			$parent=$this->phanquyen->getrole($this->session->userdata('id_nhom'));  
 			if ($this->uri->segment(2)==NULL) {
-				$url=$this->uri->segment(1);
+				$url=strtolower($this->uri->segment(1));
 			}else{
-				$url= $this->uri->segment(1)."/".$this->uri->segment(2);
+				$url= strtolower($this->uri->segment(1)."/".$this->uri->segment(2));
 			}
 			$urllist=array();
 			foreach ($parent as $u) {
-				$accept=explode("|", $u->accept_url);
+				$accept=explode("|", strtolower($u->accept_url));
 				if (count($accept)==1) {
-					$urllist[]=$u->accept_url;
+					$urllist[]=strtolower($u->accept_url);
 				}else{
 					foreach ($accept as $ac) {
 						$urllist[]=$ac;
@@ -71,7 +71,6 @@
 				'page/logout',
 				'page/login_submit',
 				'user/changepass',
-				'user/profile',
 				'user/uploadavatar',
 				'user/update_profile',
 			);
@@ -81,7 +80,8 @@
 				$this->session->set_userdata('tokenpermis', false);
 			}
 			if (!in_array($url, $urllist)&&!in_array($url, $whitelist)) {
-				redirect(base_url('page/permission'));
+				
+				redirect(base_url('page/login?next='.(uri_string())));
 			}
 
 

@@ -1,6 +1,10 @@
-
-<!-- page content -->
 <div class="row">
+  <div class="col-md-12">
+    <h2>Chào bạn đến với NUCE - CDIO</h2>
+  </div>
+</div>
+<!-- page content -->
+<!-- <div class="row">
   <div class="col-md-12">
     <div class="row tile_count">
       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -34,7 +38,6 @@
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div>
-    
   </div>
-</div>
+</div> -->
 <!-- / page content -->

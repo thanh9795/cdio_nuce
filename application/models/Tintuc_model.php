@@ -8,7 +8,10 @@ class Tintuc_model extends Cdio_Model {
 		parent::__construct();
 
 	}
-
+	function getbySlug($slug)
+	{
+        return $this->db->get_where($this->table_name, array('slug' => $slug))->row();
+	}
 	function countall($key) {
 		if ($key != NULL) {
 			$this->db->like('tieude', $key);

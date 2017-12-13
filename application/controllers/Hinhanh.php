@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Hinhanh extends CI_Controller {
+class Hinhanh extends CDIO_Controller {
 
 	public function __construct() {
 		parent::__construct();

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Decuong extends CI_Controller {
+class Decuong extends CDIO_Controller {
 
 	public function __construct()
 	{

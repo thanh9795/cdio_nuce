@@ -2,7 +2,7 @@
 /**
 * 
 */
-class Nhom extends CI_Controller
+class Nhom extends CDIO_Controller
 {
 
 	public function __construct()

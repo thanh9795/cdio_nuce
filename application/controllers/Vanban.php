@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Vanban extends CI_Controller {
+class Vanban extends CDIO_Controller {
 
 	public function __construct()
 	{

@@ -78,7 +78,11 @@
                 hide: false,
                 styling: 'bootstrap3'
             });
-            setTimeout(function(){ window.location.assign('<?= base_url('page/index') ?>') }, 1000);
+            <?php if($this->input->get('next')!=NULL):?>
+            setTimeout(function(){ window.location.assign('<?= base_url($this->input->get('next')) ?>') }, 1000);
+            <?php else:?>
+            setTimeout(function(){ window.location.assign('<?= base_url('admin') ?>') }, 1000);
+            <?php endif?>
           }
 
         })
@@ -117,7 +121,11 @@
                 hide: false,
                 styling: 'bootstrap3'
             });
-            setTimeout(function(){ window.location.assign('<?= base_url() ?>') }, 1000);
+               <?php if($this->input->get('next')!=NULL):?>
+            setTimeout(function(){ window.location.assign('<?= base_url($this->input->get('next')) ?>') }, 1000);
+            <?php else:?>
+            setTimeout(function(){ window.location.assign('<?= base_url('admin') ?>') }, 1000);
+            <?php endif?>
           }
 
         })
@@ -137,7 +145,6 @@
       <a class="hiddenanchor" id="signin"></a>
       <h1><img src="<?= base_url('assets/build/images/header.jpg') ?>" style="width:300px;margin: auto;margin-top: 20px" class="img-responsive" alt="Image"></h1>
       <div class="login_wrapper">
-
         <div class="animate form login_form">
           <section class="login_content">
 

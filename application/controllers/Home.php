@@ -25,20 +25,29 @@ class Home extends CI_Controller {
 		];
 		$this->load->view('master_home', $data);
 	}
-
-	public function detailTintuc($id) {
-
+	public function incDownload()
+	{
+		$this->load->model('Tailieu_model');
+		$this->Tailieu_model->incDown($this->input->post('docId'));
+	}
+	public function incView()
+	{
+		var_dump($this->input->post());
+		$this->load->model('Tailieu_model');
+		$this->Tailieu_model->incView($this->input->post('docId'));
+	}
+	public function detailTintuc($url) {
 		$this->load->helper('Attach');
 		$this->load->model('Tintuc_model');
 		$this->load->model('Tintuc_dinhkem_model');
-
-		$tintucitem = $this->Tintuc_model->get($id);
-		$all = $this->Tintuc_model->get_all('', '', ['id!=' => $id]);
+		$url=substr($url, 0,-5);
+		$tintucitem = $this->Tintuc_model->getbySlug($url);
+		$all = $this->Tintuc_model->get_all('', '', ['id!=' => $tintucitem->id]);
 		$data = [
 			'subview' => "tintuc_detail",
 			'subdata' => [
 				'tintucitems' => $tintucitem,
-				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('', '', ['id_tintuc' => $id]),
+				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('', '', ['id_tintuc' => $tintucitem->id]),
 				'all' => $all,
 			],
 		];

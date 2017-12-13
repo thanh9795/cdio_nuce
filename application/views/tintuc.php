@@ -21,7 +21,7 @@
     	<?php foreach ($tintucs as $tintuc): ?>
 
        <div class="newItem">
-       	<a class="itemTitle" href="<?=base_url('home/detailTintuc/' . $tintuc->id)?>" title="<?php echo $tintuc->tieude ?>"><?php echo $tintuc->tieude ?></a>
+       	<a class="itemTitle" href="<?=base_url('tin-tuc/' . $tintuc->slug.'.html')?>" title="<?php echo $tintuc->tieude ?>"><?php echo $tintuc->tieude ?></a>
        	<div class="itemDes"><?php echo $tintuc->mota ?></div>
        </div>
     	<?php endforeach?>

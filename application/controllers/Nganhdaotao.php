@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Nganhdaotao extends CI_Controller {
+class Nganhdaotao extends CDIO_Controller {
 
 	public function __construct() {
 		parent::__construct();

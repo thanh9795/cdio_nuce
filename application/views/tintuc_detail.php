@@ -23,7 +23,7 @@
             <?php foreach ($all as $tt): ?>
                 <div title="<?=$tt->tieude?>" class="newOtherItem">
                     <i class="fa fa-angle-right" aria-hidden="true"></i> 
-                    <a href="<?= base_url('home/detailTintuc/'.$tt->id) ?>"><?=$tt->tieude?></a>
+                    <a href="<?= base_url('tin-tuc/'.$tt->slug.'.html') ?>"><?=$tt->tieude?></a>
                     <span> (<?=date("d/m/Y H:i",strtotime($tt->date_created))?>)</span>
                 </div>
             <?php endforeach?>

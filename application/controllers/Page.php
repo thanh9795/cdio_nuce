@@ -5,6 +5,9 @@ class Page extends CI_Controller {
 
 	public function index()
 	{
+		if ($this->session->userdata('id')==NULL) {
+			redirect(base_url('page/login'),'refresh');
+		}
 		$data=[
 			'content'=>'dashboard',
 			'contentdata'=>[
@@ -17,7 +20,7 @@ class Page extends CI_Controller {
 	function login()
 	{
 		if ($this->session->userdata('id')) {
-			redirect(base_url());
+			redirect(base_url('admin'));
 		}
 		$this->load->view('login');
 	}

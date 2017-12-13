@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Nhomtailieu extends CI_Controller {
+class Nhomtailieu extends CDIO_Controller {
 
 	public function __construct()
 	{

@@ -2,7 +2,7 @@
 /**
 * 
 */
-class User extends CI_Controller
+class User extends CDIO_Controller
 {
 	
 	public function index()

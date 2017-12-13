@@ -53,3 +53,6 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['gioithieu'] 			= "gioithieu/index";
+$route['admin'] 			= "page/index";
+$route['tin-tuc/(:any)'] 			= "home/detailTintuc/$1";
+$route['tin-tuc.html'] 			= "home/tintuc";
