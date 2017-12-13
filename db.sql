@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2017 at 10:48 AM
+-- Generation Time: Dec 13, 2017 at 02:33 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -33,7 +33,7 @@ CREATE TABLE `chucnang` (
   `url` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `f_order` int(11) NOT NULL,
   `id_parent` int(11) NOT NULL,
-  `accept_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `accept_url` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `shown` tinyint(4) NOT NULL,
   `icon` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `havenochild` tinyint(1) NOT NULL
@@ -45,23 +45,23 @@ CREATE TABLE `chucnang` (
 
 INSERT INTO `chucnang` (`id`, `tenchucnang`, `trangthai`, `url`, `f_order`, `id_parent`, `accept_url`, `shown`, `icon`, `havenochild`) VALUES
 (1, 'DASHBOARD', 1, 'Page', 1, 0, 'Page|Page/index|page/index', 1, 'fa fa-home', 0),
-(2, 'Quản lý tài liệu', 1, '', 2, 0, 'Tailieu|Tailieu/index|Tailieu/update|Tailieu/add|Tailieu/delete', 1, 'fa fa-file-text', 1),
-(3, 'Danh sách tài liệu', 1, 'Tailieu', 2, 2, '', 1, '', 0),
-(4, 'Nhóm tài liệu', 1, 'Nhomtailieu', 3, 2, '', 1, '', 0),
-(6, 'Quản lý tin tức', 1, 'Tintuc', 1, 0, 'Tintuc', 1, 'fa fa-newspaper-o', 0),
-(7, 'Quản lý hình ảnh', 1, 'Hinhanh', 1, 0, '', 1, 'fa fa-file-image-o', 0),
-(8, 'Văn bản điều hành\r\n', 1, 'Vanban', 1, 0, '', 1, 'fa fa-folder-open-o', 0),
+(2, 'Quản lý tài liệu', 1, '', 2, 0, '', 1, 'fa fa-file-text', 1),
+(3, 'Danh sách tài liệu', 1, 'Tailieu', 2, 2, 'Tailieu|Tailieu/index|Tailieu/update|Tailieu/add|Tailieu/delete', 1, '', 0),
+(4, 'Nhóm tài liệu', 1, 'Nhomtailieu', 3, 2, 'Nhomtailieu|Nhomtailieu/index|Nhomtailieu/add|Nhomtailieu/update|Nhomtailieu/delete', 1, '', 0),
+(6, 'Quản lý tin tức', 1, 'Tintuc', 1, 0, 'Tintuc|Tintuc/index|Tintuc/detail|Tintuc/add|Tintuc/update|Tintuc/delete', 1, 'fa fa-newspaper-o', 0),
+(7, 'Quản lý hình ảnh', 1, 'Hinhanh', 1, 0, 'Hinhanh|Hinhanh/index|Hinhanh/apiHinhanh|Hinhanh/save|Hinhanh/checklink|Hinhanh/luusapxep|Hinhanh/delete|Hinhanh/update', 1, 'fa fa-file-image-o', 0),
+(8, 'Văn bản điều hành\r\n', 1, 'Vanban', 1, 0, 'Vanban|Vanban/index|Vanban/add|Vanban/update|Vanban/delete', 1, 'fa fa-folder-open-o', 0),
 (9, 'Quản lý CTĐT', 1, '', 2, 0, '', 1, 'fa fa-graduation-cap', 1),
-(10, 'Quyết định CTĐT', 1, 'Qd_ctdt', 3, 9, '', 1, '', 0),
-(11, 'Quản lý các ngành đào tạo\r\n', 1, 'Nganhdaotao', 3, 9, '', 1, '', 0),
-(12, 'Quản lý môn học\r\n', 1, 'Monhoc', 3, 9, '', 1, '', 0),
+(10, 'Quyết định CTĐT', 1, 'Qd_ctdt', 3, 9, 'Qd_ctdt', 1, '', 0),
+(11, 'Quản lý các ngành đào tạo\r\n', 1, 'Nganhdaotao', 3, 9, 'Nganhdaotao|Nganhdaotao/index|Nganhdaotao/chuongtrinhdaotao|Nganhdaotao/saveCTDT|Nganhdaotao/apihocki|Nganhdaotao/apihocky|Nganhdaotao/add|Nganhdaotao/update|Nganhdaotao/delete|Highdecuong|Highdecuong/index|Highdecuong/update|Highdecuong/delete|Highdecuong/add', 1, '', 0),
+(12, 'Quản lý môn học\r\n', 1, 'Monhoc', 3, 9, 'Monhoc|Monhoc/index|Monhoc/add|Monhoc/update|Monhoc/delete|Monhoc/api', 1, '', 0),
 (13, 'QĐ chuẩn đầu ra', 1, '', 2, 0, '', 1, 'fa fa-sign-out', 1),
-(14, 'Quyết định đầu ra', 1, 'Qd_chuandaura', 3, 13, '', 1, '', 0),
+(14, 'Quyết định đầu ra', 1, 'Qd_chuandaura', 3, 13, 'Qd_chuandaura', 1, '', 0),
 (15, 'Quản lý website', 1, '', 2, 0, '', 1, 'fa fa-globe', 1),
-(16, 'Quản lý menu', 1, 'Menu', 3, 15, '', 1, '', 0),
-(17, 'Quản lý người dùng', 1, 'User', 3, 15, '', 1, '', 0),
-(18, 'Quản lý nhóm người dùng', 1, 'Nhom', 3, 15, '', 1, '', 0),
-(19, 'Nội dung trang chủ', 1, 'gioithieu', 3, 15, '', 1, '', 0);
+(16, 'Quản lý menu', 1, 'Menu', 3, 15, 'Menu/index|Menu', 1, '', 0),
+(17, 'Quản lý người dùng', 1, 'User', 3, 15, 'User|User/index|User/edit_submit|User/uploadavatar|User/detail|User/delete', 1, '', 0),
+(18, 'Quản lý nhóm người dùng', 1, 'Nhom', 3, 15, 'Nhom|Nhom/index|Nhom/addnhom|Nhom/edit_submit|Nhom/detail', 1, '', 0),
+(19, 'Nội dung trang chủ', 1, 'gioithieu', 3, 15, 'gioithieu', 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -246,8 +246,8 @@ CREATE TABLE `hinh_anh` (
 --
 
 INSERT INTO `hinh_anh` (`id`, `mota`, `link`, `linkto`, `type`, `target`, `position`, `hienthi`, `date_updated`, `date_created`) VALUES
-(2, 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg\r\nhttp://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeghttp://www.cdio.nuce.edu.v', 'assets/images/jquery12_colorcharge1.png', 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg', 2, NULL, 1, 0, '2017-12-11 10:30:28', '2017-12-10 22:15:53'),
-(4, 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 1, NULL, 0, 0, '2017-12-11 10:30:28', '2017-12-10 23:37:25');
+(2, 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg\r\nhttp://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeghttp://www.cdio.nuce.edu.v', 'assets/images/jquery12_colorcharge1.png', 'http://www.cdio.nuce.edu.vn/uploads/files/cdio_taphuan_1.jpeg', 2, NULL, 0, 0, '2017-12-12 16:34:32', '2017-12-10 22:15:53'),
+(4, 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 'http://localhost/cdio_nuce/assets/build/images/cdio_taphuan_2_0.jpeg', 1, NULL, 1, 0, '2017-12-12 16:34:32', '2017-12-10 23:37:25');
 
 -- --------------------------------------------------------
 
@@ -2559,18 +2559,17 @@ CREATE TABLE `news` (
   `stt` int(11) NOT NULL,
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
-  `file1` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file2` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file3` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
+  `slug` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `news`
 --
 
-INSERT INTO `news` (`id`, `tieude`, `chi_tiet`, `mota`, `stt`, `date_created`, `date_updated`, `file1`, `file2`, `file3`) VALUES
-(1, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '<p>08:00 - 11:00, 17/05/2017: Ph&ograve;ng 305 nh&agrave; A1Tập huấn kinh nghiệm x&acirc;y dựng chuẩn đầu ra</p>\r\n\r\n<p><strong>TP:&nbsp;Bộ phận thường trực Ban chỉ đạo;</strong></p>\r\n\r\n<p><strong>&nbsp;Ph&ograve;ng Đ&agrave;o tạo&nbsp;Chủ tr&igrave;: PGS.TS Phạm Xu&acirc;n Anh</strong></p>\r\n', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 5, '0000-00-00 00:00:00', '2017-12-07 18:47:10', NULL, NULL, NULL),
-(2, 'Họp bộ phận thường trực Ban chỉ đạo đề án đổi mới chương trình đào tạo theo CDIO', '<p>08:00 - 11:00, 17/05/2017: Ph&ograve;ng 305 nh&agrave; A1</p>\r\n\r\n<p>Tập huấn kinh nghiệm x&acirc;y dựng chuẩn đầu raTP:&nbsp;Bộ phận thường trực Ban chỉ đạo;</p>\r\n\r\n<p><strong>&nbsp;Ph&ograve;ng Đ&agrave;o tạo&nbsp;Chủ tr&igrave;: PGS.TS Phạm Xu&acirc;n Anh</strong></p>\r\n', '08:00 - 11:00; 17/05/2017; Phòng 305 nhà A1', 2, '0000-00-00 00:00:00', '2017-12-07 17:38:38', NULL, NULL, NULL);
+INSERT INTO `news` (`id`, `tieude`, `chi_tiet`, `mota`, `stt`, `date_created`, `date_updated`, `slug`) VALUES
+(6, 'HỌP BAN CHỈ ĐẠO ĐỀ ÁN ĐỔI MỚI CHƯƠNG TRÌNH ĐÀO TẠO THEO CDIO', 'HỌP BAN CHỈ ĐẠO ĐỀ ÁN ĐỔI MỚI CHƯƠNG TRÌNH ĐÀO TẠO THEO CDIO', 'HỌP BAN CHỈ ĐẠO ĐỀ ÁN ĐỔI MỚI CHƯƠNG TRÌNH ĐÀO TẠO THEO CDIO', 6, '2017-12-12 23:10:00', '2017-12-12 23:10:00', 'hop-ban-chi-dao-de-an-doi-moi-chuong-trinh-dao-tao-theo-cdio-6'),
+(7, 'Thông báo thay đổi lịch thi Tiếng Anh cơ bản 1', 'Thông báo thay đổi lịch thi Tiếng Anh cơ bản 1', 'Thông báo thay đổi lịch thi Tiếng Anh cơ bản 1', 1, '2017-12-12 23:10:51', '2017-12-12 23:10:51', 'thong-bao-thay-doi-lich-thi-tieng-anh-co-ban-1-7'),
+(8, 'Thông báo về việc đăng ký học song bằng học kỳ II năm học 2017-2018', 'Thông báo về việc đăng ký học song bằng học kỳ II năm học 2017-2018 ', 'Thông báo về việc đăng ký học song bằng học kỳ II năm học 2017-2018', 2, '2017-12-12 23:11:13', '2017-12-12 23:11:14', 'thong-bao-ve-viec-dang-ky-hoc-song-bang-hoc-ky-ii-nam-hoc-2017-2018-8');
 
 -- --------------------------------------------------------
 
@@ -2782,7 +2781,9 @@ CREATE TABLE `tai_lieu` (
 --
 
 INSERT INTO `tai_lieu` (`id`, `ten_tai_lieu`, `mota`, `loai_link`, `link_tai_lieu`, `luot_xem`, `luot_tai`, `date_created`, `date_updated`, `stt`, `ma_nhom`) VALUES
-(9, 'Tài liệu tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 'Tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 1, 'public/tailieu/-thi-th-4.pdf', 0, 0, '2017-12-08', '2017-12-08', 0, 2);
+(9, 'Tài liệu tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 'Tập huấn xây dựng chương trình đào tạo theo CDIO 9/3/2017', 1, 'public/tailieu/-thi-th-4.pdf', 6, 0, '2017-12-08', '2017-12-12', 0, 2),
+(10, 'Tạo slug tự động bằng PHP code', 'Tạo slug tự động bằng PHP code', 2, 'public/tailieu/-thi-th-41.pdf', 2, 3, '2017-12-12', '2017-12-12', 2, 2),
+(11, 'PHP filesize() Function', 'PHP filesize() Function', 2, 'public/tailieu/KHA_HC_LP_TRNH_PYTHON_FOR_EVERYBODY_v1_0.pdf', 0, 0, '2017-12-12', '2017-12-12', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -3070,7 +3071,7 @@ ALTER TABLE `monhoc`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `nganh_dao_tao`
 --
@@ -3110,7 +3111,7 @@ ALTER TABLE `quyetdinh_ctdt`
 -- AUTO_INCREMENT for table `tai_lieu`
 --
 ALTER TABLE `tai_lieu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tintuc_dinhkem`
 --
