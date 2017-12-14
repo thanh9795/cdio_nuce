@@ -114,15 +114,48 @@ class Nganhdaotao extends CDIO_Controller {
 		echo json_encode($hocky);
 	}
 	public function add() {
+		$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
-			$this->Nganhdaotao_model->insert([
-				'ten_nganh' => $this->input->post('ten_nganh'),
-				'ma_nganh' => $this->input->post('ma_nganh'),
-				'stt' => $this->input->post('stt'),
-				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
-			]);
+			if (!empty($_FILES['chuandaura']['name'])) {
+				$path='public/chuandaura/';
+				$conf['upload_path']   = $path;
+				$conf['allowed_types'] = 'pdf';
+				//$conf['file_name']     = '';
+				$conf['overwrite']     = FALSE;
+				$conf['max_size']      = 20000;
+				$this->load->library('upload', $conf);
+				if ( ! $this->upload->do_upload('chuandaura'))
+				{
+					$this->session->set_flashdata('code', 'error');
+					$this->session->set_flashdata('message', $this->upload->display_errors());
+				}
+				else
+				{
+					$data = array('upload_data' => $this->upload->data());
+					$this->Nganhdaotao_model->insert([
+						'ten_nganh' => $this->input->post('ten_nganh'),
+						'ma_nganh' => $this->input->post('ma_nganh'),
+						'stt' => $this->input->post('stt'),
+						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+						'chuandaura' =>$path.$this->upload->data()['file_name'],
+					]);
+					$this->session->set_flashdata('code', 'success');
+					$this->session->set_flashdata('message', 'Thêm mới thành công');
+				}
+			}else{
+				$this->Nganhdaotao_model->insert([
+						'ten_nganh' => $this->input->post('ten_nganh'),
+						'ma_nganh' => $this->input->post('ma_nganh'),
+						'stt' => $this->input->post('stt'),
+						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+					]);
+				$this->session->set_flashdata('code', 'success');
+				$this->session->set_flashdata('message', 'Thêm mới thành công');
+			}
+			
+			
 		}
 		$data = [
 			'content' => 'nganhdaotao/add',

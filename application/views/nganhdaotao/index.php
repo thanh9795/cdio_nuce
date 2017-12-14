@@ -1,24 +1,5 @@
 <div class="row" id="chuongtrinhdaotao">
 
-	<div class="modal fade"  id="modal-cdr">
-		<div class="modal-dialog" style="width: 70%">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Chuẩn đầu ra</h4>
-				</div>
-				<div class="modal-body">
-					<object data="https://pdfobject.com/pdf/sample-3pp.pdf" width="100%" height="500px">
-					   <p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/sample-3pp.pdf">Download PDF</a>.</p>
-					</object>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
@@ -70,10 +51,41 @@
 								<td><?=$vb->stt?></td>
 								<td><?=$vb->so_hoc_ky?></td>
 								<td>
-									<a href="#" @click.prevent="OpenModaldaura(<?= $vb->id ?>)" class="btn btn-default btn-xs">Chuẩn đầu ra</a>
+									
 									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
 									<a href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
+									<?php if ($vb->chuandaura!=NULL): ?>
+
+									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?= $vb->id ?>'>Xem chuẩn đầu ra</a>
+									<div class="modal fade" id="modal-id<?= $vb->id ?>">
+										<div class="modal-dialog" style="width:80%">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+													<h4 class="modal-title"><?=$vb->ten_nganh?></h4>
+												</div>
+												<div class="modal-body">
+													<?php if ($vb->chuandaura!=NULL): ?>
+														
+														<object data="<?= base_url($vb->chuandaura) ?>" type="application/pdf" width="100%" height="500px">
+													   <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?= base_url($vb->chuandaura) ?>">Download PDF</a>.</p>
+													</object>
+													<?php else: ?>
+														<div class="alert alert-danger">
+															<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+															<strong>Ngành này chưa có chuẩn đầu ra</strong> 
+														</div>
+													<?php endif ?>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+												</div>
+											</div>
+										</div>
+									</div>
+										<?php endif ?>
+									
 								</td>
 							</tr>
 						<?php endforeach?>
@@ -86,16 +98,7 @@
 	</div>
 </div>
 <script>
-	var vm = new Vue({
-	
-		el: "#chuongtrinhdaotao",
-		methods: {
-		  OpenModaldaura (id) {
-		    $("#modal-cdr").modal("show");
-		  }
-		}
-	
-	})
+
 	$(document).ready(function() {
 		$(".btn-xoa").click(function(event) {
 			var btnxoa=$(this);
