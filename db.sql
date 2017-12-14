@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 02:33 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Generation Time: Dec 14, 2017 at 02:36 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -2733,7 +2733,7 @@ CREATE TABLE `quyetdinh_chuandaura` (
 --
 
 INSERT INTO `quyetdinh_chuandaura` (`id`, `noidung`, `date_created`, `date_updated`) VALUES
-(1, '<iframe src="https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview" width="640" height="480"></iframe>', '0000-00-00 00:00:00', '2017-12-08 03:23:23'),
+(1, '<iframe src=\"https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview\" width=\"640\" height=\"480\"></iframe>', '0000-00-00 00:00:00', '2017-12-08 03:23:23'),
 (2, 'thanh', '2017-12-13 00:00:00', '2017-12-23 00:00:00');
 
 -- --------------------------------------------------------
@@ -2754,7 +2754,7 @@ CREATE TABLE `quyetdinh_ctdt` (
 --
 
 INSERT INTO `quyetdinh_ctdt` (`id`, `noidung`, `date_created`, `date_updated`) VALUES
-(1, '<iframe src="https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview" width="100%" height="480"></iframe>', '2017-12-01 00:00:00', '2017-12-08 05:29:17');
+(1, '<iframe src=\"https://drive.google.com/file/d/0BxozOh_K6jJydkpSM2VXNndFTW8/preview\" width=\"100%\" height=\"480\"></iframe>', '2017-12-01 00:00:00', '2017-12-08 05:29:17');
 
 -- --------------------------------------------------------
 
@@ -2873,20 +2873,16 @@ CREATE TABLE `van_ban_dieu_hanh` (
   `date_created` datetime NOT NULL,
   `date_updated` datetime NOT NULL,
   `file_dinh_kem` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `stt` int(11) NOT NULL
+  `stt` int(11) NOT NULL,
+  `slug` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `van_ban_dieu_hanh`
 --
 
-INSERT INTO `van_ban_dieu_hanh` (`id`, `so_ky_hieu_vb`, `trich_yeu`, `noi_dung`, `date_created`, `date_updated`, `file_dinh_kem`, `stt`) VALUES
-(2, '88/TB-ĐHXD', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', 'Kết luận cuộc họp Ban chỉ đạo đề án đổi mới chương trình đào tạo đại học, sau đại học theo CDIO (Phiên họp lần thứ 8)', '0000-00-00 00:00:00', '2017-12-10 16:51:05', '', 10),
-(3, '191/TB-ĐHXD-ĐT', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', 'TEST', '0000-00-00 00:00:00', '2017-12-10 16:55:33', '', 2),
-(7, '191/TB-ĐHXD-ĐT', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', 'Kết luận cuộc họp về hướng dẫn quy trình công tác xây dựng chuẩn đầu ra CTĐT theo CDIO', '2017-10-05 00:00:00', '2017-10-20 00:00:00', 'qqqqqqqqqwwwwwwwwwwww', 7),
-(8, '55/TB-ĐHXD', 'V/v Thành lập Ban Chỉ đạo đề án đổi mới chương trình đào tạo đại học và sau đại học', 'V/v Thành lập Ban Chỉ đạo đề án đổi mới chương trình đào tạo đại học và sau đại học', '2017-11-01 00:00:00', '2017-11-08 03:55:25', '', 12),
-(9, '22/TB-ĐHXD', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', '2017-08-30 00:00:00', '2017-09-19 00:00:00', 'ssssssssssssssss', 14),
-(10, '22/TB-ĐHXD', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', 'Quyết định V/v Ban hành Quy định xây dựng mục tiêu và chuẩn đầu ra chương trình đào tạo đại học theo CDIO', '2017-11-02 00:00:00', '2017-11-08 02:59:28', '', 15);
+INSERT INTO `van_ban_dieu_hanh` (`id`, `so_ky_hieu_vb`, `trich_yeu`, `noi_dung`, `date_created`, `date_updated`, `file_dinh_kem`, `stt`, `slug`) VALUES
+(11, 'Kế hoạch xây dựng CTĐT theo CDIO', 'Kết luận cuộc họp thành lập nhóm chuyên trách triển khai xây dựng chương trình đào tạo đại học theo CDIO', 'Kết luận cuộc họp thành lập nhóm chuyên trách triển khai xây dựng chương trình đào tạo đại học theo CDIO', '2017-12-14 20:16:20', '2017-12-14 20:16:20', '', 3, 'ket-luan-cuoc-hop-thanh-lap-nhom-chuyen-trach-trien-khai-xay-dung-chuong-trinh-dao-tao-dai-hoc-theo-cdio-11');
 
 --
 -- Indexes for dumped tables
@@ -3131,7 +3127,7 @@ ALTER TABLE `vanban_dinhkem`
 -- AUTO_INCREMENT for table `van_ban_dieu_hanh`
 --
 ALTER TABLE `van_ban_dieu_hanh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
