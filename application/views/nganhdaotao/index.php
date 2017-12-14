@@ -19,6 +19,9 @@
 				</form>
 			</div>
 		</div>
+		<div class="row">
+			<?php $this->load->view('partial/alert');?>
+		</div>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Quản lý các ngành đào tạo</h2>

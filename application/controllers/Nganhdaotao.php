@@ -121,8 +121,12 @@ class Nganhdaotao extends CDIO_Controller {
 				'ma_nganh' => $this->input->post('ma_nganh'),
 				'stt' => $this->input->post('stt'),
 				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+
 			]);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Thêm mới thành công');
 		}
+
 		$data = [
 			'content' => 'nganhdaotao/add',
 			'contentdata' => [
@@ -144,9 +148,12 @@ class Nganhdaotao extends CDIO_Controller {
 				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 			], $id);
 		}
-
 		$nganhdaotao = $this->Nganhdaotao_model->get($id);
+		$this->session->set_flashdata('code', 'success');
+		$this->session->set_flashdata('message', 'Cập nhật thành công');
+
 		$data = [
+
 			'content' => 'nganhdaotao/edit',
 			'contentdata' => [
 				'nganhdaotao' => $nganhdaotao,
@@ -159,6 +166,8 @@ class Nganhdaotao extends CDIO_Controller {
 	//Delete one item
 	public function delete() {
 		$this->Nganhdaotao_model->delete($this->input->post('id'));
+		$this->session->set_flashdata('code', 'success');
+		$this->session->set_flashdata('message', 'Đã xóa');
 	}
 
 }
