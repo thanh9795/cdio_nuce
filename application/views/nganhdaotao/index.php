@@ -58,6 +58,7 @@
 							<th>Mã Ngành</th>
 							<th>Tên ngành</th>
 							<th>STT</th>
+							<th>Số học kỳ</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -67,6 +68,7 @@
 								<th scope="row"><?=$vb->ma_nganh?></th>
 								<td><?=$vb->ten_nganh?></td>
 								<td><?=$vb->stt?></td>
+								<td><?=$vb->so_hoc_ky?></td>
 								<td>
 									<a href="#" @click.prevent="OpenModaldaura(<?= $vb->id ?>)" class="btn btn-default btn-xs">Chuẩn đầu ra</a>
 									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
