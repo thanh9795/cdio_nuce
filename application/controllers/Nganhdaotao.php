@@ -84,8 +84,8 @@ class Nganhdaotao extends CDIO_Controller {
 			}
 			$hocky['hocki' . $i] = $tem;
 		}
-		
-		$hocky['so_hoc_ky'] = range(1,$nganh->so_hoc_ky);
+
+		$hocky['so_hoc_ky'] = range(1, $nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
 	public function apihocky() {
@@ -109,7 +109,7 @@ class Nganhdaotao extends CDIO_Controller {
 			}
 			$hocky['hocki' . $i] = $tem;
 		}
-		$hocky['so_hoc_ky'] = range(1,$nganh->so_hoc_ky);
+		$hocky['so_hoc_ky'] = range(1, $nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
 	public function add() {
@@ -120,6 +120,7 @@ class Nganhdaotao extends CDIO_Controller {
 				'ten_nganh' => $this->input->post('ten_nganh'),
 				'ma_nganh' => $this->input->post('ma_nganh'),
 				'stt' => $this->input->post('stt'),
+				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 			]);
 		}
 		$data = [
@@ -140,6 +141,7 @@ class Nganhdaotao extends CDIO_Controller {
 				'ten_nganh' => $this->input->post('ten_nganh'),
 				'ma_nganh' => $this->input->post('ma_nganh'),
 				'stt' => $this->input->post('stt'),
+				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 			], $id);
 		}
 
