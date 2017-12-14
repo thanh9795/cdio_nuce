@@ -25,13 +25,11 @@ class Home extends CI_Controller {
 		];
 		$this->load->view('master_home', $data);
 	}
-	public function incDownload()
-	{
+	public function incDownload() {
 		$this->load->model('Tailieu_model');
 		$this->Tailieu_model->incDown($this->input->post('docId'));
 	}
-	public function incView()
-	{
+	public function incView() {
 		var_dump($this->input->post());
 		$this->load->model('Tailieu_model');
 		$this->Tailieu_model->incView($this->input->post('docId'));
@@ -40,7 +38,7 @@ class Home extends CI_Controller {
 		$this->load->helper('Attach');
 		$this->load->model('Tintuc_model');
 		$this->load->model('Tintuc_dinhkem_model');
-		$url=substr($url, 0,-5);
+		$url = substr($url, 0, -5);
 		$tintucitem = $this->Tintuc_model->getbySlug($url);
 		$all = $this->Tintuc_model->get_all('', '', ['id!=' => $tintucitem->id]);
 		$data = [
@@ -56,22 +54,23 @@ class Home extends CI_Controller {
 		$this->load->view('master_home', $data);
 
 	}
-	public function detailVanban($id) {
+	public function detailVanban($url) {
 		$this->load->helper('Attach');
 		$this->load->model('Vanban_model');
 		$this->load->model('Vanban_dinhkem_model');
-		$vanban = $this->Vanban_model->get($id);
-		$all = $this->Vanban_model->get_all('', '', ['id!=' => $id]);
+		$url = substr($url, 0, -5);
+		$vanbanitem = $this->Vanban_model->getbySlug($url);
+		$all = $this->Vanban_model->get_all('', '', ['id!=' => $vanbanitem->id]);
 		$data = [
 			'subview' => "vanban_detail",
 			'subdata' => [
-				'vanbans' => $vanban,
+				'vanbanitems' => $vanbanitem,
+				'dinhkems' => $this->Vanban_dinhkem_model->get_all('', '', ['id_vanban' => $vanbanitem->id]),
 				'all' => $all,
-				'dinhkems' => $this->Vanban_dinhkem_model->get_all('', '', ['id_vanban' => $id]),
 			],
 		];
 
-		//var_dump($tintucitem);
+		//var_dump($vanbanitem);
 		$this->load->view('master_home', $data);
 
 	}
@@ -112,7 +111,7 @@ class Home extends CI_Controller {
 		$this->load->model('Gioithieu_model');
 		$gt = $this->Gioithieu_model->get_all();
 		$this->load->model('Hinhanh_model');
-		$hinhanhs=$this->Hinhanh_model->get_all('','',[],'','','',['position','ASC']);
+		$hinhanhs = $this->Hinhanh_model->get_all('', '', [], '', '', '', ['position', 'ASC']);
 		$gt = array_shift($gt);
 		/*	echo "<pre>";
 			print_r ($vanban);

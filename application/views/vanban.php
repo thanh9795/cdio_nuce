@@ -2,7 +2,7 @@
     <form action="">
         <div id="imaginary_container">
             <div class="input-group stylish-input-group">
-                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Tìm kiếm theo tên tài liệu" >
+                <input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Nhập số ký hiệu hoặc tên tài liệu" >
                 <span class="input-group-addon">
                     <button type="submit">
                        <i class="fa fa-search" aria-hidden="true"></i>
@@ -25,8 +25,8 @@
 
             <tr>
                <td align="center"><?php echo $vb->id ?></td>
-               <td><a class="itemTitle" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->so_ky_hieu_vb ?></a></td>
-               <td><a class="itemTitleAb" href="<?=base_url('home/detailVanban/' . $vb->id)?>" title=" KH-CDIO"><?php echo $vb->trich_yeu ?></a></td>
+               <td><a class="itemTitle" href="<?=base_url('van-ban/' . $vb->slug . '.html')?>" title=" KH-CDIO"><?php echo $vb->so_ky_hieu_vb ?></a></td>
+               <td><a class="itemTitleAb" href="<?=base_url('van-ban' . $vb->slug . '.html')?>" title=" KH-CDIO"><?php echo $vb->trich_yeu ?></a></td>
                <td align="center"><?php echo date('d-m-Y', strtotime($vb->date_created)) ?></td>
             </tr>
 

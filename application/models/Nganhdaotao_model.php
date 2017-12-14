@@ -14,7 +14,7 @@ class Nganhdaotao_model extends Cdio_Model {
 	function countall($key) {
 		if ($key != NULL) {
 			$this->db->like('ten_nganh', $key);
-			$this->db->orlike('ma_nganh', $key);
+			$this->db->or_like('ma_nganh', $key);
 		}
 		return $this->db->count_all_results($this->table_name);
 	}
@@ -22,6 +22,7 @@ class Nganhdaotao_model extends Cdio_Model {
 	function getall($key, $limit, $offset) {
 		if ($key != NULL) {
 			$this->db->like('ten_nganh', $key);
+			$this->db->or_like('ma_nganh', $key);
 		}
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();

@@ -65,7 +65,7 @@
 						<div class="col-md-4">
 							<form @submit.prevent="SaveFiles" action="" method="POST" role="form">
 								<legend>Thêm mới tài liệu</legend>
-							
+
 								<div class="form-group">
 									<label for="">Kiểu</label>
 									<div class="radio">
@@ -82,24 +82,24 @@
 									</div>
 								</div>
 								<div v-if="type==1">
-									
+
 									<div class="form-group">
 										<label for="">Đường dẫn</label>
 										<input type="text" v-model="link" class="form-control" id="" >
 									</div>
-									
+
 								</div>
 								<div v-else>
 									<div class="form-group">
 										<label for="">Chọn file upload</label>
 										<input type="file"  class="form-control" id="fileDecuong" >
 									</div>
-								
+
 								</div>
-									
-								
-								
-							
+
+
+
+
 								<button type="submit" class="btn btn-primary">Thêm mới</button>
 							</form>
 						</div>
@@ -116,7 +116,7 @@
 			<form action="">
 				<div id="imaginary_container">
 					<div class="input-group stylish-input-group">
-						<input type="text" v-model="key" class="form-control" name="key" placeholder="Tìm kiếm theo tên ngành" >
+						<input type="text" v-model="key" class="form-control" name="key" placeholder="Nhập mã môn hoặc tên môn học" >
 						<span class="input-group-addon">
 							<button type="submit">
 								<span class="glyphicon glyphicon-search"></span>
@@ -298,7 +298,7 @@
 		  },
 		  deleteitem:function (id,index) {
 	 			var self=this;
-	 			
+
 	 			swal({ title: "Thông báo",
 	 				text: "Bạn có chắc chắn muốn đề cương: "+ self.decuongs[index].link,
 	 				type: "warning",
@@ -327,7 +327,7 @@
 				  }, response => {
 				    // error callback
 				});*/
-			},	
+			},
 		  ShowListTailieu (id,tenmon) {
 		  	this.currentid=id;
 		  	this.getDecuong(id);
@@ -343,7 +343,7 @@
 			},
 
 		  SaveFiles(){
-		  	NProgress.start() 
+		  	NProgress.start()
 		  	if (this.type==1) {
 		  		let data={
 		  			id_monhoc:this.id_monhoc,
@@ -394,7 +394,7 @@
 
 		  	}
 		  },
-			
+
 			gethocky() {
 				this.$http.get(this.base+'nganhdaotao/apihocky',{params:{id:this.dtid}}).then(res => {
 					console.log(res);

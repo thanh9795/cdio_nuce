@@ -2,17 +2,17 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="<?= base_url('vanban/add') ?>" class="btn btn-primary">Thêm mới</a>
+				<a href="<?=base_url('vanban/add')?>" class="btn btn-primary">Thêm mới</a>
 			</div>
 			<div class="col-md-6">
 				<form action="">
-					<div id="imaginary_container"> 
+					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control" name="key" value="<?= $this->input->get('key') ?>" placeholder="Search" >
+							<input type="text" class="form-control" name="key" value="<?=$this->input->get('key')?>" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
-								</button>  
+								</button>
 							</span>
 						</div>
 					</div>
@@ -47,28 +47,24 @@
 							<th>#</th>
 							<th style="width: 150px;">Số ký hiệu VB</th>
 							<th style="width: 270px;">Trích yêu</th>
-							<th>Ngày ban hành</th>
-							<th>Ngày tạo</th>
 							<th>STT</th>
 							<th>Thao tác</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($vanbans as $vb): ?>
-							
+
 							<tr>
-								<th scope="row"><?= $vb->id ?></th>
-								<td><?= $vb->so_ky_hieu_vb ?></td>
-								<td><?= $vb->trich_yeu ?></td>
-								<td><?= $vb->date_created ?></td>
-								<td><?= $vb->date_updated ?></td>
-								<td><?= $vb->stt ?></td>
+								<th scope="row"><?=$vb->id?></th>
+								<td><?=$vb->so_ky_hieu_vb?></td>
+								<td><?=$vb->trich_yeu?></td>
+								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?= base_url('vanban/update/'.$vb->id) ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?= $vb->id ?>"><i class="fa fa-trash"></i></button>
+									<a href="<?=base_url('vanban/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach?>
 
 					</tbody>
 				</table>
@@ -87,7 +83,7 @@
 			}).then(function (rs) {
 				if (rs) {
 					$.ajax({
-						url: '<?= base_url('vanban/delete') ?>',
+						url: '<?=base_url('vanban/delete')?>',
 						type: 'POST',
 						dataType: 'text',
 						data: {id: btnxoa.data('id')},
@@ -97,7 +93,7 @@
 							icon:'success'
 						}).then(function () {
 							location.reload();
-						})	
+						})
 						console.log("success");
 					})
 					.fail(function() {
@@ -106,8 +102,8 @@
 					.always(function() {
 						console.log("complete");
 					});
-					
-					
+
+
 				}
 			});
 		});

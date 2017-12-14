@@ -13,6 +13,7 @@ class Monhoc_model extends Cdio_Model {
 	function countall($key) {
 		if ($key != NULL) {
 			$this->db->like('ten_mon', $key);
+			$this->db->or_like('ma_mon', $key);
 		}
 		return $this->db->count_all_results($this->table_name);
 	}

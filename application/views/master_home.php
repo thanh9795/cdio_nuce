@@ -18,11 +18,11 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="//code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	
+
 
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css">
-  
+
 
 	<!-- Font Awesome -->
 	<link href="<?=base_url('assets/vendors')?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
 	<link href="<?=base_url('assets')?>/build/css/style.css" rel="stylesheet">
 	<link href="<?=base_url('assets')?>/build/css/StyleSheet.css" rel="stylesheet">
-	
+
  	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
@@ -208,7 +208,7 @@
 										<li><a href="<?=base_url('home/ctdaotao')?>" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Khung CTĐT các ngành</span></a></li>
 									</ul>
 								</li>
-								<li><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần">Đề cương học phần</a></li>
+								<!-- <li><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần">Đề cương học phần</a></li> -->
 								<li><a href="http://forum.cdio.nuce.edu.vn/" title="Văn bản">Thảo luận</a></li>
 							</ul>
 						</div><!-- /.navbar-collapse -->

@@ -48,11 +48,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
-*/
+ */
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['gioithieu'] 			= "gioithieu/index";
-$route['admin'] 			= "page/index";
-$route['tin-tuc/(:any)'] 			= "home/detailTintuc/$1";
-$route['tin-tuc.html'] 			= "home/tintuc";
+$route['gioithieu'] = "gioithieu/index";
+$route['admin'] = "page/index";
+$route['tin-tuc/(:any)'] = "home/detailTintuc/$1";
+$route['tin-tuc.html'] = "home/tintuc";
+$route['van-ban/(:any)'] = "home/detailVanban/$1";
+$route['van-ban.html'] = "home/vanban";

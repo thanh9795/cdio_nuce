@@ -4,17 +4,17 @@
         <h1 id="pageDetailTitle">
 
             <a href="">Tin tức - sự kiện </a> »
-            <?=$vanbans->so_ky_hieu_vb?>
+            <?=$vanbanitems->so_ky_hieu_vb?>
         </h1>
-        <h2><?=$vanbans->so_ky_hieu_vb?></h2>
-        <strong>Nội dung: </strong><p><?=$vanbans->trich_yeu?></p>
+        <h2><?=$vanbanitems->so_ky_hieu_vb?></h2>
+        <strong>Nội dung: </strong><p><?=$vanbanitems->trich_yeu?></p>
          <ul style="margin-left: 20px;list-style: none">
             <?php foreach ($dinhkems as $dk): ?>
             <li>
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
-                <?= attach($dk) ?>
+                <?=attach($dk)?>
             </li>
-            <?php endforeach ?>
+            <?php endforeach?>
         </ul>
     </div>
     <div id="ctl10_ucLoadControl_ctl00_pnOther">
@@ -24,7 +24,7 @@
             <?php foreach ($all as $vb): ?>
                 <div class="newOtherItem">
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    <a href="<?= base_url('home/detailVanban/'.$vb->id) ?>"><?=$vb->so_ky_hieu_vb?></a>
+                    <a href="<?=base_url('van-ban/' . $vb->slug . '.html')?>"><?=$vb->so_ky_hieu_vb?></a>
                     <span>(<?=$vb->date_created?>)</span>
                 </div>
         <?php endforeach?>
