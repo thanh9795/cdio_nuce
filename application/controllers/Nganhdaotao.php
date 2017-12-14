@@ -85,6 +85,7 @@ class Nganhdaotao extends CDIO_Controller {
 			$hocky['hocki' . $i] = $tem;
 		}
 
+
 		$hocky['so_hoc_ky'] = range(1, $nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
