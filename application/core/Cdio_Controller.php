@@ -27,23 +27,6 @@
             	}
             }
             $this->load->model('User_Model');
-            if ($this->session->userdata('id')!=NULL) {
-            	
-	            $email=$this->User_Model->getemail($this->session->userdata('id'));
-	            if ($email->email!=NULL) {
-	            	$array = array(
-	            		'not_have_email' => false
-	            	);
-	            	
-	            	$this->session->set_userdata( $array );
-	            }else{
-	            	$array = array(
-	            		'not_have_email' => true
-	            	);
-	            	
-	            	$this->session->set_userdata( $array );
-	            }
-            }
 
             $this->load->model('phanquyen');
 			$parent=$this->phanquyen->getrole($this->session->userdata('id_nhom'));  

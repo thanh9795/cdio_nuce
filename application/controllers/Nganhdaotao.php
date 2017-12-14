@@ -75,7 +75,7 @@ class Nganhdaotao extends CDIO_Controller {
 			],
 		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,de_cuong,hoc_ky', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
 		$hocky = [];
-		for ($i = 1; $i <= 8; $i++) {
+		for ($i = 1; $i <= $nganh->so_hoc_ky; $i++) {
 			$tem = [];
 			foreach ($ctdt as $ct) {
 				if ($ct->hoc_ky == $i) {
@@ -84,7 +84,8 @@ class Nganhdaotao extends CDIO_Controller {
 			}
 			$hocky['hocki' . $i] = $tem;
 		}
-		$hocky['so_hoc_ky'] = $nganh->so_hoc_ky == 9 ? [1, 2, 3, 4, 5, 6, 7, 8] : [1, 2, 3, 4, 5, 6, 7, 8];
+		
+		$hocky['so_hoc_ky'] = range(1,$nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
 	public function apihocky() {
@@ -99,7 +100,7 @@ class Nganhdaotao extends CDIO_Controller {
 			],
 		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,hoc_ky', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
 		$hocky = [];
-		for ($i = 1; $i <= 8; $i++) {
+		for ($i = 1; $i <= $nganh->so_hoc_ky; $i++) {
 			$tem = [];
 			foreach ($ctdt as $ct) {
 				if ($ct->hoc_ky == $i) {
@@ -108,7 +109,7 @@ class Nganhdaotao extends CDIO_Controller {
 			}
 			$hocky['hocki' . $i] = $tem;
 		}
-		$hocky['so_hoc_ky'] = $nganh->so_hoc_ky == 9 ? [1, 2, 3, 4, 5, 6, 7, 8] : [1, 2, 3, 4, 5, 6, 7, 8];
+		$hocky['so_hoc_ky'] = range(1,$nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
 	public function add() {

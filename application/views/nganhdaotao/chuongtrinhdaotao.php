@@ -467,6 +467,7 @@
 					val.so_hoc_ky.forEach(function (item) {
 						var totalki=0;
 						self.max=val['hocki'+item].length>self.max?val['hocki'+item].length:self.max;
+						//self.max=val['hocki'+item].length>self.max?val['hocki'+item].length:self.max;
 						val['hocki'+item].forEach(function (item2) {
 							monhocs.push(item2);
 							totalki+=parseInt(item2.so_tin_chi);

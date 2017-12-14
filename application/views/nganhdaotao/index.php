@@ -57,6 +57,7 @@
 								<td><?=$vb->ten_nganh?></td>
 								<td><?=$vb->stt?></td>
 								<td>
+									<a href="" class="btn btn-default btn-xs">Chuẩn đầu ra</a>
 									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
 									<a href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
