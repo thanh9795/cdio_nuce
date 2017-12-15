@@ -3,7 +3,7 @@
     <div id="pageDetail">
         <h1 id="pageDetailTitle">
 
-            <a href="">Tin tức - sự kiện </a> »
+            <a href="<?=base_url('tin-tuc.html')?>">Tin tức - sự kiện </a> »
             <?=$tintucitems->tieude?>
         </h1>
         <p><?=$tintucitems->chi_tiet?></p>

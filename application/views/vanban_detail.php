@@ -3,11 +3,12 @@
     <div id="pageDetail">
         <h1 id="pageDetailTitle">
 
-            <a href="">Tin tức - sự kiện </a> »
+            <a href="<?=base_url('van-ban.html')?>">VĂN BẢN</a> »
             <?=$vanbanitems->so_ky_hieu_vb?>
         </h1>
         <h2><?=$vanbanitems->so_ky_hieu_vb?></h2>
-        <strong>Nội dung: </strong><p><?=$vanbanitems->trich_yeu?></p>
+        <strong>Trích yếu: </strong><p><?=$vanbanitems->trich_yeu?></p>
+        <strong>Nội dung: </strong><p><?=$vanbanitems->noi_dung?></p>
          <ul style="margin-left: 20px;list-style: none">
             <?php foreach ($dinhkems as $dk): ?>
             <li>

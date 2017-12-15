@@ -15,13 +15,13 @@
 </div>
 <div id="newHome">
     <h1>
-        TIN TỨC - SỰ KIỆN
+        <a href="<?=base_url('tintuc')?>">TIN TỨC - SỰ KIỆN</a>
     </h1>
     <div class="newList">
     	<?php foreach ($tintucs as $tintuc): ?>
 
        <div class="newItem">
-       	<a class="itemTitle" href="<?=base_url('tin-tuc/' . $tintuc->slug.'.html')?>" title="<?php echo $tintuc->tieude ?>"><?php echo $tintuc->tieude ?></a>
+       	<a class="itemTitle" href="<?=base_url('tin-tuc/' . $tintuc->slug . '.html')?>" title="<?php echo $tintuc->tieude ?>"><i class="fa fa-arrow-circle-right"></i> <?php echo $tintuc->tieude ?></a>
        	<div class="itemDes"><?php echo $tintuc->mota ?></div>
        </div>
     	<?php endforeach?>

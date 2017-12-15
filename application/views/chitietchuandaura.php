@@ -1,7 +1,7 @@
 <div id="pageDetail">
 	<h1 id="pageDetailTitle">
 
-		Chuẩn đầu ra các ngành
+		Chuẩn đầu ra ngành  »  <?=$chuandauras->ten_nganh?>
 	</h1>
 	<div class="pageDetailContent">
 				<object data="<?=base_url($chuandauras->chuandaura)?>" type="application/pdf" width="100%" height="500px">
