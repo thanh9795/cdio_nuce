@@ -1,4 +1,10 @@
-<div class="row">
+<ol class="breadcrumb">
+	<li>
+		<a href="<?= base_url('nganhdaotao') ?>">Ngành đào tạo</a>
+	</li>
+	<li class="active"><?=$nganhdaotao->ten_nganh?></li>
+</ol>
+<div class="row" id="nganhdaotao">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>
 		<div class="alert alert-danger">
@@ -21,9 +27,8 @@
 			</div>
 			<div class="x_content">
 
-
 				<br>
-				<form method="POST" class="form-horizontal form-label-left">
+				<form method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mã ngành</label>
@@ -53,6 +58,46 @@
 						</div>
 					</div>
 
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Chuẩn đầu ra</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<div class="checkbox">
+								<label>
+									<input name="upload" type="checkbox" v-model="upload" value="1">
+									Upload file chuẩn đầu ra (PDF)
+									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id'>Xem chuẩn đầu ra</a>
+									<div class="modal fade" id="modal-id">
+										<div class="modal-dialog" style="width: 80%">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+													<h4 class="modal-title"><?=$nganhdaotao->ten_nganh?></h4>
+												</div>
+												<div class="modal-body">
+             <?php if ($nganhdaotao->chuandaura!=NULL): ?>
+              
+              <object data="<?= base_url($nganhdaotao->chuandaura) ?>" type="application/pdf" width="100%" height="500px">
+                <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?= base_url($nganhdaotao->chuandaura) ?>">Download PDF</a>.</p>
+             </object>
+             <?php else: ?>
+              <div class="alert alert-danger">
+               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+               <strong>Ngành này chưa có chuẩn đầu ra</strong> 
+              </div>
+             <?php endif ?>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</label>
+								<input v-if="upload" type="file" name="chuandaura" id="input" class="form-control" value="" >
+							</div>
+						</div>
+					</div>
+
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -66,3 +111,15 @@
 		</div>
 	</div>
 </div>
+<script>
+	var vm = new Vue({
+	
+		el: "#nganhdaotao",
+		data () {
+		  return {
+		    upload:false
+		  };
+		}
+	
+	})
+</script>
