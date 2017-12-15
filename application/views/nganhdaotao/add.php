@@ -11,6 +11,7 @@
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Thêm mới ngành đào tạo</h2>
+				<?php $this->load->view('partial/alert');?>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -66,6 +67,7 @@
 							<button type="submit" class="btn btn-success">Lưu</button>
 						</div>
 					</div>
+
 
 				</form>
 			</div>
