@@ -1,3 +1,9 @@
+<ol class="breadcrumb">
+	<li>
+		<a href="<?=base_url('vanban')?>">Ngành đào tạo</a>
+	</li>
+	<li class="active"><?=$vanban->so_ky_hieu_vb?></li>
+</ol>
 <div class="row" id="vanban">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>
@@ -9,7 +15,7 @@
 		<?php endif?>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2><?=$vanban->so_ky_hieu_vb?> <small>Chỉnh sửa thông tin văn bản</small></h2>
+				<h2><small>Chỉnh sửa thông tin văn bản</small> <?=$vanban->so_ky_hieu_vb?> </h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>

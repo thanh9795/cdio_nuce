@@ -24,6 +24,7 @@ class Nganhdaotao_model extends Cdio_Model {
 			$this->db->like('ten_nganh', $key);
 			$this->db->or_like('ma_nganh', $key);
 		}
+		$this->db->order_by('stt', 'asc');
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();
 	}
