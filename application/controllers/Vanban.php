@@ -59,7 +59,6 @@ $this->load->view('master', $data);
 				'noi_dung' => $this->input->post('noi_dung'),
 				'trich_yeu' => $this->input->post('trich_yeu'),
 				'stt' => $this->input->post('stt'),
-				'file_dinh_kem' => $this->input->post('file_dinh_kem'),
 			]);
 			$slug = to_slug($this->input->post('trich_yeu')) . "-" . $insert_id;
 			$this->Vanban_model->update(['slug' => $slug], $insert_id);
@@ -81,7 +80,6 @@ $this->load->view('master', $data);
 				'noi_dung' => $this->input->post('noi_dung'),
 				'trich_yeu' => $this->input->post('trich_yeu'),
 				'stt' => $this->input->post('stt'),
-				'file_dinh_kem' => $this->input->post('file_dinh_kem'),
 			], $id);
 		}
 

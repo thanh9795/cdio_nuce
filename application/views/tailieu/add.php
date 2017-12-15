@@ -9,7 +9,7 @@
 			}
 		});
 	});
-	
+
 </script>
 <div class="row" id="tailieu">
 	<div class="col-md-12">
@@ -20,7 +20,7 @@
 			<?=validation_errors()?>
 		</div>
 		<?php endif?>
-		<?php if ($this->input->post('loai_link')==2&&$this->upload->display_errors()!= NULL): ?>
+		<?php if ($this->input->post('loai_link') == 2 && $this->upload->display_errors() != NULL): ?>
 		<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
@@ -45,14 +45,14 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Tên tài liệu</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" value="<?= set_value('ten_tai_lieu') ?>" name="ten_tai_lieu" class="form-control" >
+							<input type="text" value="<?=set_value('ten_tai_lieu')?>" name="ten_tai_lieu" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" value="<?= set_value('mota') ?>" name="mota" class="form-control" >
+							<input type="text" value="<?=set_value('mota')?>" name="mota" class="form-control" >
 						</div>
 					</div>
 
@@ -65,7 +65,7 @@
 									Link
 								</label>
 							</div>
-							
+
 							<div class="checkbox">
 								<label>
 									<input type="radio" name="loai_link" value="2" class=" loai_link">
@@ -78,7 +78,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">Link tài liệu</label>
 							<div class="col-md-9 col-sm-9 col-xs-12">
-								<input type="text" value="<?= set_value('link_tai_lieu') ?>" name="link_tai_lieu" class="form-control" >
+								<input type="text" value="<?=set_value('link_tai_lieu')?>" name="link_tai_lieu" class="form-control" >
 							</div>
 						</div>
 
@@ -95,7 +95,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">STT</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" value="<?= set_value('stt') ?>" name="stt" class="form-control" >
+							<input type="number" value="<?=set_value('stt')?>" name="stt" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group">
@@ -104,12 +104,12 @@
 							<select name="ma_nhom" id="input" class="form-control" required="required">
 								<option value=""></option>
 								<?php foreach ($nhoms as $nhom): ?>
-									<option <?= $this->input->post('ma_nhom')==$nhom->id?"selected":"" ?>  value="<?= $nhom->id ?>"><?= $nhom->ten_nhom ?></option>
-								<?php endforeach ?>
+									<option <?=$this->input->post('ma_nhom') == $nhom->id ? "selected" : ""?>  value="<?=$nhom->id?>"><?=$nhom->ten_nhom?></option>
+								<?php endforeach?>
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">

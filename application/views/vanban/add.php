@@ -42,25 +42,21 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Trích yếu</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="trich_yeu" class="form-control" >
+							<textarea id="trich_yeu" name="trich_yeu" style="width:100% !important;">
+					</textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">stt</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="stt" class="form-control" >
+							<input type="number" name="stt" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="noi_dung" class="form-control" >
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">File đính kèm</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="file" name="file_dinh_kem" class="form-control" >
+							<textarea id="noi_dung" name="noi_dung">
+					</textarea>
 						</div>
 					</div>
 
@@ -77,3 +73,13 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function() {
+		if(CKEDITOR.instances['noi_dung']) {
+			CKEDITOR.remove(CKEDITOR.instances['noi_dung']);
+		}
+		CKEDITOR.config.width = 750;
+		CKEDITOR.config.height = 300;
+		CKEDITOR.replace('noi_dung',{});
+	})
+</script>

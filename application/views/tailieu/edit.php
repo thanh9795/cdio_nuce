@@ -105,7 +105,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">STT</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="stt" value="<?=$tailieu->stt?>" class="form-control" >
+							<input type="number" name="stt" value="<?=$tailieu->stt?>" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group">
