@@ -9,7 +9,7 @@
 	        }
 	    });
 	});
-	
+
 </script>
 <div class="row" id="tailieu">
 	<div class="col-md-12">
@@ -20,7 +20,7 @@
 			<?=validation_errors()?>
 		</div>
 		<?php endif?>
-		<?php if ($this->input->post('loai_link')==2&&$this->upload->display_errors()!= NULL): ?>
+		<?php if ($this->input->post('loai_link') == 2 && $this->upload->display_errors() != NULL): ?>
 		<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
@@ -29,7 +29,7 @@
 		<?php endif?>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Form Basic Elements <small>different form elements</small></h2>
+				<h2>Chỉnh sửa tài liệu</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -54,7 +54,9 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="mota" value="<?=$tailieu->mota?>" class="form-control" >
+							<textarea id="mota" name="mota">
+						<?=$tailieu->mota?>
+					</textarea>
 						</div>
 					</div>
 
@@ -67,7 +69,7 @@
 										Link
 									</label>
 								</div>
-							
+
 							<div class="checkbox">
 								<label>
 									<input type="radio" name="loai_link" value="2" class=" loai_link">
@@ -83,7 +85,7 @@
 								<input type="text" name="link_tai_lieu" value="<?=$tailieu->link_tai_lieu?>" class="form-control" >
 							</div>
 						</div>
-					
+
 					</div>
 					<div v-else>
 							<div class="form-group">
@@ -106,8 +108,8 @@
 							<select name="ma_nhom" id="input" class="form-control" required="required">
 								<option value=""></option>
 								<?php foreach ($nhoms as $nhom): ?>
-									<option <?=$tailieu->ma_nhom==$nhom->id?"selected":""?> value="<?= $nhom->id ?>"><?= $nhom->ten_nhom ?></option>
-								<?php endforeach ?>
+									<option <?=$tailieu->ma_nhom == $nhom->id ? "selected" : ""?> value="<?=$nhom->id?>"><?=$nhom->ten_nhom?></option>
+								<?php endforeach?>
 							</select>
 						</div>
 					</div>
@@ -135,5 +137,16 @@
 		  };
 		}
 
+	})
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		if(CKEDITOR.instances['mota']) {
+			CKEDITOR.remove(CKEDITOR.instances['mota']);
+		}
+		CKEDITOR.config.width = 750;
+		CKEDITOR.config.height = 300;
+		CKEDITOR.replace('mota',{});
 	})
 </script>

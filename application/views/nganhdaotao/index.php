@@ -54,14 +54,14 @@
 								<td><?=$vb->stt?></td>
 								<td><?=$vb->so_hoc_ky?></td>
 								<td>
-									
-									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
+
+									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs">CTĐT</a>
 									<a href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
-									<?php if ($vb->chuandaura!=NULL): ?>
+									<?php if ($vb->chuandaura != NULL): ?>
 
-									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?= $vb->id ?>'>Xem chuẩn đầu ra</a>
-									<div class="modal fade" id="modal-id<?= $vb->id ?>">
+									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?=$vb->id?>'>Xem chuẩn đầu ra</a>
+									<div class="modal fade" id="modal-id<?=$vb->id?>">
 										<div class="modal-dialog" style="width:80%">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -69,17 +69,17 @@
 													<h4 class="modal-title"><?=$vb->ten_nganh?></h4>
 												</div>
 												<div class="modal-body">
-													<?php if ($vb->chuandaura!=NULL): ?>
-														
-														<object data="<?= base_url($vb->chuandaura) ?>" type="application/pdf" width="100%" height="500px">
-													   <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?= base_url($vb->chuandaura) ?>">Download PDF</a>.</p>
+													<?php if ($vb->chuandaura != NULL): ?>
+
+														<object data="<?=base_url($vb->chuandaura)?>" type="application/pdf" width="100%" height="500px">
+													   <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?=base_url($vb->chuandaura)?>">Download PDF</a>.</p>
 													</object>
 													<?php else: ?>
 														<div class="alert alert-danger">
 															<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-															<strong>Ngành này chưa có chuẩn đầu ra</strong> 
+															<strong>Ngành này chưa có chuẩn đầu ra</strong>
 														</div>
-													<?php endif ?>
+													<?php endif?>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -88,9 +88,9 @@
 										</div>
 									</div>
 								<?php else: ?>
-									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?= $vb->id ?>'>Xem chuẩn đầu ra</a>
-										<?php endif ?>
-									
+									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?=$vb->id?>'>Xem chuẩn đầu ra</a>
+										<?php endif?>
+
 								</td>
 							</tr>
 						<?php endforeach?>

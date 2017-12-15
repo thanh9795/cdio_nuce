@@ -56,6 +56,11 @@ class Api extends CI_Controller {
 		$tintucitem = $this->Tintuc_model->get($id);
 		echo json_encode($tintucitem);
 	}
+	public function chuandauracacnganh() {
+		$this->load->model('Nganhdaotao_model');
+		$chuandaura = $this->Nganhdaotao_model->get_all();
+		echo json_encode($chuandaura);
+	}
 
 }
 

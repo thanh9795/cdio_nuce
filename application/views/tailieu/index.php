@@ -2,17 +2,17 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="<?= base_url('tailieu/add') ?>" class="btn btn-primary">Thêm mới</a>
+				<a href="<?=base_url('tailieu/add')?>" class="btn btn-primary">Thêm mới</a>
 			</div>
 			<div class="col-md-6">
 				<form action="">
-					<div id="imaginary_container"> 
+					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
 							<input type="text" class="form-control" name="key" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
-								</button>  
+								</button>
 							</span>
 						</div>
 					</div>
@@ -21,18 +21,12 @@
 		</div>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Quản lý Văn bản điều hành</h2>
+				<h2>Quản lý tài liệu biểu mẫu</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
 					</li>
 					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
@@ -51,26 +45,28 @@
 							<th>Lượt tải</th>
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
+							<th>STT</th>
 							<th>Thao tác</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($tailieus as $vb): ?>
-							
+
 							<tr>
-								<th scope="row"><?= $vb->id ?></th>
-								<td><?= $vb->ten_tai_lieu ?></td>
-								<td><?= $vb->mota ?></td>
-								<td><?= $vb->luot_xem ?></td>
-								<td><?= $vb->luot_tai ?></td>
-								<td><?= $vb->date_created ?></td>
-								<td><?= $vb->date_updated ?></td>
+								<th scope="row"><?=$vb->id?></th>
+								<td><?=$vb->ten_tai_lieu?></td>
+								<td><?=$vb->mota?></td>
+								<td><?=$vb->luot_xem?></td>
+								<td><?=$vb->luot_tai?></td>
+								<td><?=$vb->date_created?></td>
+								<td><?=$vb->date_updated?></td>
+								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?= base_url('tailieu/update/'.$vb->id) ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?= $vb->id ?>"><i class="fa fa-trash"></i></button>
+									<a href="<?=base_url('tailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach?>
 
 					</tbody>
 				</table>
@@ -89,7 +85,7 @@
 			}).then(function (rs) {
 				if (rs) {
 					$.ajax({
-						url: '<?= base_url('tailieu/delete') ?>',
+						url: '<?=base_url('tailieu/delete')?>',
 						type: 'POST',
 						dataType: 'text',
 						data: {id: btnxoa.data('id')},
@@ -99,7 +95,7 @@
 							icon:'success'
 						}).then(function () {
 							location.reload();
-						})	
+						})
 						console.log("success");
 					})
 					.fail(function() {
@@ -108,8 +104,8 @@
 					.always(function() {
 						console.log("complete");
 					});
-					
-					
+
+
 				}
 			});
 		});

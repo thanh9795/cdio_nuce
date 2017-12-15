@@ -2,17 +2,17 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="" class="btn btn-primary">mới</a>
+				<a href="" class="btn btn-primary">Thêm mới</a>
 			</div>
 			<div class="col-md-6">
 				<form action="">
-					<div id="imaginary_container"> 
+					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
 							<input type="text" class="form-control" name="search" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
-								</button>  
+								</button>
 							</span>
 						</div>
 					</div>
@@ -51,24 +51,18 @@
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
 							<th>STT</th>
-							<th>File 1</th>
-							<th>File 2</th>
-							<th>File 3</th>
 						</tr>
 					</thead>
 					<tbody>
-							
+
 							<tr>
-								<th scope="row"><?= $tin->id ?></th>
-								<td><?= $tin->tieude ?></td>
-								<td><?= $tin->mota ?></td>
-								<td><?= $tin->chi_tiet ?></td>
-								<td><?= $tin->date_created ?></td>
-								<td><?= $tin->date_updated ?></td>
-								<td><?= $tin->stt ?></td>
-								<td><?= $tin->file1 ?></td>
-								<td><?= $tin->file2 ?></td>
-								<td><?= $tin->file3 ?></td>
+								<th scope="row"><?=$tin->id?></th>
+								<td><?=$tin->tieude?></td>
+								<td><?=$tin->mota?></td>
+								<td><?=$tin->chi_tiet?></td>
+								<td><?=$tin->date_created?></td>
+								<td><?=$tin->date_updated?></td>
+								<td><?=$tin->stt?></td>
 							</tr>
 
 					</tbody>

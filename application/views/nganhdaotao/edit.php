@@ -52,7 +52,14 @@
 							<input type="text" name="so_hoc_ky" value="<?=$nganhdaotao->so_hoc_ky?>" class="form-control" >
 						</div>
 					</div>
-
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Chuẩn đầu ra
+						<p><small class="success">(Định dạng pdf)</small></p>
+						</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<input type="file" name="chuandaura" value="<?=$nganhdaotao->chuandaura?>" class="form-control" >
+						</div>
+					</div>
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">

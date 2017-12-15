@@ -22,19 +22,24 @@
           		<table class="table table-hover">
           			<thead>
           				<tr>
-          					<th>stt</th>
           					<th>Mã ngành</th>
           					<th>Tên ngành</th>
           					<th>Thao tác</th>
           				</tr>
           			</thead>
           			<tbody>
-          				<?php foreach ($nganhdaotaos as $nganhdaotao): ?>
+          				<?php foreach ($chuandauras as $cdr): ?>
           					<tr>
-          						<td><?php echo $nganhdaotao->id ?></td>
-          						<td><?php echo $nganhdaotao->ma_nganh ?></td>
-          						<td><?php echo $nganhdaotao->ten_nganh ?></td>
-          						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>">Xem CTĐT</a></td>
+          						<td><?php echo $cdr->ma_nganh ?></td>
+          						<td><?php echo $cdr->ten_nganh ?></td>
+                      <td>
+                      <?php if ($cdr->chuandaura != NULL): ?>
+                        <a class="btn btn-primary" href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>">Xem chuẩn đầu ra</a>
+                                                <?php else: ?>
+                              <a class="btn btn-danger" disabled="" href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>">Xem chuẩn đầu ra</a>
+                          <?php endif?>
+                        </td>
+
           					</tr>
           				<?php endforeach?>
           			</tbody>

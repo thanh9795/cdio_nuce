@@ -198,7 +198,7 @@
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="<?=base_url('home/qd_chuandaura')?>" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
-										<li><a href="#" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
+										<li><a href="<?=base_url('home/chuandaura_view')?>" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
 									</ul>
 								</li>
 								<li class="dropdown">

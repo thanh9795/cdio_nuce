@@ -8,9 +8,8 @@ class Tintuc_model extends Cdio_Model {
 		parent::__construct();
 
 	}
-	function getbySlug($slug)
-	{
-        return $this->db->get_where($this->table_name, array('slug' => $slug))->row();
+	function getbySlug($slug) {
+		return $this->db->get_where($this->table_name, array('slug' => $slug))->row();
 	}
 	function countall($key) {
 		if ($key != NULL) {
@@ -23,7 +22,7 @@ class Tintuc_model extends Cdio_Model {
 		if ($key != NULL) {
 			$this->db->like('tieude', $key);
 		}
-		$this->db->order_by('date_created', 'desc');
+		$this->db->order_by('stt', 'asc');
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();
 	}

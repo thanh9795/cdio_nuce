@@ -11,9 +11,9 @@
             <?php foreach ($dinhkems as $dk): ?>
             <li>
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
-                <?= attach($dk) ?>
+                <?=attach($dk)?>
             </li>
-            <?php endforeach ?>
+            <?php endforeach?>
         </ul>
     </div>
     <div id="ctl10_ucLoadControl_ctl00_pnOther">
@@ -22,9 +22,9 @@
             <h1>Các tin tức khác</h1>
             <?php foreach ($all as $tt): ?>
                 <div title="<?=$tt->tieude?>" class="newOtherItem">
-                    <i class="fa fa-angle-right" aria-hidden="true"></i> 
-                    <a href="<?= base_url('tin-tuc/'.$tt->slug.'.html') ?>"><?=$tt->tieude?></a>
-                    <span> (<?=date("d/m/Y H:i",strtotime($tt->date_created))?>)</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <a href="<?=base_url('tin-tuc/' . $tt->slug . '.html')?>"><?=$tt->tieude?></a>
+                    <span> (<?=date("d/m/Y", strtotime($tt->date_created))?>)</span>
                 </div>
             <?php endforeach?>
         </div>

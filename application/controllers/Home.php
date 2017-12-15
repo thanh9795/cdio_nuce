@@ -254,6 +254,47 @@ class Home extends CI_Controller {
 		$this->load->view('master_home', $data);
 	}
 
+	public function chuandaura_view() {
+
+		$this->load->model('Nganhdaotao_model');
+		$this->load->library('Paginator');
+		$key = $this->input->get('key');
+		$totalItems = $this->Nganhdaotao_model->countall($key);
+		$itemsPerPage = 15;
+		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
+		$urlPattern = base_url('home/chuandaura_view?key=' . $key . '&page=(:num)');
+		$offset = ($currentPage - 1) * 15;
+		$chuandaura = $this->Nganhdaotao_model->getall($key, 15, $offset);
+
+		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
+		$data = [
+			'subview' => 'chuandaura_view',
+			'subdata' => [
+				'chuandauras' => $chuandaura,
+				'paginator' => $paginator,
+			],
+
+		];
+		$this->load->view('master_home', $data);
+	}
+
+	public function chitietchuandaura($id) {
+		$this->load->model('Nganhdaotao_model');
+
+		$chuandaura = $this->Nganhdaotao_model->get($id);
+		$all = $this->Nganhdaotao_model->get_all('', '', ['id!=' => $id]);
+		$data = [
+			'subview' => "chitietchuandaura",
+			'subdata' => [
+				'chuandauras' => $chuandaura,
+				'all' => $all,
+			],
+		];
+
+		//var_dump($tintucitem);
+		$this->load->view('master_home', $data);
+	}
+
 }
 
 /* End of file Home.php */

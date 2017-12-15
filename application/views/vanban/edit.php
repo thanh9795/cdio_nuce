@@ -1,15 +1,15 @@
 <div class="row" id="vanban">
 	<div class="col-md-12">
-		<?php if (validation_errors()!=NULL): ?>
+		<?php if (validation_errors() != NULL): ?>
 		<div class="alert alert-danger">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			
-			<?=validation_errors()  ?>
+
+			<?=validation_errors()?>
 		</div>
-		<?php endif ?>
+		<?php endif?>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2><?= $vanban->so_ky_hieu_vb ?> <small>Chỉnh sửa thông tin văn bản</small></h2>
+				<h2><?=$vanban->so_ky_hieu_vb?> <small>Chỉnh sửa thông tin văn bản</small></h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -19,7 +19,7 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				
+
 
 				<br>
 				<form method="POST" class="form-horizontal form-label-left">
@@ -27,30 +27,30 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số ký hiệu văn bản</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_ky_hieu_vb" value="<?= $vanban->so_ky_hieu_vb ?>" class="form-control" >
+							<input type="text" name="so_ky_hieu_vb" value="<?=$vanban->so_ky_hieu_vb?>" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Trích yếu</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="trich_yeu" value="<?= $vanban->trich_yeu ?>" class="form-control" >
+							<input type="text" name="trich_yeu" value="<?=$vanban->trich_yeu?>" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<textarea class="form-control custom-control" name="noi_dung" rows="4" style="resize:none"><?= $vanban->noi_dung ?></textarea>
+							<textarea class="form-control custom-control" name="noi_dung" rows="4" style="resize:none"><?=$vanban->noi_dung?></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số thứ tự</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="stt" value="<?= $vanban->stt ?>" class="form-control" >
+							<input type="text" name="stt" value="<?=$vanban->stt?>" class="form-control" >
 						</div>
 					</div>
-					
+
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Quản lý files</label>
@@ -80,7 +80,7 @@
 								</div>
 								<div class="col-md-4">
 									<legend>Thêm mới tài liệu</legend>
-									
+
 									<div class="form-group">
 										<label for="">Kiểu</label>
 										<div class="radio">
@@ -97,24 +97,24 @@
 										</div>
 									</div>
 									<div v-if="type==1">
-										
+
 										<div class="form-group">
 											<label for="">Đường dẫn</label>
 											<input type="text" v-model="link" class="form-control" id="" >
 										</div>
-										
+
 									</div>
 									<div v-else>
 										<div class="form-group">
 											<label for="">Chọn file upload</label>
 											<input type="file"  class="form-control" id="fileDecuong" >
 										</div>
-										
+
 									</div>
-									
-									
-									
-									
+
+
+
+
 									<button type="button" @click="SaveFiles" class="btn btn-primary">Thêm mới</button>
 								</div>
 							</div>
@@ -123,7 +123,7 @@
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-							<a type="reset" class="btn btn-primary" href="<?= base_url('vanban') ?>">Hủy</a>
+							<a type="reset" class="btn btn-primary" href="<?=base_url('vanban')?>">Hủy</a>
 							<button type="submit" class="btn btn-success">Lưu</button>
 						</div>
 					</div>
@@ -142,8 +142,8 @@
 		el: "#vanban",
 		data () {
 			return {
-				currentid:<?= $this->uri->segment(3) ?>,
-				base:'<?= base_url() ?>',
+				currentid:<?=$this->uri->segment(3)?>,
+				base:'<?=base_url()?>',
 				link:"",
 				monhoc:"",
 				type:1,
@@ -162,7 +162,7 @@
 			}
 		},
 		created(){
-			this.getDecuong(this.currentid);		
+			this.getDecuong(this.currentid);
 		},
 		methods: {
 			getDecuong(id){
@@ -181,7 +181,7 @@
 			},
 			deleteitem:function (id,index) {
 				var self=this;
-				
+
 				swal({ title: "Thông báo",
 					text: "Bạn có chắc chắn muốn đính kèm: "+ self.decuongs[index].link,
 					type: "warning",
@@ -210,7 +210,7 @@
 				  }, response => {
 				    // error callback
 				});*/
-			},	
+			},
 			ShowListTailieu (id,tenmon) {
 				this.currentid=id;
 				this.getDecuong(id);
@@ -218,8 +218,8 @@
 				$("#modal-show").modal("show");
 			},
 			SaveFiles(e){
-				
-				NProgress.start() 
+
+				NProgress.start()
 				if (this.type==1) {
 					let data={
 						id_vanban:this.currentid,
@@ -269,6 +269,16 @@
 				}
 			}
 		}
-		
+
+	})
+</script>
+<script type="text/javascript">
+	$(function() {
+		if(CKEDITOR.instances['noi_dung']) {
+			CKEDITOR.remove(CKEDITOR.instances['noi_dung']);
+		}
+		CKEDITOR.config.width = 750;
+		CKEDITOR.config.height = 300;
+		CKEDITOR.replace('noi_dung',{});
 	})
 </script>

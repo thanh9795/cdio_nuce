@@ -27,9 +27,9 @@
                             <div class="edocman-description-details">
                                 <div style="float: left; margin-right: 10px;">
                                     <?php
-                                    $ext = explode('.', $tailieu->link_tai_lieu);
-                                    $ext = end($ext);
-                                    ?>
+$ext = explode('.', $tailieu->link_tai_lieu);
+$ext = end($ext);
+?>
                                     <img src="<?=base_url(get_icon($ext))?>" alt="">
                                 </div>
                                 <p></p>
@@ -37,31 +37,31 @@
                             <div class="clearfix"></div>
                             <div class="edocman-taskbar clearfix">
                                 <ul>
-                                 <li>
-                                    <?php if ($tailieu->loai_link==1): ?>
+                                   <li>
+                                    <?php if ($tailieu->loai_link == 1): ?>
 
                                     <?php else: ?>
-                                        <a class="btn btnDownload" download="" data-value="<?= $tailieu->id ?>"
+                                        <a class="btn btnDownload" download="" data-value="<?=$tailieu->id?>"
                                             href="<?=base_url($tailieu->link_tai_lieu)?>"><i class="edocman-icon-download"></i>Tải xuống</a>
-                                        <?php endif ?>
+                                        <?php endif?>
                                     </li>
                                     <li>
-                                        <?php if ($tailieu->loai_link==2): ?>
+                                        <?php if ($tailieu->loai_link == 2): ?>
 
-                                            <a data-value="<?= $tailieu->id ?>" class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . base_url($tailieu->link_tai_lieu) : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                            <a data-value="<?=$tailieu->id?>" class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . base_url($tailieu->link_tai_lieu) : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a>
                                         <?php else: ?>
-                                         <a data-value="<?= $tailieu->id ?>" class="btn btnView2" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-eye-open"></i>Xem</a>
-                                     <?php endif ?>
-                                 </li>
-                                 <li><a href="#" class="btn btn-primary btnDetail" data-value="<?= $tailieu->id ?>" data-toggle="modal" data-target="#modelDetail<?= $tailieu->id ?>">Chi tiết</a></li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <div id="modelDetail<?= $tailieu->id ?>" class="modal fade" role="dialog">
+                                           <a data-value="<?=$tailieu->id?>" class="btn btnView2" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                       <?php endif?>
+                                   </li>
+                                   <li><a href="#" class="btn btn-primary btnDetail" data-value="<?=$tailieu->id?>" data-toggle="modal" data-target="#modelDetail<?=$tailieu->id?>">Chi tiết</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div id="modelDetail<?=$tailieu->id?>" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -81,12 +81,12 @@
                                         <td class="edocman-document-property-label"><strong>Tên file:</strong></td>
                                         <td class="edocman-document-property-value" id="docTitle"><?php echo $tailieu->ten_tai_lieu ?></td>
                                     </tr>
-                                    <?php if ($tailieu->loai_link==2): ?>
+                                    <?php if ($tailieu->loai_link == 2): ?>
 
-                                        
+
                                         <tr>
                                             <td class="edocman-document-property-label"><strong>Kích thước:</strong></td>
-                                            <td class="edocman-document-property-value" id="docSize"><?= number_format(filesize($tailieu->link_tai_lieu)/1024,1). "KB" ?></td>
+                                            <td class="edocman-document-property-value" id="docSize"><?=number_format(filesize($tailieu->link_tai_lieu) / 1024, 1) . "KB"?></td>
                                         </tr>
                                         <tr>
                                             <td class="edocman-document-property-label"><strong>Loại file:</strong></td>
@@ -96,7 +96,7 @@
                                             <td class="edocman-document-property-label"><strong>Lượt tải:</strong></td>
                                             <td class="edocman-document-property-value" id="docDL"><?php echo $tailieu->luot_tai ?></td>
                                         </tr>
-                                    <?php endif ?>
+                                    <?php endif?>
                                     <tr>
                                         <td class="edocman-document-property-label"><strong>Lượt xem:</strong></td>
                                         <td class="edocman-document-property-value" id="docHit"><?php echo $tailieu->luot_xem ?></td>
@@ -115,28 +115,28 @@
 
                         <div class="edocman-taskbar clearfix">
                             <ul>
-                             <li>
-                                <?php if ($tailieu->loai_link==1): ?>
+                               <li>
+                                <?php if ($tailieu->loai_link == 1): ?>
 
                                 <?php else: ?>
-                                    <a class="btn btnDownload" download="" data-value="<?= $tailieu->id ?>"
+                                    <a class="btn btnDownload" download="" data-value="<?=$tailieu->id?>"
                                         href="<?=base_url($tailieu->link_tai_lieu)?>"><i class="edocman-icon-download"></i>Tải xuống</a>
-                                    <?php endif ?>
+                                    <?php endif?>
                                 </li>
                                 <li>
-                                    <?php if ($tailieu->loai_link==2): ?>
+                                    <?php if ($tailieu->loai_link == 2): ?>
 
-                                        <a data-value="<?= $tailieu->id ?>" class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . base_url($tailieu->link_tai_lieu) : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                        <a data-value="<?=$tailieu->id?>" class="btn btnView2" href="<?=in_array($ext, explode("|", READABLE)) ? "http://docs.google.com/gview?url=" . base_url($tailieu->link_tai_lieu) : "javascript:void(0)"?>"><i class="edocman-icon-eye-open"></i>Xem</a>
                                     <?php else: ?>
-                                     <a data-value="<?= $tailieu->id ?>" class="btn btnView2" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-eye-open"></i>Xem</a>
-                                 <?php endif ?>
-                             </li>
-                         </ul>
-                     </div>
+                                       <a data-value="<?=$tailieu->id?>" class="btn btnView2" href="<?=$tailieu->link_tai_lieu?>"><i class="edocman-icon-eye-open"></i>Xem</a>
+                                   <?php endif?>
+                               </li>
+                           </ul>
+                       </div>
 
-                 </div>
-             </div>
-             <div class="modal-footer">
+                   </div>
+               </div>
+               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
             </div>
         </div>
@@ -145,80 +145,80 @@
 <?php endforeach?>
 <?php echo $paginator ?>
 <script>
- $(".btnDownload").on("click", function (e) {
-    //    e.preventDefault();
-    var curId = parseInt($(this).attr("data-value"));
-    $.ajax({
-     url: "<?= base_url('Home') ?>/incDownload",
-     type: 'POST',
-     data: {docId:curId},
+   $(".btnDownload").on("click", function (e) {
+   //    e.preventDefault();
+   var curId = parseInt($(this).attr("data-value"));
+   $.ajax({
+   url: "<?=base_url('Home')?>/incDownload",
+   type: 'POST',
+   data: {docId:curId},
 
- })
-    .done(function() {
-     console.log("success");
- })
-    .fail(function() {
-     console.log("error");
- })
-    .always(function() {
-     console.log("complete");
- });
+})
+.done(function() {
+console.log("success");
+})
+.fail(function() {
+console.log("error");
+})
+.always(function() {
+console.log("complete");
+});
 
 });
 
- $(".btnView2").on("click", function (e) {
-      //  e.preventDefault();
-      var curId = parseInt($(this).attr("data-value"));
-      $.ajax({
-         url: "<?= base_url('Home') ?>/incView",
-         type: 'POST',
-         data: {docId:curId},
+$(".btnView2").on("click", function (e) {
+//  e.preventDefault();
+var curId = parseInt($(this).attr("data-value"));
+$.ajax({
+url: "<?=base_url('Home')?>/incView",
+type: 'POST',
+data: {docId:curId},
 
-     })
-      .done(function() {
-         console.log("success");
-     })
-      .fail(function() {
-         console.log("error");
-     })
-      .always(function() {
-         console.log("complete");
-     });
-      
-  });
-  /*   $(".btnDetail").on("click", function () {
-         var curId = parseInt($(this).attr("data-value"));
-         $.ajax({
-             type: "POST",
-             url: "../ControlPanel/default.aspx/viewDocDetail",
-             data: "{docId:'" + curId + "'}",
-             contentType: "application/json; charset=utf-8",
-             datatype: "json",
-             async: "true",
-             success: function (data) {
-                 var typeOfFile = data.d.FileAttach.substr(data.d.FileAttach.lastIndexOf("."));
-                 $("#docName").html(data.d.Title);
-                 $("#docDes").html(data.d.Description);
-                 $("#docTitle").html(data.d.Title);
-                 $("#docSize").html(data.d.SizeOfFile);
-                 $("#docTOP").html("application/" + typeOfFile);
-                 $("#docHit").html(data.d.Hit);
-                 $("#docDL").html(data.d.Download);
-                 $("#docCreateDate").html(parseJsonDate(data.d.CreatedDate));
-                 $("#docUpdate").html(parseJsonDate(data.d.LastUpdateDate));
-                 $("#docBtnDL")[0].href = data.d.FileAttach;
-                 $("#docBtnDL")[0].setAttribute("data-value", data.d.Id);
-                 var strLinkView = window.location.origin + "/" + data.d.FileAttach;
-                 $("#docBtnView")[0].href = "http://docs.google.com/gview?url=" + strLinkView + "";
-                 $("#docBtnView")[0].setAttribute("data-value", data.d.Id);
-             },
-             error: function (data) { debugger; }
-         });
-     });
+})
+.done(function() {
+console.log("success");
+})
+.fail(function() {
+console.log("error");
+})
+.always(function() {
+console.log("complete");
+});
 
-     function parseJsonDate(jsonDateString) {
-         var date = new Date(parseInt(jsonDateString.replace('/Date(', '')));
-         return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
-     }*/
- </script>
+});
+/*   $(".btnDetail").on("click", function () {
+var curId = parseInt($(this).attr("data-value"));
+$.ajax({
+type: "POST",
+url: "../ControlPanel/default.aspx/viewDocDetail",
+data: "{docId:'" + curId + "'}",
+contentType: "application/json; charset=utf-8",
+datatype: "json",
+async: "true",
+success: function (data) {
+var typeOfFile = data.d.FileAttach.substr(data.d.FileAttach.lastIndexOf("."));
+$("#docName").html(data.d.Title);
+$("#docDes").html(data.d.Description);
+$("#docTitle").html(data.d.Title);
+$("#docSize").html(data.d.SizeOfFile);
+$("#docTOP").html("application/" + typeOfFile);
+$("#docHit").html(data.d.Hit);
+$("#docDL").html(data.d.Download);
+$("#docCreateDate").html(parseJsonDate(data.d.CreatedDate));
+$("#docUpdate").html(parseJsonDate(data.d.LastUpdateDate));
+$("#docBtnDL")[0].href = data.d.FileAttach;
+$("#docBtnDL")[0].setAttribute("data-value", data.d.Id);
+var strLinkView = window.location.origin + "/" + data.d.FileAttach;
+$("#docBtnView")[0].href = "http://docs.google.com/gview?url=" + strLinkView + "";
+$("#docBtnView")[0].setAttribute("data-value", data.d.Id);
+},
+error: function (data) { debugger; }
+});
+});
+
+function parseJsonDate(jsonDateString) {
+var date = new Date(parseInt(jsonDateString.replace('/Date(', '')));
+return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+}*/
+</script>
 </div>

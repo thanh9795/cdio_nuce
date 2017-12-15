@@ -25,7 +25,7 @@
                 <div class="newOtherItem">
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                     <a href="<?=base_url('van-ban/' . $vb->slug . '.html')?>"><?=$vb->so_ky_hieu_vb?></a>
-                    <span>(<?=$vb->date_created?>)</span>
+                    <span> (<?=date("d/m/Y", strtotime($vb->date_created))?>)</span>
                 </div>
         <?php endforeach?>
             </div>
