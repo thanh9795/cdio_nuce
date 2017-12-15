@@ -87,6 +87,8 @@
 											</div>
 										</div>
 									</div>
+								<?php else: ?>
+									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?= $vb->id ?>'>Xem chuẩn đầu ra</a>
 										<?php endif ?>
 									
 								</td>
