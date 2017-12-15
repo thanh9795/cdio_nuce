@@ -178,11 +178,12 @@ class Nganhdaotao extends CDIO_Controller {
 				'stt' => $this->input->post('stt'),
 				'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 			], $id);
-		}
-		$nganhdaotao = $this->Nganhdaotao_model->get($id);
-		$this->session->set_flashdata('code', 'success');
+				$this->session->set_flashdata('code', 'success');
 		$this->session->set_flashdata('message', 'Cập nhật thành công');
 
+		}
+		$nganhdaotao = $this->Nganhdaotao_model->get($id);
+	
 		$data = [
 
 			'content' => 'nganhdaotao/edit',

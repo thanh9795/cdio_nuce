@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ITPLUS CRM | Đăng nhập </title>
+    <title>CDIO | Đăng nhập </title>
 
     <!-- Bootstrap -->
     <link href="<?=base_url('assets') ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
