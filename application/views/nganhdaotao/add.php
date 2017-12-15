@@ -10,7 +10,7 @@
 		<?php endif?>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Thêm mới ngành đào tạo</h2>
+				<h2><small><a href="<?=base_url('nganhdaotao')?>">Ngành đào tạo /</a></small> Thêm mới ngành đào tạo</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="x_content">
 				<br>
-				<?php $this->load->view('partial/alert'); ?>
+				<?php $this->load->view('partial/alert');?>
 				<form method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
 
 					<div class="form-group">

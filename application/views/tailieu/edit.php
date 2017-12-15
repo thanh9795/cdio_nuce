@@ -11,6 +11,12 @@
 	});
 
 </script>
+<ol class="breadcrumb">
+	<li>
+		<a href="<?=base_url('tailieu')?>">Tài liệu</a>
+	</li>
+	<li class="active"><?=$tailieu->ten_tai_lieu?></li>
+</ol>
 <div class="row" id="tailieu">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>

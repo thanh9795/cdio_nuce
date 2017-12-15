@@ -14,7 +14,7 @@
         </form>
     </div>
     <?php foreach ($tailieus as $tailieu): ?>
-        <div id="s5_component_wrap">
+        <div id="s5_component_wrap" style="border:none !important; padding:0px 20px !important;">
             <div id="edocman-category-page-default" class="edocman-container">
                 <div class="clearfix"></div>
 

@@ -29,12 +29,12 @@
                     <td>{{item.type}}</td>
                     <td><a :href="item.type2==2?base+item.link:item.link">{{item.link|shorter}}</a></td>
                     <td>{{item.date_created}}</td>
-                  
+
                   </tr>
                 </tbody>
               </table>
             </div>
-            
+
           </div>
         </div>
         <div class="modal-footer">

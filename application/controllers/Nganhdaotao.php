@@ -11,15 +11,15 @@ class Nganhdaotao extends CDIO_Controller {
 	}
 	public function index() {
 
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Nganhdaotao_model->countall($key);
-		$itemsPerPage = 5;
+		$itemsPerPage = 10;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('Nganhdaotao?page=(:num)');
-		$offset = ($currentPage - 1) * 5;
-		$nganhdaotaos = $this->Nganhdaotao_model->getall($key, 5, $offset);
+		$offset = ($currentPage - 1) * 10;
+		$nganhdaotaos = $this->Nganhdaotao_model->getall($key, 10, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -85,7 +85,6 @@ class Nganhdaotao extends CDIO_Controller {
 			$hocky['hocki' . $i] = $tem;
 		}
 
-
 		$hocky['so_hoc_ky'] = range(1, $nganh->so_hoc_ky);
 		echo json_encode($hocky);
 	}
@@ -119,42 +118,38 @@ class Nganhdaotao extends CDIO_Controller {
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
 			if (!empty($_FILES['chuandaura']['name'])) {
-				$path='public/chuandaura/';
-				$conf['upload_path']   = $path;
+				$path = 'public/chuandaura/';
+				$conf['upload_path'] = $path;
 				$conf['allowed_types'] = 'pdf';
 				//$conf['file_name']     = '';
-				$conf['overwrite']     = FALSE;
-				$conf['max_size']      = 20000;
+				$conf['overwrite'] = FALSE;
+				$conf['max_size'] = 20000;
 				$this->load->library('upload', $conf);
-				if ( ! $this->upload->do_upload('chuandaura'))
-				{
+				if (!$this->upload->do_upload('chuandaura')) {
 					$this->session->set_flashdata('code', 'error');
 					$this->session->set_flashdata('message', $this->upload->display_errors());
-				}
-				else
-				{
+				} else {
 					$data = array('upload_data' => $this->upload->data());
 					$this->Nganhdaotao_model->insert([
 						'ten_nganh' => $this->input->post('ten_nganh'),
 						'ma_nganh' => $this->input->post('ma_nganh'),
 						'stt' => $this->input->post('stt'),
 						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
-						'chuandaura' =>$path.$this->upload->data()['file_name'],
+						'chuandaura' => $path . $this->upload->data()['file_name'],
 					]);
 					$this->session->set_flashdata('code', 'success');
 					$this->session->set_flashdata('message', 'Thêm mới thành công');
 				}
-			}else{
+			} else {
 				$this->Nganhdaotao_model->insert([
-						'ten_nganh' => $this->input->post('ten_nganh'),
-						'ma_nganh' => $this->input->post('ma_nganh'),
-						'stt' => $this->input->post('stt'),
-						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
-					]);
+					'ten_nganh' => $this->input->post('ten_nganh'),
+					'ma_nganh' => $this->input->post('ma_nganh'),
+					'stt' => $this->input->post('stt'),
+					'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+				]);
 				$this->session->set_flashdata('code', 'success');
 				$this->session->set_flashdata('message', 'Thêm mới thành công');
 			}
-			
 
 		}
 
@@ -167,51 +162,47 @@ class Nganhdaotao extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
-		$this->output->enable_profiler(TRUE);
+		//	$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
-			if ($this->input->post('upload')==1) {
-				$path='public/chuandaura/';
-				$conf['upload_path']   = $path;
+			if ($this->input->post('upload') == 1) {
+				$path = 'public/chuandaura/';
+				$conf['upload_path'] = $path;
 				$conf['allowed_types'] = 'pdf';
 				//$conf['file_name']     = '';
-				$conf['overwrite']     = FALSE;
-				$conf['max_size']      = 20000;
+				$conf['overwrite'] = FALSE;
+				$conf['max_size'] = 20000;
 				$this->load->library('upload', $conf);
-				if ( ! $this->upload->do_upload('chuandaura'))
-				{
+				if (!$this->upload->do_upload('chuandaura')) {
 					$this->session->set_flashdata('code', 'error');
 					$this->session->set_flashdata('message', $this->upload->display_errors());
-				}
-				else
-				{
+				} else {
 					$data = array('upload_data' => $this->upload->data());
 					$this->Nganhdaotao_model->update([
 						'ten_nganh' => $this->input->post('ten_nganh'),
 						'ma_nganh' => $this->input->post('ma_nganh'),
 						'stt' => $this->input->post('stt'),
 						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
-						'chuandaura' =>$path.$this->upload->data()['file_name'],
-					],$id);
+						'chuandaura' => $path . $this->upload->data()['file_name'],
+					], $id);
 					$this->session->set_flashdata('code', 'success');
 					$this->session->set_flashdata('message', 'Cập nhật thành công');
 				}
-			}else{
+			} else {
 				$this->Nganhdaotao_model->update([
-						'ten_nganh' => $this->input->post('ten_nganh'),
-						'ma_nganh' => $this->input->post('ma_nganh'),
-						'stt' => $this->input->post('stt'),
-						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
-					],$id);
+					'ten_nganh' => $this->input->post('ten_nganh'),
+					'ma_nganh' => $this->input->post('ma_nganh'),
+					'stt' => $this->input->post('stt'),
+					'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+				], $id);
 				$this->session->set_flashdata('code', 'success');
 				$this->session->set_flashdata('message', 'Cập nhật thành công');
 			}
-			
 
 		}
 		$nganhdaotao = $this->Nganhdaotao_model->get($id);
-	
+
 		$data = [
 
 			'content' => 'nganhdaotao/edit',

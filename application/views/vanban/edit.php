@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
 	<li>
-		<a href="<?=base_url('vanban')?>">Ngành đào tạo</a>
+		<a href="<?=base_url('vanban')?>">Văn bản điều hành</a>
 	</li>
 	<li class="active"><?=$vanban->so_ky_hieu_vb?></li>
 </ol>

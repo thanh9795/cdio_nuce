@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
 	<li>
-		<a href="<?=base_url('vanban')?>">Tin tức</a>
+		<a href="<?=base_url('tintuc')?>">Tin tức</a>
 	</li>
 	<li class="active"><?=$tintuc->tieude?></li>
 </ol>
