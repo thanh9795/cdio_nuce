@@ -22,7 +22,7 @@ class Tailieu_model extends Cdio_Model {
 			$this->db->like('ten_tai_lieu', $key);
 		}
 		$this->db->limit($limit, $offset);
-		$this->db->order_by('stt', 'asc');
+		$this->db->order_by('stt', 'desc');
 		return $this->db->get($this->table_name)->result();
 	}
 	function incDown($id) {

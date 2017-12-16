@@ -10,30 +10,30 @@
     <title>CDIO | Đăng nhập </title>
 
     <!-- Bootstrap -->
-    <link href="<?=base_url('assets') ?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<?=base_url('assets') ?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="<?=base_url('assets') ?>/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="<?=base_url('assets') ?>/vendors/animate.css/animate.min.css" rel="stylesheet">
-    <link href="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?=base_url('assets') ?>/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?=base_url('assets')?>/build/css/custom.min.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS & JS -->
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.js"></script>
-    <script src="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="<?=base_url('assets') ?>/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+    <script src="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.js"></script>
+    <script src="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="<?=base_url('assets')?>/vendors/pnotify/dist/pnotify.nonblock.js"></script>
   </head>
 
   <body class="login">
   <script type="text/javascript">
     $(document).ready(function() {
-      <?php if ($this->session->flashdata('logout')=='true'): ?>
+      <?php if ($this->session->flashdata('logout') == 'true'): ?>
         new PNotify({
               title: 'Thông báo',
               text: 'Đăng xuất thành công',
@@ -41,8 +41,8 @@
               hide: false,
               styling: 'bootstrap3'
           });
-      <?php endif ?>
-      <?php if ($this->session->flashdata('tokenend')=='true'): ?>
+      <?php endif?>
+      <?php if ($this->session->flashdata('tokenend') == 'true'): ?>
         new PNotify({
               title: 'Thông báo',
               text: 'Token bạn sử dụng để đăng nhập trước đó đã hết hạn',
@@ -50,11 +50,11 @@
               hide: false,
               styling: 'bootstrap3'
           });
-      <?php endif ?>
+      <?php endif?>
       $("#loginform").submit(function() {
          var form_data=$("#loginform").serialize();
         $.ajax({
-          url: '<?= base_url('page/login_submit') ?>',
+          url: '<?=base_url('page/login_submit')?>',
           type: 'POST',
           dataType: 'text',
           data: form_data,
@@ -78,10 +78,10 @@
                 hide: false,
                 styling: 'bootstrap3'
             });
-            <?php if($this->input->get('next')!=NULL):?>
-            setTimeout(function(){ window.location.assign('<?= base_url($this->input->get('next')) ?>') }, 1000);
-            <?php else:?>
-            setTimeout(function(){ window.location.assign('<?= base_url('admin') ?>') }, 1000);
+            <?php if ($this->input->get('next') != NULL): ?>
+            setTimeout(function(){ window.location.assign('<?=base_url($this->input->get('next'))?>') }, 1000);
+            <?php else: ?>
+            setTimeout(function(){ window.location.assign('<?=base_url('admin')?>') }, 1000);
             <?php endif?>
           }
 
@@ -97,7 +97,7 @@
         $("#token_form").submit(function() {
          var form_data=$("#token_form").serialize();
         $.ajax({
-          url: '<?= base_url('accesstoken/login_token') ?>',
+          url: '<?=base_url('accesstoken/login_token')?>',
           type: 'POST',
           dataType: 'text',
           data: form_data,
@@ -121,10 +121,10 @@
                 hide: false,
                 styling: 'bootstrap3'
             });
-               <?php if($this->input->get('next')!=NULL):?>
-            setTimeout(function(){ window.location.assign('<?= base_url($this->input->get('next')) ?>') }, 1000);
-            <?php else:?>
-            setTimeout(function(){ window.location.assign('<?= base_url('admin') ?>') }, 1000);
+               <?php if ($this->input->get('next') != NULL): ?>
+            setTimeout(function(){ window.location.assign('<?=base_url($this->input->get('next'))?>') }, 1000);
+            <?php else: ?>
+            setTimeout(function(){ window.location.assign('<?=base_url('admin')?>') }, 1000);
             <?php endif?>
           }
 
@@ -137,18 +137,18 @@
         });
         return false;
       });
-       
+
     });
   </script>
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
-      <h1><img src="<?= base_url('assets/build/images/header.jpg') ?>" style="width:300px;margin: auto;margin-top: 20px" class="img-responsive" alt="Image"></h1>
+      <h1><img src="<?=base_url('assets/build/images/header.jpg')?>" style="width:300px;margin: auto;margin-top: 20px" class="img-responsive" alt="Image"></h1>
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
 
-            <form id="loginform" method="POST"  action="<?= base_url('page/login_submit') ?>">
+            <form id="loginform" method="POST"  action="<?=base_url('page/login_submit')?>">
               <h1>Đăng nhập hệ thống</h1>
               <div>
                 <input type="text" id="username" name="username" class="form-control" placeholder="Tài khoản" required="" />
@@ -168,7 +168,7 @@
               </div>
               <div class="clearfix"></div>
 
-                
+
                 <br />
 
                 <div>
@@ -194,7 +194,7 @@
                 <p class="change_link">Đăng nhập tài khoản và mật khẩu ?
                   <a href="#signin" class="to_register"> Log in </a>
                 </p>
-              
+
                 <div class="clearfix"></div>
                 <br>
 
@@ -206,7 +206,7 @@
           </section>
         </div>
 
-       
+
       </div>
     </div>
   </body>
