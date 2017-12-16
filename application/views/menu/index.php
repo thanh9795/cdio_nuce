@@ -63,7 +63,7 @@ $menu4=$menu2;
 			event.preventDefault();
 			console.log($('.dd').nestable('serialize'));
 			$.ajax({
-				url: '<?= base_url("index.php/page/saveMenu") ?>',
+				url: '<?= base_url("Menu/savePosition") ?>',
 				type: 'POST',
 				dataType: 'text',
 				data: {data:$('.dd').nestable('serialize')},

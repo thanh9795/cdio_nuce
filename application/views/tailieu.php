@@ -27,10 +27,17 @@
                             <div class="edocman-description-details">
                                 <div style="float: left; margin-right: 10px;">
                                     <?php
-$ext = explode('.', $tailieu->link_tai_lieu);
-$ext = end($ext);
-?>
+                                      $ext = explode('.', $tailieu->link_tai_lieu);
+                                      $ext = end($ext);
+                                      ?>
+                                        <?php if ($tailieu->loai_link == 2): ?>
+
                                     <img src="<?=base_url(get_icon($ext))?>" alt="">
+                                  <?php else: ?>
+                                    <img src="<?=base_url('assets/build/images/Default-Link.png')?>" alt="">
+
+
+                                    <?php endif ?>
                                 </div>
                                 <p></p>
                             </div>
@@ -86,11 +93,25 @@ $ext = end($ext);
 
                                         <tr>
                                             <td class="edocman-document-property-label"><strong>Kích thước:</strong></td>
-                                            <td class="edocman-document-property-value" id="docSize"><?=number_format(filesize($tailieu->link_tai_lieu) / 1024, 1) . "KB"?></td>
+                                            <td class="edocman-document-property-value" id="docSize">
+                                              <?php if (file_exists($tailieu->link_tai_lieu)): ?>
+                                                
+                                              <?=number_format(filesize($tailieu->link_tai_lieu) / 1024, 1) . "KB"?>
+                                                <?php else: ?>
+                                                File không tồn tại trên server!
+                                              <?php endif ?>
+                                              </td>
                                         </tr>
                                         <tr>
                                             <td class="edocman-document-property-label"><strong>Loại file:</strong></td>
-                                            <td class="edocman-document-property-value" id="docTOP"></td>
+                                            <td class="edocman-document-property-value" id="docTOP">
+                                              <?php if (file_exists($tailieu->link_tai_lieu)): ?>
+
+                                              <?php echo mime_content_type($tailieu->link_tai_lieu) ?>
+                                               <?php else: ?>
+                                                File không tồn tại trên server!
+                                                <?php endif ?>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td class="edocman-document-property-label"><strong>Lượt tải:</strong></td>

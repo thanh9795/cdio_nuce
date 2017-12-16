@@ -11,8 +11,9 @@ class Menu extends CDIO_Controller {
 
 	public function index()
 	{
+		//$this->output->enable_profiler(TRUE);
 
- 		$menu=$this->Menu_model->get_all('','',array(),'','',['position','ASC']);
+ 		$menu=$this->Menu_model->get_all('','',[],'','','',['position','ASC']);
 		$data=[
 			'content'=>'menu/index',
 			'contentdata'=>[
@@ -64,6 +65,38 @@ class Menu extends CDIO_Controller {
 			$id=$this->input->post('id');
 			$this->Menu_model->delete($id);
 		}
+	}
+	public function savePosition()
+	{
+		$this->output->enable_profiler(TRUE);
+		  function output($menu,$parent=0,$menumodel,$pos=0)
+		    {
+		        
+		      foreach ($menu as $handle)
+		      {
+		          $pos++;
+		        if(isset($handle['children']))
+		        {
+
+		          $data = ['parent_id' =>$parent ,'position'=>$pos];
+
+		          $menumodel->update($data,$handle['id']);
+
+		          output($handle['children'],$handle['id'],$menumodel,$pos); 
+		        }
+		        else if(isset($handle['id']))
+		        {
+
+		          $data = ['parent_id' =>$parent,'position'=>$pos];
+
+		            $menumodel->update($data,$handle['id']);
+
+		        }
+		      }
+
+		    }
+
+		    output($this->input->post('data'),0,$this->Menu_model);
 	}
 }
 
