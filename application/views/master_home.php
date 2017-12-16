@@ -59,11 +59,21 @@
 		padding-bottom: 0px!important;
 	}
 	.open{
-		border-top: 1px solid red;
+		//border-top: 1px solid red;
+		  color: #0f297e!important;
+    background:  #fff;
+    /* -webkit-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
+    -moz-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1);
+    /* box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
+    -webkit-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+    -moz-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+    box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+    border-bottom: none!important;
 	}
 	.open>a{
+
 		background: #fff!important;
-		color: #000;
+		color: #0F297E;
 		border-color: red!important;
 	}
 	.navbar-nav>.open>a:focus{
@@ -71,11 +81,11 @@
 		color: #000!important;
 		border-color: red!important;
 	}
-	.navbar-nav>.open>a:hover{
+/*	.navbar-nav>.open>a:hover{
 		background: #fff!important;
 		color: #000!important;
 		border-color: red!important;
-	}
+	}*/
 	.navbar-nav>li>a{
 		padding: 10px 7px!important;
 		padding-bottom: 8px!important;
@@ -89,12 +99,12 @@
 		padding-left: 0px!important;
 	}
 
-	.navbar-nav>li>a:hover{
+/*	.navbar-nav>li>a:hover{
 		border-top: 1px solid red;
 		background: #fff!important;
 		color: #000 !important;
 		border-color: red!important;
-	}
+	}*/
 	.dropdown-menu{
 		background: #0f297e !important;
 	}
@@ -124,6 +134,8 @@
 </style>
 </head>
 <body>
+
+
 	<div class="container" style=" max-width: 980px !important;">
 		<div class="row ">
 			<div id="header">
@@ -186,30 +198,47 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
+<?php 
+$CI =&get_instance();
+$CI->load->model('Menu_model');
+$parent=$CI->Menu_model->get_all('','',array(),'','',['position','ASC']);
+$menu=array();
 
+foreach ($parent as $p) {
+	if ($p->parent_id==0) {
+		$child=array();
+		foreach ($parent as $p2) {
+			if ($p2->parent_id==$p->id) {
+				$child[]=$p2;
+			}
+		}
+		$menu[]=array(
+			'parent'=>$p,
+			'child'=>$child
+		);
+	}
+}
+
+?>
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav">
-								<li class=""><a href="<?=base_url('home')?>" title="Giới thiệu">Giới thiệu</a></li>
-								<li><a href="<?=base_url('home/tintuc')?>" title="Tin tức - Sự kiện">Tin tức-Sự kiện</a></li>
-								<li><a href="<?=base_url('home/vanban')?>" title="Văn bản">Văn bản</a></li>
-								<li><a href="<?=base_url('home/tailieu')?>" title="Văn bản">Tài liệu - biểu mẫu</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Chuẩn đầu ra <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="<?=base_url('home/qd_chuandaura')?>" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Quyết định ban hành chuẩn đầu ra</span></a></li>
-										<li><a href="<?=base_url('home/chuandaura_view')?>" title="Quyết định ban hành chuẩn đầu ra"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Chuẩn đầu ra các ngành</span></a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">CTĐT <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="<?=base_url('home/qd_ctdt')?>" title="QĐ ban hành chương trình đào tạo"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;QĐ ban hành chương trình đào tạo</span></a></li>
-										<li><a href="<?=base_url('home/ctdaotao')?>" title="Chuẩn đầu ra các ngành"><span><i class="fa fa-arrow-circle-right"></i>&nbsp;Khung CTĐT các ngành</span></a></li>
-									</ul>
-								</li>
-								<!-- <li><a href="<?=base_url('home/decuonghocphan')?>" title="Đề cương học phần">Đề cương học phần</a></li> -->
-								<li><a href="http://forum.cdio.nuce.edu.vn/" title="Văn bản">Thảo luận</a></li>
+								<?php foreach ($menu as $key => $mn): ?>
+									<li>
+										<?php if (count($mn['child'])): ?>
+										<a href="<?=$mn['parent']->type==1?$mn['parent']->link:base_url($mn['parent']->link) ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $mn['parent']->title ?> <b class="caret"></b></a>
+											
+										<ul class="dropdown-menu">
+											<?php foreach ($mn['child'] as $key => $value): ?>
+												<li><a href="<?=$value->type==1?$value->link:base_url($value->link) ?>" ><span><i class="fa fa-arrow-circle-right"></i>&nbsp;<?php echo $value->title ?></span></a></li>
+											<?php endforeach ?>
+										</ul>
+									<?php else: ?>
+										<li class="<?=$this->uri->segment(1)==$mn['parent']->link?"active":"" ?>"><a  href="<?=$mn['parent']->type==1?$mn['parent']->link:base_url($mn['parent']->link) ?>"><?php echo $mn['parent']->title ?></a></li>
+
+										<?php endif ?>
+									</li>
+								<?php endforeach ?>
 							</ul>
 						</div><!-- /.navbar-collapse -->
 					</div>
