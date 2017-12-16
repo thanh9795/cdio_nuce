@@ -23,6 +23,7 @@
           		<table class="table table-hover">
           			<thead>
           				<tr>
+                    <th>STT</th>
           					<th>Mã ngành</th>
           					<th>Tên ngành</th>
           					<!-- <th>Thao tác</th> -->
@@ -31,6 +32,7 @@
           			<tbody>
           				<?php foreach ($chuandauras as $cdr): ?>
           					<tr>
+                      <td><?php echo $cdr->stt ?></td>
           						<td><a href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>"><?php echo $cdr->ma_nganh ?></a></td>
           						<td><a href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>"><?php echo $cdr->ten_nganh ?></a></td>
                      <!--  <td>
