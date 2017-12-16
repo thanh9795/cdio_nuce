@@ -1,7 +1,7 @@
 <div class="body">
 
     <div id="pageDetail">
-        <h1 id="pageDetailTitle">
+        <h1 id="pageDetailTitle" style="margin-bottom:10px;">
 
             <a href="<?=base_url('tin-tuc.html')?>">Tin tức - sự kiện </a> »
             <?=$tintucitems->tieude?>
