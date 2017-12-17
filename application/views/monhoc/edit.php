@@ -42,20 +42,20 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tín chỉ</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_tin_chi" value="<?=$monhoc->so_tin_chi?>" class="form-control" >
+							<input type="number" name="so_tin_chi" value="<?=$monhoc->so_tin_chi?>" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tiết lý thuyết</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_tiet_ly_thuyet" value="<?=$monhoc->so_tiet_ly_thuyet?>" class="form-control" >
+							<input type="number" name="so_tiet_ly_thuyet" value="<?=$monhoc->so_tiet_ly_thuyet?>" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tiết thực hành</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_tiet_thuc_hanh" value="<?=$monhoc->so_tiet_thuc_hanh?>" class="form-control" >
+							<input type="number" name="so_tiet_thuc_hanh" value="<?=$monhoc->so_tiet_thuc_hanh?>" class="form-control" >
 						</div>
 					</div>
 
@@ -68,12 +68,12 @@
 								});
 							</script>
 
-							<select name="ma_hoc_phan_tien_quyet" id="tienquyet" class="form-control">
+							<select multiple="" name="ma_hoc_phan_tien_quyet[]" id="tienquyet" class="form-control">
 								<option value="">Chọn môn học tiên quyết</option>
 								<?php foreach ($monhocs as $mh): ?>
 									<?php if ($mh->ma_mon != $monhoc->ma_mon): ?>
 
-										<option <?php echo $mh->ma_mon==$monhoc->ma_hoc_phan_tien_quyet ? "selected" : "" ?> value="<?php echo $mh->ma_mon ?>"><?php echo $mh->ma_mon . "-" . $mh->ten_mon ?></option>
+										<option <?php echo in_array($mh->ma_mon,explode('|', $monhoc->ma_hoc_phan_tien_quyet)) ? "selected" : "" ?> value="<?php echo $mh->ma_mon ?>"><?php echo $mh->ma_mon . "-" . $mh->ten_mon ?></option>
 									<?php endif?>
 								<?php endforeach?>
 							</select>

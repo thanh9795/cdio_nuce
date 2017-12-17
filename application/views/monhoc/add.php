@@ -14,15 +14,6 @@
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
-					</li>
 					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
 				</ul>
@@ -49,27 +40,41 @@
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tín chỉ</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_tin_chi" class="form-control" >
+							<input type="number" name="so_tin_chi" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tiết lý thuyết</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="so_tiet_ly_thuyet" class="form-control" >
+							<input type="number" name="so_tiet_ly_thuyet" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Số tiết thực hành</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="ten_mon" class="form-control" >
+							<input type="number" name="so_tiet_thuc_hanh" class="form-control" >
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">mã học phần tiền quyết</label>
+						<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Học phần tiền quyết</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-							<input type="text" name="ma_hoc_phan_tien_quyet" class="form-control" >
+							<script>
+								$(document).ready(function() {
+									$("#tienquyet").select2();
+								});
+							</script>
+
+							<select multiple="" name="ma_hoc_phan_tien_quyet[]" id="tienquyet" class="form-control">
+								<option value="">Chọn môn học tiên quyết</option>
+								<?php foreach ($monhocs as $mh): ?>
+									<?php if ($mh->ma_mon != $monhoc->ma_mon): ?>
+
+										<option value="<?php echo $mh->ma_mon ?>"><?php echo $mh->ma_mon . "-" . $mh->ten_mon ?></option>
+									<?php endif?>
+								<?php endforeach?>
+							</select>
 						</div>
 					</div>
 

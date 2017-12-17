@@ -201,7 +201,7 @@
 <?php 
 $CI =&get_instance();
 $CI->load->model('Menu_model');
-$parent=$CI->Menu_model->get_all('','',array(),'','',['position','ASC']);
+$parent=$CI->Menu_model->get_all('','',array(),'','','',['position','ASC']);
 $menu=array();
 
 foreach ($parent as $p) {

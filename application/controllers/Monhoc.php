@@ -40,6 +40,9 @@ class Monhoc extends CDIO_Controller {
 		$this->form_validation->set_rules('ma_mon', 'Mã môn', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('ten_mon', 'Tên môn', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('so_tin_chi', 'Số tín chỉ', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+
+		$monhocs = $this->Monhoc_model->get_all();
+
 		if ($this->form_validation->run()) {
 			$this->Monhoc_model->insert([
 
@@ -48,12 +51,14 @@ class Monhoc extends CDIO_Controller {
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
 				'so_tiet_ly_thuyet' => $this->input->post('so_tiet_ly_thuyet'),
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
-				'ma_hoc_phan_tien_quyet' => $this->input->post('ma_hoc_phan_tien_quyet'),
+				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet'))?implode('|',$this->input->post('ma_hoc_phan_tien_quyet')):"",
+				
 			]);
 		}
 		$data = [
 			'content' => 'monhoc/add',
 			'contentdata' => [
+				'monhocs'=>$monhocs
 			],
 		];
 		$this->load->view('master', $data);
@@ -72,7 +77,7 @@ class Monhoc extends CDIO_Controller {
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
 				'so_tiet_ly_thuyet' => $this->input->post('so_tiet_ly_thuyet'),
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
-				'ma_hoc_phan_tien_quyet' => $this->input->post('ma_hoc_phan_tien_quyet'),
+				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet'))?implode('|',$this->input->post('ma_hoc_phan_tien_quyet')):"",
 			], $id);
 		}
 

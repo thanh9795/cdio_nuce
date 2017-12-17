@@ -49,6 +49,8 @@
 			$whitelist=array(
 				'',
 				'page/permission',
+				'nganhdaotao/apihocky',
+				'highdecuong/index',
 				'accesstoken/login_token',
 				'page/login',
 				'page/logout',

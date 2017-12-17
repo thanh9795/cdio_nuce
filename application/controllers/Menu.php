@@ -37,6 +37,17 @@ class Menu extends CDIO_Controller {
 		]);
 		redirect(base_url('Menu'),'refresh');
 	}
+	public function updateMenuElement()
+	{
+		$data=[
+	      'title'=>$this->input->post('title'),
+	      'link'=>$this->input->post('link'),
+	      'parent_id'=>$this->input->post('parent_id'),
+	    ];
+	    $id=$this->input->post('id');
+	    $this->Menu_model->update($data,$id);
+	    redirect(base_url('Menu'),'refresh');
+	}
 	public function addItemNhom()
 	{
 		$this->Menu_model->insert([

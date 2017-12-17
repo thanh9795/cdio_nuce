@@ -36,6 +36,7 @@ $menu4=$menu2;
 					data: {id: $(this).data('id')},
 				})
 				.done(function() {
+					window.location.reload();
 					console.log("success");
 				})
 				.fail(function() {
@@ -95,7 +96,7 @@ $menu4=$menu2;
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h4 class="modal-title">Chỉnh sửa menu</h4>
 			</div>
-			<form method="POST" action="<?=base_url()?>index.php/page/updateMenuElement" class="form-horizontal form-label-left input_mask">
+			<form method="POST" action="<?=base_url()?>Menu/updateMenuElement" class="form-horizontal form-label-left input_mask">
 				<div class="modal-body">
 
 
