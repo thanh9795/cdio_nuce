@@ -23,7 +23,7 @@
           		<table class="table table-hover">
           			<thead>
           				<tr>
-          					<!-- <th>stt</th> -->
+          					<th>STT</th>
           					<th>Mã ngành</th>
           					<th>Tên ngành</th>
           					<!-- <th>Thao tác</th> -->
@@ -32,7 +32,7 @@
           			<tbody>
           				<?php foreach ($nganhdaotaos as $nganhdaotao): ?>
           					<tr>
-          						<!-- <td><?php echo $nganhdaotao->id ?></td> -->
+          						<td><?php echo $nganhdaotao->id ?></td>
           						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>"><?php echo $nganhdaotao->ma_nganh ?></a></td>
           						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>"><?php echo $nganhdaotao->ten_nganh ?></a></td>
           						<!-- <td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>">Xem CTĐT</a></td> -->
