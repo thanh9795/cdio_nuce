@@ -169,6 +169,7 @@
 			<div class="x_panel">
 				<div class="x_title">
 					<h2><small><a href="<?=base_url('nganhdaotao')?>">Ngành đào tạo /</a></small> Chương trình đào tạo <?=$nganhdaotao->ten_nganh?></h2>
+					
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -178,7 +179,9 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-
+					<p>
+						Cập nhật lần cuối <?=date('H:i d/m/Y',strtotime($nganhdaotao->last_update))?> bởi <span class="label label-success"><?=$nganhdaotao->hoten?></span>
+					</p>
 					<div class="col-xs-2">
 						<!-- required for floating -->
 						<!-- Nav tabs -->

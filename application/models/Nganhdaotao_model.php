@@ -5,12 +5,17 @@ class Nganhdaotao_model extends Cdio_Model {
 
 	protected $table_name = 'nganh_dao_tao';
 	private $_table2 = "monhoc";
-	protected $primary_key = 'id';
+	protected $primary_key = 'nganh_dao_tao.id';
 	public function __construct() {
 		parent::__construct();
 
 	}
+	public function get_ctdt($id)
+	{
 
+		$this->db->join('nguoidung', 'nguoidung.id=nganh_dao_tao.last_id', 'left');
+		return $this->db->get_where($this->table_name, array($this->primary_key => $id))->row();
+	}
 	function countall($key) {
 		if ($key != NULL) {
 			$this->db->like('ten_nganh', $key);

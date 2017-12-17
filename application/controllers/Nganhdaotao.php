@@ -36,7 +36,7 @@ class Nganhdaotao extends CDIO_Controller {
 	}
 	public function chuongtrinhdaotao($id) {
 		$this->load->model('Nganhdaotao_model');
-		$nganhdaotao = $this->Nganhdaotao_model->get($id);
+		$nganhdaotao = $this->Nganhdaotao_model->get_ctdt($id);
 		$data = [
 			'content' => 'nganhdaotao/chuongtrinhdaotao',
 			'contentdata' => [
@@ -46,8 +46,10 @@ class Nganhdaotao extends CDIO_Controller {
 		$this->load->view('master', $data, FALSE);
 	}
 	public function saveCTDT() {
-		var_dump($this->input->post('ctdt'));
+		$this->load->helper('Mydate');
 		$this->load->model('Chuongtrinhdt_model');
+		$this->load->model('Nganhdaotao_model');
+		$this->Nganhdaotao_model->update(['last_id'=>$this->session->userdata('id'),'last_update'=>currentdate()],$this->input->post('dtid'));
 		$this->Chuongtrinhdt_model->deleteCTDT($this->input->post('dtid'));
 		for ($i = 1; $i <= 10; $i++) {
 			$q = "hocki" . $i;
