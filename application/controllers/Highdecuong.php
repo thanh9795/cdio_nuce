@@ -19,9 +19,9 @@ class Highdecuong extends CDIO_Controller {
 		if ($id_monhoc!=NULL&&$id_nganh!=NULL) {
 			$data=$this->Highdecuong_model->get_all('','id,type,link,date_created',['id_monhoc'=>$id_monhoc,'id_nganh'=>$id_nganh]);
 			foreach ($data as $key => $value) {
+				$data[$key]->type2=$data[$key]->type;
 				$data[$key]->date_created=date("d/m/Y H:i",strtotime($value->date_created));
 				$data[$key]->type=$data[$key]->type==1?"Đường dẫn":"Tệp đính kèm";
-				$data[$key]->type2=$data[$key]->type;
 			}
 			echo json_encode($data);	
 		}
