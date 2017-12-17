@@ -160,8 +160,6 @@
                 <button type="submit" class="btn btn-default submit" >Log in</button>
               </div>
                <div class="separator">
-                <p class="change_link">Đăng nhập bằng token?
-                  <a href="#signup" class="to_register"> Log in </a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -172,7 +170,7 @@
                 <br />
 
                 <div>
-                  <p>©2017 ITPLUS CRM!</p>
+                  <p>©2017 CDIO - NUCE!</p>
                 </div>
             </form>
           </section>
@@ -192,14 +190,13 @@
 
               <div class="separator">
                 <p class="change_link">Đăng nhập tài khoản và mật khẩu ?
-                  <a href="#signin" class="to_register"> Log in </a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br>
 
                 <div>
-                   <p>©2017 ITPLUS CRM!</p>
+                   <p>©2017 CDIO - NUCE!</p>
                 </div>
               </div>
             </form>

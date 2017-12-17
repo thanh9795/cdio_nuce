@@ -102,7 +102,11 @@ class Nganhdaotao extends CDIO_Controller {
 				'table' => 'monhoc',
 				'on' => 'monhoc.id=ctdao_tao.ma_mon',
 			],
-		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,hoc_ky', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
+			[
+				'table' => 'decuong',
+				'on' => 'decuong.id_monhoc=monhoc.id',
+			],
+		], 'monhoc.id as id,monhoc.ma_mon as ma_mon,ten_mon,so_tin_chi,so_tiet_ly_thuyet,so_tiet_thuc_hanh,ma_hoc_phan_tien_quyet,hoc_ky,link,type', ['ma_nganh' => $id], '', '', '', ['position', 'ASC']);
 		$hocky = [];
 		for ($i = 1; $i <= $nganh->so_hoc_ky; $i++) {
 			$tem = [];

@@ -56,7 +56,7 @@
 								<td><?=$vb->so_tiet_thuc_hanh?></td>
 								<td><?=$vb->ma_hoc_phan_tien_quyet?></td>
 								<td>
-									<!-- <button @click="ShowListTailieu(<?= $vb->id ?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-default"><?= $vb->attachnumber>0?$vb->attachnumber:"" ?> Tài liệu</button> -->
+									<button @click="ShowListTailieu(<?= $vb->id ?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?= $vb->attachnumber>0?"success":"default" ?>"> Đề cương</button>
 									<a href="<?=base_url('monhoc/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
@@ -74,7 +74,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Danh sách tài liệu: {{monhoc}}</h4>
+					<h4 class="modal-title">Đề cương: {{monhoc}}</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -102,41 +102,49 @@
 							<form @submit.prevent="SaveFiles" action="" method="POST" role="form">
 								<legend>Thêm mới tài liệu</legend>
 							
-								<div class="form-group">
-									<label for="">Kiểu</label>
-									<div class="radio">
-										<label>
-											<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
-											Link
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="type" id="" value="2" v-model="type">
-											Đính kèm
-										</label>
-									</div>
-								</div>
-								<div v-if="type==1">
+								<div v-if="decuongs.length==0">
+										<div class="form-group">
+											<label for="">Kiểu</label>
+											<div class="radio">
+												<label>
+													<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
+													Link
+												</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="type" id="" value="2" v-model="type">
+													Đính kèm
+												</label>
+											</div>
+										</div>
+										<div v-if="type==1">
+											
+											<div class="form-group">
+												<label for="">Đường dẫn</label>
+												<input type="text" v-model="link" class="form-control" id="" >
+											</div>
+											
+										</div>
+										<div v-else>
+											<div class="form-group">
+												<label for="">Chọn file upload</label>
+												<input type="file"  class="form-control" id="fileDecuong" >
+											</div>
+										
+										</div>
+											
+										
+										
 									
-									<div class="form-group">
-										<label for="">Đường dẫn</label>
-										<input type="text" v-model="link" class="form-control" id="" >
-									</div>
-									
+										<button type="submit" class="btn btn-primary">Thêm mới</button>
 								</div>
 								<div v-else>
-									<div class="form-group">
-										<label for="">Chọn file upload</label>
-										<input type="file"  class="form-control" id="fileDecuong" >
+									<div class="alert alert-danger">
+										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+										<strong>Mỗi môn học chỉ có một đề cường, để chỉnh sửa đề cương, xóa file cũ sau đó thêm mới</strong> 
 									</div>
-								
 								</div>
-									
-								
-								
-							
-								<button type="submit" class="btn btn-primary">Thêm mới</button>
 							</form>
 						</div>
 					</div>
