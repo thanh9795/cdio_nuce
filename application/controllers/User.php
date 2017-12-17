@@ -26,6 +26,9 @@ class User extends CDIO_Controller
 			$this->form_validation->set_rules('id_nhom', 'Nhóm người dùng', 'required',array(
 				'required'=>'Bạn phải chọn nhóm người dùng'
 			));
+			$this->form_validation->set_rules('email', 'Email', 'required',array(
+				'required'=>'Email không được để trống'
+			));
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -35,6 +38,25 @@ class User extends CDIO_Controller
 			{
 				$data=$this->input->post();
 				$data['password']=md5(SALT.$data['password']);
+
+				$ch = curl_init();
+
+				curl_setopt($ch, CURLOPT_URL,"http://thithutoeic.net/forum/cdio_user.php");
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS,
+				            "username={$this->input->post('username')}&password={$this->input->post('password')}&email={$this->input->post('email')}");
+
+				// in real life you should use something like:
+				// curl_setopt($ch, CURLOPT_POSTFIELDS, 
+				//          http_build_query(array('postvar1' => 'value1')));
+
+				// receive server response ...
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+				$server_output = curl_exec ($ch);
+
+				curl_close ($ch);
+
 				if ($this->User_Model->add($data)) {
 					$this->session->set_flashdata('code','success');
 					$this->session->set_flashdata('message','Thêm mới người dùng thành công');

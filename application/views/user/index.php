@@ -38,6 +38,10 @@ $this->load->view('partial/alert');
 								<input name="username" type="text" class="form-control" id="">
 							</div>
 							<div class="form-group">
+								<label for="">Email</label>
+								<input name="email" type="text" class="form-control" id="">
+							</div>
+							<div class="form-group">
 								<label for="">Mật khẩu</label>
 								<input name="password" type="text" class="form-control" id="">
 							</div>

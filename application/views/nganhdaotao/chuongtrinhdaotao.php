@@ -180,7 +180,10 @@
 				</div>
 				<div class="x_content">
 					<p>
+						<?php if ($nganhdaotao->hoten): ?>
+							
 						Cập nhật lần cuối <?=date('H:i d/m/Y',strtotime($nganhdaotao->last_update))?> bởi <span class="label label-success"><?=$nganhdaotao->hoten?></span>
+						<?php endif ?>
 					</p>
 					<div class="col-xs-2">
 						<!-- required for floating -->
@@ -203,9 +206,9 @@
 										<div class="panel panel-default">
 											<div class="panel-heading" style="position: relative;">
 												{{item.ma_mon}} - {{item.so_tin_chi}}
-												<div class="decuong">
+												<!-- <div class="decuong">
 													<button @click="OpenDecuong(item)" type="button" class="btn btn-default btn-xs">Đề cương</button>
-												</div>
+												</div> -->
 											</div>
 											<div class="panel-body">
 												{{item.ten_mon}}
@@ -490,7 +493,7 @@
 
 			},
 			monhocs:function (val) {
-				this.saveinBack();
+				//this.saveinBack();
 			},
 			ctdt: {
 				handler(val){

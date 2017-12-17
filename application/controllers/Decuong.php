@@ -38,7 +38,7 @@ class Decuong extends CDIO_Controller {
 				}
 			}else{
 				$config['upload_path']          = './assets/decuong';
-				$config['allowed_types']        = TYPEALLOW;
+				$config['allowed_types']        = 'pdf|doc|docx';
 				$config['max_size']             = 20000;
 
 				$this->load->library('upload', $config);
