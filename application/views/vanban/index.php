@@ -19,6 +19,7 @@
 				</form>
 			</div>
 		</div>
+				<?php $this->load->view('partial/alert');?>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Quản lý Văn bản điều hành</h2>

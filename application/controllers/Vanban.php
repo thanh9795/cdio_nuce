@@ -28,11 +28,11 @@ $this->load->view('master', $data);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Vanban_model->countall($key);
-		$itemsPerPage = 5;
+		$itemsPerPage = 10;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('Vanban?page=(:num)');
-		$offset = ($currentPage - 1) * 5;
-		$vanbans = $this->Vanban_model->getall($key, 5, $offset);
+		$offset = ($currentPage - 1) * 10;
+		$vanbans = $this->Vanban_model->getall($key, 10, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -60,6 +60,9 @@ $this->load->view('master', $data);
 				'trich_yeu' => $this->input->post('trich_yeu'),
 				'stt' => $this->input->post('stt'),
 			]);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Thêm mới thành công');
+			redirect(base_url('vanban'), 'refresh');
 			$slug = to_slug($this->input->post('trich_yeu')) . "-" . $insert_id;
 			$this->Vanban_model->update(['slug' => $slug], $insert_id);
 		}
@@ -81,6 +84,9 @@ $this->load->view('master', $data);
 				'trich_yeu' => $this->input->post('trich_yeu'),
 				'stt' => $this->input->post('stt'),
 			], $id);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Cập nhật thành công');
+			redirect(base_url('vanban'), 'refresh');
 		}
 
 		$vanban = $this->Vanban_model->get($id);

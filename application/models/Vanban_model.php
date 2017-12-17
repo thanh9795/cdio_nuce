@@ -26,7 +26,7 @@ class Vanban_model extends Cdio_Model {
 			$this->db->or_like('trich_yeu', $key);
 		}
 		$this->db->limit($limit, $offset);
-		$this->db->order_by('stt', 'desc');
+		$this->db->order_by('stt', 'asc');
 		return $this->db->get($this->table_name)->result();
 	}
 

@@ -13,6 +13,7 @@
 			<?=validation_errors()?>
 		</div>
 		<?php endif?>
+
 		<div class="x_panel">
 			<div class="x_title">
 				<h2><small>Chỉnh sửa thông tin văn bản</small> <?=$vanban->so_ky_hieu_vb?> </h2>

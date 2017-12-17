@@ -7,6 +7,7 @@
 				<?=validation_errors()?>
 			</div>
 		<?php endif?>
+		<?php $this->load->view('partial/alert');?>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Môn học: <?=$monhoc->ten_mon?></h2>
@@ -73,7 +74,7 @@
 								<?php foreach ($monhocs as $mh): ?>
 									<?php if ($mh->ma_mon != $monhoc->ma_mon): ?>
 
-										<option <?php echo in_array($mh->ma_mon,explode('|', $monhoc->ma_hoc_phan_tien_quyet)) ? "selected" : "" ?> value="<?php echo $mh->ma_mon ?>"><?php echo $mh->ma_mon . "-" . $mh->ten_mon ?></option>
+										<option <?php echo in_array($mh->ma_mon, explode('|', $monhoc->ma_hoc_phan_tien_quyet)) ? "selected" : "" ?> value="<?php echo $mh->ma_mon ?>"><?php echo $mh->ma_mon . "-" . $mh->ten_mon ?></option>
 									<?php endif?>
 								<?php endforeach?>
 							</select>

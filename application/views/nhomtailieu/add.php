@@ -8,7 +8,7 @@
 				<?=validation_errors()?>
 			</div>
 		<?php endif?>
-		<?php $this->load->view('partial/alert');?>
+
 		<div class="x_panel">
 			<div class="x_title">
 				<h2><small><a href="<?=base_url('nhomtailieu')?>">Nhóm tài liệu /</a></small> Thêm mới tài liệu</h2>

@@ -5,7 +5,7 @@
 	<li class="active"><?=$nhomtailieu->ten_nhom?></li>
 </ol>
 <div class="row">
-	<?php $this->load->view('partial/alert');?>
+
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>
 		<div class="alert alert-danger">

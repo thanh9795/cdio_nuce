@@ -39,7 +39,9 @@ class Nganhdaotao extends CDIO_Controller {
 		$nganhdaotao = $this->Nganhdaotao_model->get($id);
 		$data = [
 			'content' => 'nganhdaotao/chuongtrinhdaotao',
-			'contentdata' => [],
+			'contentdata' => [
+				'nganhdaotao' => $nganhdaotao,
+			],
 		];
 		$this->load->view('master', $data, FALSE);
 	}
@@ -139,6 +141,7 @@ class Nganhdaotao extends CDIO_Controller {
 					]);
 					$this->session->set_flashdata('code', 'success');
 					$this->session->set_flashdata('message', 'Thêm mới thành công');
+					redirect(base_url('nganhdaotao'), 'refresh');
 				}
 			} else {
 				$this->Nganhdaotao_model->insert([
@@ -149,6 +152,7 @@ class Nganhdaotao extends CDIO_Controller {
 				]);
 				$this->session->set_flashdata('code', 'success');
 				$this->session->set_flashdata('message', 'Thêm mới thành công');
+				redirect(base_url('nganhdaotao'), 'refresh');
 			}
 
 		}
@@ -188,6 +192,7 @@ class Nganhdaotao extends CDIO_Controller {
 					], $id);
 					$this->session->set_flashdata('code', 'success');
 					$this->session->set_flashdata('message', 'Cập nhật thành công');
+					redirect(base_url('nganhdaotao'), 'refresh');
 				}
 			} else {
 				$this->Nganhdaotao_model->update([
@@ -198,6 +203,7 @@ class Nganhdaotao extends CDIO_Controller {
 				], $id);
 				$this->session->set_flashdata('code', 'success');
 				$this->session->set_flashdata('message', 'Cập nhật thành công');
+				redirect(base_url('nganhdaotao'), 'refresh');
 			}
 
 		}

@@ -21,7 +21,7 @@
 			</div>
 			<div class="x_content">
 				<br>
-				<?php $this->load->view('partial/alert');?>
+
 				<form method="POST" enctype="multipart/form-data" class="form-horizontal form-label-left">
 
 					<div class="form-group">

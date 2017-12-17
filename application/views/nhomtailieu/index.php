@@ -2,23 +2,24 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="<?= base_url('nhomtailieu/add') ?>" class="btn btn-primary">Thêm mới</a>
+				<a href="<?=base_url('nhomtailieu/add')?>" class="btn btn-primary">Thêm mới</a>
 			</div>
 			<div class="col-md-6">
 				<form action="">
-					<div id="imaginary_container"> 
+					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
 							<input type="text" class="form-control" name="key" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
-								</button>  
+								</button>
 							</span>
 						</div>
 					</div>
 				</form>
 			</div>
 		</div>
+			<?php $this->load->view('partial/alert');?>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Quản lý Văn bản điều hành</h2>
@@ -52,17 +53,17 @@
 					</thead>
 					<tbody>
 						<?php foreach ($nhomtailieus as $vb): ?>
-							
+
 							<tr>
-								<th scope="row"><?= $vb->id ?></th>
-								<td><?= $vb->ten_nhom ?></td>
-								<td><?= $vb->stt ?></td>
+								<th scope="row"><?=$vb->id?></th>
+								<td><?=$vb->ten_nhom?></td>
+								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?= base_url('nhomtailieu/update/'.$vb->id) ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?= $vb->id ?>"><i class="fa fa-trash"></i></button>
+									<a href="<?=base_url('nhomtailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach?>
 
 					</tbody>
 				</table>
@@ -81,7 +82,7 @@
 			}).then(function (rs) {
 				if (rs) {
 					$.ajax({
-						url: '<?= base_url('nhomtailieu/delete') ?>',
+						url: '<?=base_url('nhomtailieu/delete')?>',
 						type: 'POST',
 						dataType: 'text',
 						data: {id: btnxoa.data('id')},
@@ -91,7 +92,7 @@
 							icon:'success'
 						}).then(function () {
 							location.reload();
-						})	
+						})
 						console.log("success");
 					})
 					.fail(function() {
@@ -100,8 +101,8 @@
 					.always(function() {
 						console.log("complete");
 					});
-					
-					
+
+
 				}
 			});
 		});

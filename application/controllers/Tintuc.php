@@ -16,11 +16,11 @@ class Tintuc extends CDIO_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Tintuc_model->countall($key);
-		$itemsPerPage = 5;
+		$itemsPerPage = 10;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('Tintuc?page=(:num)');
-		$offset = ($currentPage - 1) * 5;
-		$tintucs = $this->Tintuc_model->getall($key, 5, $offset);
+		$offset = ($currentPage - 1) * 10;
+		$tintucs = $this->Tintuc_model->getall($key, 10, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -50,7 +50,6 @@ class Tintuc extends CDIO_Controller {
 	public function add() {
 		$this->load->helper('Slug');
 		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('mota', 'Mô tả ', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
 			$insert_id = $this->Tintuc_model->insert([
 				'tieude' => $this->input->post('tieude'),
@@ -58,6 +57,8 @@ class Tintuc extends CDIO_Controller {
 				'chi_tiet' => $this->input->post('chi_tiet'),
 				'stt' => $this->input->post('stt'),
 			]);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Thêm mới thành công');
 			$slug = to_slug($this->input->post('tieude')) . "-" . $insert_id;
 			$this->Tintuc_model->update(['slug' => $slug], $insert_id);
 		}
@@ -71,7 +72,6 @@ class Tintuc extends CDIO_Controller {
 
 	public function update($id = NULL) {
 		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('mota', 'Mô tả ', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
 			$this->Tintuc_model->update([
 				'tieude' => $this->input->post('tieude'),
@@ -81,6 +81,8 @@ class Tintuc extends CDIO_Controller {
 				'date_created' => $this->input->post('date_created'),
 				'date_updated' => $this->input->post('date_updated'),
 			], $id);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Cập nhật thành công');
 		}
 
 		$tintuc = $this->Tintuc_model->get($id);

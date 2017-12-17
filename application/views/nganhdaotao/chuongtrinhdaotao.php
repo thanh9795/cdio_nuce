@@ -142,7 +142,7 @@
 		<div class="col-md-9 col-sm-9 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
-					<h2><small><a href="<?=base_url('nganhdaotao')?>">Ngành đào tạo /</a></small> Chương trình đào tạo</h2>
+					<h2><small><a href="<?=base_url('nganhdaotao')?>">Ngành đào tạo /</a></small> Chương trình đào tạo <?=$nganhdaotao->ten_nganh?></h2>
 					<ul class="nav navbar-right panel_toolbox">
 						<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 						</li>
@@ -204,7 +204,7 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title">Chương trình đào tạo </h4>
+							<h4 class="modal-title">Chương trình đào tạo <?=$nganhdaotao->ten_nganh?></h4>
 						</div>
 						<div class="modal-body">
 							<div class="row">

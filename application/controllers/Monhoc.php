@@ -51,14 +51,17 @@ class Monhoc extends CDIO_Controller {
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
 				'so_tiet_ly_thuyet' => $this->input->post('so_tiet_ly_thuyet'),
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
-				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet'))?implode('|',$this->input->post('ma_hoc_phan_tien_quyet')):"",
-				
+				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet')) ? implode('|', $this->input->post('ma_hoc_phan_tien_quyet')) : "",
+
 			]);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Thêm mới thành công');
+			redirect(base_url('monhoc'), 'refresh');
 		}
 		$data = [
 			'content' => 'monhoc/add',
 			'contentdata' => [
-				'monhocs'=>$monhocs
+				'monhocs' => $monhocs,
 			],
 		];
 		$this->load->view('master', $data);
@@ -77,8 +80,11 @@ class Monhoc extends CDIO_Controller {
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
 				'so_tiet_ly_thuyet' => $this->input->post('so_tiet_ly_thuyet'),
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
-				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet'))?implode('|',$this->input->post('ma_hoc_phan_tien_quyet')):"",
+				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet')) ? implode('|', $this->input->post('ma_hoc_phan_tien_quyet')) : "",
 			], $id);
+			$this->session->set_flashdata('code', 'success');
+			$this->session->set_flashdata('message', 'Cập nhật thành công');
+			redirect(base_url('monhoc'), 'refresh');
 		}
 
 		$monhoc = $this->Monhoc_model->get($id);

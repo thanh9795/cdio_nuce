@@ -1,13 +1,14 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<?php if (validation_errors()!=NULL): ?>
+		<?php if (validation_errors() != NULL): ?>
 			<div class="alert alert-danger">
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-				<?=validation_errors()  ?>
+				<?=validation_errors()?>
 			</div>
-		<?php endif ?>
+		<?php endif?>
+		<?php $this->load->view('partial/alert');?>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2>Thêm mới môn học</h2>

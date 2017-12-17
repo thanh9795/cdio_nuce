@@ -15,11 +15,11 @@ class Nhomtailieu extends CDIO_Controller {
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Nhomtailieu_model->countall($key);
-		$itemsPerPage = 5;
+		$itemsPerPage = 10;
 		$currentPage = $this->input->get('page') == NULL ? 1 : $this->input->get('page');
 		$urlPattern = base_url('Nhomtailieu?page=(:num)');
-		$offset = ($currentPage - 1) * 5;
-		$nhomtailieus = $this->Nhomtailieu_model->getall($key, 5, $offset);
+		$offset = ($currentPage - 1) * 10;
+		$nhomtailieus = $this->Nhomtailieu_model->getall($key, 10, $offset);
 
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
@@ -36,7 +36,6 @@ class Nhomtailieu extends CDIO_Controller {
 
 	public function add() {
 		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('stt', 'số thứ tự', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		if ($this->form_validation->run()) {
 			$this->Nhomtailieu_model->insert([
 				'ten_nhom' => $this->input->post('ten_nhom'),
@@ -44,6 +43,7 @@ class Nhomtailieu extends CDIO_Controller {
 			]);
 			$this->session->set_flashdata('code', 'success');
 			$this->session->set_flashdata('message', 'Thêm mới thành công');
+			redirect(base_url('nhomtailieu'), 'refresh');
 		}
 		$data = [
 			'content' => 'nhomtailieu/add',
@@ -56,15 +56,14 @@ class Nhomtailieu extends CDIO_Controller {
 	public function update($id = NULL) {
 
 		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('stt', 'số thứ tự', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-
 		if ($this->form_validation->run()) {
 			$this->Nhomtailieu_model->update([
 				'ten_nhom' => $this->input->post('ten_nhom'),
 				'stt' => $this->input->post('stt'),
 			], $id);
 			$this->session->set_flashdata('code', 'success');
-			$this->session->set_flashdata('message', 'Thêm mới thành công');
+			$this->session->set_flashdata('message', 'Cập nhật thành công');
+			redirect(base_url('nhomtailieu'), 'refresh');
 		}
 
 		$nhomtailieu = $this->Nhomtailieu_model->get($id);

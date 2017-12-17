@@ -13,6 +13,7 @@
 				<?=validation_errors()?>
 			</div>
 		<?php endif?>
+		<?php $this->load->view('partial/alert');?>
 		<div class="x_panel">
 			<div class="x_title">
 				<h2><small>Chỉnh sửa thông tin tin tức</small> số <?=$tintuc->id?></h2>

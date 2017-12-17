@@ -22,7 +22,7 @@ class Tintuc_model extends Cdio_Model {
 		if ($key != NULL) {
 			$this->db->like('tieude', $key);
 		}
-		$this->db->order_by('stt', 'desc');
+		$this->db->order_by('stt', 'asc');
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();
 	}
