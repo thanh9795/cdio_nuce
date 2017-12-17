@@ -33,8 +33,8 @@
           				<?php foreach ($nganhdaotaos as $nganhdaotao): ?>
           					<tr>
           						<td><?php echo $nganhdaotao->id ?></td>
-          						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>"><?php echo $nganhdaotao->ma_nganh ?></a></td>
-          						<td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>"><?php echo $nganhdaotao->ten_nganh ?></a></td>
+          						<td><a href="<?php echo base_url('chi-tiet-chuong-trinh-dao-tao/' . $nganhdaotao->slug . '.html') ?>"><?php echo $nganhdaotao->ma_nganh ?></a></td>
+          						<td><a href="<?php echo base_url('chi-tiet-chuong-trinh-dao-tao/' . $nganhdaotao->slug . '.html') ?>"><?php echo $nganhdaotao->ten_nganh ?></a></td>
           						<!-- <td><a href="<?php echo base_url('home/chitietCtDaotao/' . $nganhdaotao->id) ?>">Xem CTĐT</a></td> -->
           					</tr>
           				<?php endforeach?>

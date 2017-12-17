@@ -65,3 +65,4 @@ $route['quyet-dinh-ban-hanh-chuong-trinh-dao-tao.html'] = "home/qd_ctdt";
 $route['khung-chuong-trinh-dao-tao-nganh.html'] = "home/ctdaotao";
 $route['gioi-thieu.html'] = "home/index";
 $route['chuan-dau-ra/(:any)'] = "home/chitietchuandaura/$1";
+$route['chi-tiet-chuong-trinh-dao-tao/(:any)'] = "home/chitietCtDaotao/$1";
