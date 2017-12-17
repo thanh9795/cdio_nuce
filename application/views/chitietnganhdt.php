@@ -193,11 +193,12 @@ document.getElementById("defaultOpen").click();
           this.decuongs=res.body;
           if (this.decuongs.length>0) {
             if (this.decuongs[0].type2==1) {
-            window.location.assign(this.decuongs[0].link);
+            //window.location.assign(this.decuongs[0].link);
+              window.open(this.decuongs[0].link,'_blank');
 
             }else{
-
-            window.location.assign('https://docs.google.com/gview?url='+this.base+this.decuongs[0].link);
+              window.open('https://docs.google.com/gview?url='+this.base+this.decuongs[0].link,'_blank');
+            //window.location.assign();
             }
           }else{
             alert('Hiện tại môn này chưa có đề cương');
