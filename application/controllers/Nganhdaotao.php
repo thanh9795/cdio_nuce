@@ -49,7 +49,7 @@ class Nganhdaotao extends CDIO_Controller {
 		$this->load->helper('Mydate');
 		$this->load->model('Chuongtrinhdt_model');
 		$this->load->model('Nganhdaotao_model');
-		$this->Nganhdaotao_model->update(['last_id'=>$this->session->userdata('id'),'last_update'=>currentdate()],$this->input->post('dtid'));
+		$this->Nganhdaotao_model->update(['last_id' => $this->session->userdata('id'), 'last_update' => currentdate()], $this->input->post('dtid'));
 		$this->Chuongtrinhdt_model->deleteCTDT($this->input->post('dtid'));
 		for ($i = 1; $i <= 10; $i++) {
 			$q = "hocki" . $i;
@@ -117,6 +117,7 @@ class Nganhdaotao extends CDIO_Controller {
 		echo json_encode($hocky);
 	}
 	public function add() {
+		$this->load->helper('Slug');
 		//$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
@@ -134,24 +135,28 @@ class Nganhdaotao extends CDIO_Controller {
 					$this->session->set_flashdata('message', $this->upload->display_errors());
 				} else {
 					$data = array('upload_data' => $this->upload->data());
-					$this->Nganhdaotao_model->insert([
+					$insert_id = $this->Nganhdaotao_model->insert([
 						'ten_nganh' => $this->input->post('ten_nganh'),
 						'ma_nganh' => $this->input->post('ma_nganh'),
 						'stt' => $this->input->post('stt'),
 						'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 						'chuandaura' => $path . $this->upload->data()['file_name'],
 					]);
+					$slug = to_slug($this->input->post('ten_nganh')) . "-" . $insert_id;
+					$this->Nganhdaotao_model->update(['slug' => $slug], $insert_id);
 					$this->session->set_flashdata('code', 'success');
 					$this->session->set_flashdata('message', 'Thêm mới thành công');
 					redirect(base_url('nganhdaotao'), 'refresh');
 				}
 			} else {
-				$this->Nganhdaotao_model->insert([
+				$insert_id = $this->Nganhdaotao_model->insert([
 					'ten_nganh' => $this->input->post('ten_nganh'),
 					'ma_nganh' => $this->input->post('ma_nganh'),
 					'stt' => $this->input->post('stt'),
 					'so_hoc_ky' => $this->input->post('so_hoc_ky'),
 				]);
+				$slug = to_slug($this->input->post('ten_nganh')) . "-" . $insert_id;
+				$this->Nganhdaotao_model->update(['slug' => $slug], $insert_id);
 				$this->session->set_flashdata('code', 'success');
 				$this->session->set_flashdata('message', 'Thêm mới thành công');
 				redirect(base_url('nganhdaotao'), 'refresh');

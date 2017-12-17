@@ -1,5 +1,5 @@
 <div class="tab" style="background-color: #0f297e; color:#fff; margin-top: 10px;">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Xem theo học kỳ</button>
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Xem theo học kỳ <?php echo $nganhdaotaos->ten_nganh ?></button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Xem theo khối lượng giảng dạy</button>
 </div>
 
@@ -174,7 +174,7 @@ document.getElementById("defaultOpen").click();
         monhocs:[],
         base:'<?php echo base_url() ?>',
         title:"",
-        dtid:'<?php echo $this->uri->segment(3) ?>',
+        dtid:'<?=$nganhdaotaos->id?>',
         tinchi:[],
         total:0,
         max:0,

@@ -10,8 +10,10 @@ class Nganhdaotao_model extends Cdio_Model {
 		parent::__construct();
 
 	}
-	public function get_ctdt($id)
-	{
+	function getbySlug($slug) {
+		return $this->db->get_where($this->table_name, array('slug' => $slug))->row();
+	}
+	public function get_ctdt($id) {
 
 		$this->db->join('nguoidung', 'nguoidung.id=nganh_dao_tao.last_id', 'left');
 		return $this->db->get_where($this->table_name, array($this->primary_key => $id))->row();

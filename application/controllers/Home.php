@@ -239,10 +239,14 @@ class Home extends CI_Controller {
 		$this->load->view('master_home', $data);
 
 	}
-	public function chitietCtDaotao($id) {
+	public function chitietCtDaotao($url) {
+		$this->load->model('Nganhdaotao_model');
+		$url = substr($url, 0, -5);
+		$nganhdaotao = $this->Nganhdaotao_model->getbySlug($url);
 		$data = [
 			'subview' => "chitietnganhdt",
 			'subdata' => [
+				'nganhdaotaos' => $nganhdaotao,
 			],
 		];
 		$this->load->view('master_home', $data);
