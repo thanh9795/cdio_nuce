@@ -38,7 +38,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Danh sách tài liệu: {{monhoc}}</h4>
+					<h4 class="modal-title">Đề cương: {{monhoc}}</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -64,37 +64,46 @@
 						</div>
 						<div class="col-md-4">
 							<form @submit.prevent="SaveFiles" action="" method="POST" role="form">
-								<legend>Thêm mới tài liệu</legend>
+								<legend>Thêm đề cương</legend>
 
-								<div class="form-group">
-									<label for="">Kiểu</label>
-									<div class="radio">
-										<label>
-											<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
-											Link
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="type" id="" value="2" v-model="type">
-											Đính kèm
-										</label>
-									</div>
-								</div>
-								<div v-if="type==1">
+								<div v-if="decuongs.length==0">
+										<div class="form-group">
+											<label for="">Kiểu</label>
+											<div class="radio">
+												<label>
+													<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
+													Link
+												</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="type" id="" value="2" v-model="type">
+													Đính kèm
+												</label>
+											</div>
+										</div>
+										<div v-if="type==1">
 
-									<div class="form-group">
-										<label for="">Đường dẫn</label>
-										<input type="text" v-model="link" class="form-control" id="" >
-									</div>
+											<div class="form-group">
+												<label for="">Đường dẫn</label>
+												<input type="text" v-model="link" class="form-control" id="" >
+											</div>
+
+										</div>
+										<div v-else>
+											<div class="form-group">
+												<label for="">Chọn file upload</label>
+												<input type="file"  class="form-control" id="fileDecuong" >
+											</div>
+
+										</div>
 
 								</div>
 								<div v-else>
-									<div class="form-group">
-										<label for="">Chọn file upload</label>
-										<input type="file"  class="form-control" id="fileDecuong" >
+									<div class="alert alert-warning">
+										<button type="button" class="close" data-dismiss="alert " aria-hidden="true">&times;</button>
+										<strong>Mỗi môn học chỉ có 1 đề cương, để thêm mới đề cương bạn phải xóa đề cương cũ đi</strong>
 									</div>
-
 								</div>
 
 
@@ -107,6 +116,23 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-decuong2">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Đề cương: {{monhoc}}</h4>
+				</div>
+				<div class="modal-body">
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 		</div>
@@ -308,7 +334,7 @@
 	 				closeOnConfirm: false}).then(
 	 				function(result) {
 	 					if (result) {
-	 						self.$http.post(self.base+'/decuong/delete', {id: self.decuongs[index].id}).then(response => {
+	 						self.$http.post(self.base+'/Highdecuong/delete', {id: self.decuongs[index].id}).then(response => {
 	 							self.decuongs.splice(index,1);
 	 							swal("Đã xóa!", "", "success")
 	 						}, response => {
@@ -328,6 +354,8 @@
 				    // error callback
 				});*/
 			},
+
+
 		  ShowListTailieu (id,tenmon) {
 		  	this.currentid=id;
 		  	this.getDecuong(id);
@@ -336,6 +364,13 @@
 		  },
 		  OpenDecuong(item){
 				$("#modal-decuong").modal("show");
+				this.monhoc=item.ten_mon;
+				this.id_monhoc=item.id;
+		  		this.getDecuong();
+
+			},
+		  OpenDecuong2(item){
+				$("#modal-decuong2").modal("show");
 				this.monhoc=item.ten_mon;
 				this.id_monhoc=item.id;
 		  		this.getDecuong();

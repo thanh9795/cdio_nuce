@@ -101,7 +101,7 @@
         <td>{{item.so_tiet_thuc_hanh}}</td>
         <td>{{item.ma_hoc_phan_tien_quyet}}</td>
         <td>{{item.hoc_ky}}</td>
-        <td><a href="#" @click.prevent="OpenDecuong(item)" >Xem đề cương</a></td>
+        <td><a href="#" @click.prevent="Xemdecuong(item)" >Xem đề cương</a></td>
       </tr>
     </tbody>
   </table>
@@ -183,6 +183,29 @@ document.getElementById("defaultOpen").click();
       };
     },
     methods: {
+      Xemdecuong(item){
+        let data={
+          id_monhoc:item.id,
+          id_nganh:this.dtid
+        };
+        this.$http.get(this.base+'Highdecuong/index/',{params:data}).then(res => {
+          console.log(res);
+          this.decuongs=res.body;
+          if (this.decuongs.length>0) {
+            if (this.decuongs[0].type2==1) {
+            window.location.assign(this.decuongs[0].link);
+
+            }else{
+
+            window.location.assign('https://docs.google.com/gview?url='+this.base+this.decuongs[0].link);
+            }
+          }else{
+            alert('Hiện tại môn này chưa có đề cương');
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+      },
       OpenDecuong(item){
         $("#modal-decuong").modal("show");
         /*this.monhoc=item.ten_mon;
