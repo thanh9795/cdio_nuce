@@ -73,6 +73,6 @@ ul.nav.navbar-nav li a:hover{
 .mygrid-wrapper-div{
     width: 255px !important;
 }
-.navbar-nav>li{
-    padding: 0px 13px !important;
+.navbar-nav>li a{
+    padding: 13px 18px !important;
 }
