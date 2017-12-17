@@ -33,8 +33,8 @@
           				<?php foreach ($chuandauras as $cdr): ?>
           					<tr>
                       <td><?php echo $cdr->stt ?></td>
-          						<td><a href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>"><?php echo $cdr->ma_nganh ?></a></td>
-          						<td><a href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>"><?php echo $cdr->ten_nganh ?></a></td>
+          						<td><a href="<?php echo base_url('chuan-dau-ra/' . $cdr->slug.".html") ?>"><?php echo $cdr->ma_nganh ?></a></td>
+          						<td><a href="<?php echo base_url('chuan-dau-ra/' . $cdr->slug.".html") ?>"><?php echo $cdr->ten_nganh ?></a></td>
                      <!--  <td>
                      <?php if ($cdr->chuandaura != NULL): ?>
                        <a class="btn btn-primary" href="<?php echo base_url('home/chitietchuandaura/' . $cdr->id) ?>">Xem chuẩn đầu ra</a>

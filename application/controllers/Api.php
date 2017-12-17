@@ -7,7 +7,15 @@ class Api extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 	}
-
+	public function slug_nganh()
+	{
+		$this->load->helper('slug');
+		$this->load->model('Nganhdaotao_model');
+		$nganhs=$this->Nganhdaotao_model->get_all();
+		foreach ($nganhs as $nganh) {
+			$this->Nganhdaotao_model->update(['slug'=>to_slug($nganh->ten_nganh).'-'.$nganh->id],$nganh->id);
+		}
+	}
 	public function index() {
 
 	}

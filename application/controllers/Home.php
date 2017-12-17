@@ -280,16 +280,17 @@ class Home extends CI_Controller {
 		$this->load->view('master_home', $data);
 	}
 
-	public function chitietchuandaura($id) {
+	public function chitietchuandaura($slug) {
 		$this->load->model('Nganhdaotao_model');
-
-		$chuandaura = $this->Nganhdaotao_model->get($id);
-		$all = $this->Nganhdaotao_model->get_all('', '', ['id!=' => $id]);
+		$slug=substr($slug, 0,-5);
+		$chuandaura = $this->Nganhdaotao_model->getBySlug($slug);
+		if ($chuandaura==NULL) {
+			redirect(base_url('chuan-dau-ra-nganh.html'),'refresh');
+		}
 		$data = [
 			'subview' => "chitietchuandaura",
 			'subdata' => [
 				'chuandauras' => $chuandaura,
-				'all' => $all,
 			],
 		];
 

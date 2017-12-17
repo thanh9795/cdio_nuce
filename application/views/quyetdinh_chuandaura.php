@@ -21,17 +21,6 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	$(function() {
-		if(CKEDITOR.instances['noidung']) {
-			CKEDITOR.remove(CKEDITOR.instances['noidung']);
-		}
-		CKEDITOR.config.width = 1045;
-		CKEDITOR.config.height = 700;
-		CKEDITOR.replace('noidung',{});
-	})
-</script>
-
 <style>
 	iframe{
     width: 100% !important;
