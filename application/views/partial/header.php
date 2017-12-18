@@ -58,6 +58,11 @@
         <script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.15.0/vuedraggable.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+
+            <!-- <link rel="stylesheet" href="<?=base_url('assets')?>/build/js/bootstrap/dist/css/bootstrap.css">
+                <link rel="stylesheet" href="<?=base_url('assets')?>/build/js/bootstrap/dist/css/bootstrap.min.css">
+                <script src="<?=base_url('assets')?>/build/js/bootstrap/dist/js/bootstrap.css"></script>
+                <script src="<?=base_url('assets')?>/build/js/bootstrap/dist/js/bootstrap.min.css"></script> -->
 </head>
 <body class="nav-md">
     <div class="container body">

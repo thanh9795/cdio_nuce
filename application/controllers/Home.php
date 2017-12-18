@@ -40,6 +40,9 @@ class Home extends CI_Controller {
 		$this->load->model('Tintuc_dinhkem_model');
 		$url = substr($url, 0, -5);
 		$tintucitem = $this->Tintuc_model->getbySlug($url);
+		if ($tintucitem == NULL) {
+			redirect(base_url('tin-tuc.html'), 'refresh');
+		}
 		$all = $this->Tintuc_model->get_all('', '', ['id!=' => $tintucitem->id]);
 		$data = [
 			'subview' => "tintuc_detail",
@@ -60,6 +63,9 @@ class Home extends CI_Controller {
 		$this->load->model('Vanban_dinhkem_model');
 		$url = substr($url, 0, -5);
 		$vanbanitem = $this->Vanban_model->getbySlug($url);
+		if ($vanbanitem == NULL) {
+			redirect(base_url('van-ban.html'), 'refresh');
+		}
 		//var_dump($vanbanitem);
 		$all = $this->Vanban_model->get_all('', '', ['id!=' => $vanbanitem->id]);
 
@@ -97,7 +103,6 @@ class Home extends CI_Controller {
 		$urlPattern = base_url('home/vanban?key=' . $key . '&page=(:num)');
 		$offset = ($currentPage - 1) * 10;
 		$vanban = $this->Vanban_model->getall($key, 10, $offset);
-
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
 			'subview' => 'vanban',
@@ -243,6 +248,9 @@ class Home extends CI_Controller {
 		$this->load->model('Nganhdaotao_model');
 		$url = substr($url, 0, -5);
 		$nganhdaotao = $this->Nganhdaotao_model->getbySlug($url);
+		if ($nganhdaotao == NULL) {
+			redirect(base_url('khung-chuong-trinh-dao-tao-nganh.html'), 'refresh');
+		}
 		$data = [
 			'subview' => "chitietnganhdt",
 			'subdata' => [
@@ -286,10 +294,10 @@ class Home extends CI_Controller {
 
 	public function chitietchuandaura($slug) {
 		$this->load->model('Nganhdaotao_model');
-		$slug=substr($slug, 0,-5);
+		$slug = substr($slug, 0, -5);
 		$chuandaura = $this->Nganhdaotao_model->getBySlug($slug);
-		if ($chuandaura==NULL) {
-			redirect(base_url('chuan-dau-ra-nganh.html'),'refresh');
+		if ($chuandaura == NULL) {
+			redirect(base_url('chuan-dau-ra-nganh.html'), 'refresh');
 		}
 		$data = [
 			'subview' => "chitietchuandaura",

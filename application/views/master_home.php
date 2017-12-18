@@ -43,7 +43,20 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
 	<!-- <link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/css/StyleSheet.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<!-- <link rel="stylesheet" href="<?=base_url('assets')?>/build/js/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="<?=base_url('assets')?>/build/js/bootstrap/dist/css/bootstrap.min.css">
+	<script src="<?=base_url('assets')?>/build/js/bootstrap/dist/js/bootstrap.css"></script>
+	<script src="<?=base_url('assets')?>/build/js/bootstrap/dist/js/bootstrap.min.css"></script>
+	<script src="<?=base_url('assets')?>/build/js/vue-resource-develop/dist/vue-resource.js"></script>
+	<script src="<?=base_url('assets')?>/build/js/vue-resource-develop/dist/vue-resource.min.js"></script> -->
+
+
 	<style>
+		body{
+			background:#C1C8DD!important;
+	}
 
 		.mySidenav ul li a{
 		font-size: 10px;
