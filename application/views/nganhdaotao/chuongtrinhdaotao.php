@@ -96,10 +96,6 @@
 									</div>
 
 								</div>
-
-
-
-
 								<button type="submit" class="btn btn-primary">Thêm mới</button>
 							</form>
 						</div>
@@ -267,7 +263,7 @@
 		data () {
 			return {
 		   		type:1,
-		  	link:"",
+		 	 	link:"",
 		  		id_monhoc:0,
 		    	monhoc:"",
 		    	decuongs:[],
@@ -478,18 +474,30 @@
 							monhocs.push(item2);
 							totalki+=parseInt(item2.so_tin_chi);
 							monhocs.forEach(function (mh) {
-								if (item2.ma_hoc_phan_tien_quyet==mh.ma_mon) {
-									if (mh.bg==null) {
+								if ((item2.ma_hoc_phan_tien_quyet.indexOf(mh.ma_mon)>=0||mh.ma_mon.indexOf(item2.ma_hoc_phan_tien_quyet)>=0||item2.ma_hoc_phan_tien_quyet==mh.ma_mon)&&mh.ma_mon!=""&&item2.ma_hoc_phan_tien_quyet!="") {
+										console.log(mh.bg);
+										console.log(item2.bg);
+										console.log("========");
+									if (item2.bg==null&&mh.bg==null) {
 
 										item2.bg=mau[index];
 										item2.color="#fff";
 										mh.color="#fff";
-
 										mh.bg=mau[index++];
 									}else{
-										item2.bg=mh.bg;
-										item2.color=mh.color;
+										if (mh.bg==null) {
+
+											mh.bg=item2.bg;
+											mh.color=item2.color;
+										}else{
+											item2.bg=mh.bg;
+											item2.color=mh.color;
+										}
 									}
+								}else{
+									/*console.log(item2.ma_hoc_phan_tien_quyet);
+									console.log(mh.ma_mon);
+									console.log(item2.ma_hoc_phan_tien_quyet.indexOf(mh.ma_mon));*/
 								}
 							});
 						});

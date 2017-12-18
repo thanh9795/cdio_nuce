@@ -85,7 +85,8 @@ $menu4=$menu2;
 </script>
 <div class="row">
 	<div class="col-md-12">
-		<h2>Quản lý menu</h2></h2>
+		<h2>Quản lý menu</h2>
+		<p>Kéo thả để sắp xếp</p>
 	</div>
 </div>
 
