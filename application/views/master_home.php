@@ -6,7 +6,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>ĐH Xây Dựng</title>
+    <title><?= $title ?></title>
+    <meta name="keywords" content="<?= $keyword ?>"/>
+    <meta name="description" content="<?= $description ?>"/>
+    <!-- for Facebook -->
+    <meta property="og:title" content="<?= $title ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<?= base_url(uri_string()); ?>"/>
+    <meta property="og:image" content="<?php echo base_url('/assets/build/images/header.jpg') ?>"/>
+    <meta property="og:description" content="<?= $description ?>"/>
+    <meta name="p:domain_verify" content="bd47d11d409de5174f303e94aaa2bdc8"/>
+
+    <meta property="fb:pages" content="125520067595615" />
+    <meta name="google-site-verification" content="zy6QyyBn4c0MUaoyz2jlyGUxvXAXidjUGWVMBAAAXJ4"/>
+
+    <!-- for Google+ -->
+    <meta itemprop="name" content="<?= $title ?>">
+    <meta itemprop="description" content="<?= $description ?>">
+    <meta itemprop="image" content="<?php echo base_url('/assets/build/images/header.jpg') ?>">
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="<?= $description ?>"/>
+    <meta name="twitter:description" content="<?= $description ?>"/>
+    <meta name="twitter:image" content="<?php echo base_url('/assets/build/images/header.jpg') ?>"/>
 	<!-- Latest compiled and minified CSS & JS -->
 	<!-- Latest compiled and minified CSS & JS -->
 

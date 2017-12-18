@@ -124,6 +124,9 @@ class Home extends CI_Controller {
 				'gts' => $gt,
 				'hinhanhs' => $hinhanhs,
 			],
+			'title'=>'Trường đại học xây dựng',
+			'description'=>'Trường đại học xây dựng',
+			'keyword'=>'Trường đại học xây dựng'
 		];
 		$this->load->view('master_home', $data);
 	}
