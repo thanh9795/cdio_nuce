@@ -21,6 +21,9 @@ class Home extends CI_Controller {
 				'tintucs' => $tintuc,
 				'paginator' => $paginator,
 			],
+			'title' => 'Tin tức',
+			'description' => 'Tin tức',
+			'keyword' => 'Tin tức',
 
 		];
 		$this->load->view('master_home', $data);
@@ -51,6 +54,9 @@ class Home extends CI_Controller {
 				'dinhkems' => $this->Tintuc_dinhkem_model->get_all('', '', ['id_tintuc' => $tintucitem->id]),
 				'all' => $all,
 			],
+			'title' => $tintucitem->tieude,
+			'description' => 'Chi tiết tin tức',
+			'keyword' => 'Chi tiết tin tức',
 		];
 
 		//var_dump($tintucitem);
@@ -76,6 +82,9 @@ class Home extends CI_Controller {
 				'dinhkems' => $this->Vanban_dinhkem_model->get_all('', '', ['id_vanban' => $vanbanitem->id]),
 				'all' => $all,
 			],
+			'title' => $vanbanitem->so_ky_hieu_vb,
+			'description' => 'Chi tiết văn bản',
+			'keyword' => 'Chi tiết văn bản',
 		];
 
 		//var_dump($vanbanitem);
@@ -110,6 +119,9 @@ class Home extends CI_Controller {
 				'vanbans' => $vanban,
 				'paginator' => $paginator,
 			],
+			'title' => 'Văn bản',
+			'description' => 'Văn bản',
+			'keyword' => 'Văn bản',
 
 		];
 		$this->load->view('master_home', $data);
@@ -129,9 +141,9 @@ class Home extends CI_Controller {
 				'gts' => $gt,
 				'hinhanhs' => $hinhanhs,
 			],
-			'title'=>'Trường đại học xây dựng',
-			'description'=>'Trường đại học xây dựng',
-			'keyword'=>'Trường đại học xây dựng'
+			'title' => 'Trường đại học xây dựng',
+			'description' => 'Trường đại học xây dựng',
+			'keyword' => 'Trường đại học xây dựng',
 		];
 		$this->load->view('master_home', $data);
 	}
@@ -147,6 +159,9 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'qds' => $qd,
 			],
+			'title' => 'Quyết định chuẩn đầu ra',
+			'description' => 'Quyết định chuẩn đầu ra',
+			'keyword' => 'Quyết định chuẩn đầu ra',
 		];
 		$this->load->view('master_home', $data);
 	}
@@ -162,6 +177,9 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'qdctdts' => $qdctdt,
 			],
+			'title' => 'Quyết định chương trình đào tạo',
+			'description' => 'Quyết định chương trình đào tạo',
+			'keyword' => 'Quyết định chương trình đào tạo',
 		];
 		$this->load->view('master_home', $data);
 	}
@@ -207,7 +225,9 @@ class Home extends CI_Controller {
 				'tailieus' => $tailieu,
 				'paginator' => $paginator,
 			],
-
+			'title' => 'Tài liệu',
+			'description' => 'Tài liệu',
+			'keyword' => 'Tài liệu',
 		];
 
 		$this->load->view('master_home', $data);
@@ -242,6 +262,9 @@ class Home extends CI_Controller {
 				'nganhdaotaos' => $nganhdaotao,
 				'paginator' => $paginator,
 			],
+			'title' => 'Khung chương trình đào tạo',
+			'description' => 'Khung chương trình đào tạo',
+			'keyword' => 'Khung chương trình đào tạo',
 
 		];
 		$this->load->view('master_home', $data);
@@ -259,6 +282,9 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'nganhdaotaos' => $nganhdaotao,
 			],
+			'title' => 'Chi tiết ngành đào tạo ' . $nganhdaotao->ten_nganh,
+			'description' => 'Chi tiết ngành đào tạo',
+			'keyword' => 'Chi tiết ngành đào tạo',
 		];
 		$this->load->view('master_home', $data);
 	}
@@ -290,6 +316,9 @@ class Home extends CI_Controller {
 				'chuandauras' => $chuandaura,
 				'paginator' => $paginator,
 			],
+			'title' => 'Chuẩn đầu ra các ngành',
+			'description' => 'Chuẩn đầu ra các ngành',
+			'keyword' => 'Chuẩn đầu ra các ngành',
 
 		];
 		$this->load->view('master_home', $data);
@@ -307,6 +336,9 @@ class Home extends CI_Controller {
 			'subdata' => [
 				'chuandauras' => $chuandaura,
 			],
+			'title' => 'Chi tiết chuẩn đầu ra ' . $chuandaura->ten_nganh,
+			'description' => 'Chi tiết chuẩn đầu ra các ngành',
+			'keyword' => 'Chi tiết chuẩn đầu ra các ngành',
 		];
 
 		//var_dump($tintucitem);
