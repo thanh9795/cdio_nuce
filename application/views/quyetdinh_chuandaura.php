@@ -11,17 +11,17 @@
 					
 						<div class="form-group">
 							<label for="">Chọn file upload <small>(định dạng pdf)</small></label>
-							<input type="file" class="form-control" id="" placeholder="Input field">
+							<input type="file" class="form-control" id="fileUpload" placeholder="Input field">
 						</div>
 					
 					
 						<button type="submit" class="btn btn-primary">Upload</button>
 					</form>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-9">
 					<div v-if="file!=null">
-						<object :data="this.base+file" type="application/pdf" width="100%" height="100%">
-						   <p><b>Example fallback content</b>: This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/sample-3pp.pdf">Download PDF</a>.</p>
+						<object :data="this.base+file" type="application/pdf" width="100%" height="500px">
+						   <p><b>Lỗi</b> Trình duyệt không hỗ trợ xem file pdf <a :href="this.base+file">Tải xuống</a>.</p>
 						</object>
 
 					</div>
@@ -43,12 +43,41 @@
 		    base:'<?php echo base_url() ?>'
 		  };
 		},
+		created(){
+			this.getFile();
+		},
 		methods: {
 		  uploadFile () {
-		    alert();
+  			var formData = new FormData();
+			var file=$('#fileUpload')[0].files[0];
+			if (file!=null) {
+				formData.append('fileattach',file) ;
+			}else{
+				swal({
+					icon:'error',
+					text:'Bạn phải chọn file trước khi upload'
+				});
+				return;
+			}
+			this.$http.post(this.base+'Qd_chuandaura/add',formData).then(res => {
+			  if (res.body.code=="success") {
+				swal({
+					icon:'success',
+					text:res.body.message
+				});
+				this.getFile();
+			}else{
+				swal({
+					icon:'error',
+					text:res.body.message
+				});
+			}
+			}).catch(err => {
+			  console.log(err);
+			});
 		  },
 		  getFile(){
-		  	this.$http.get(this.base+'Qd_chuandaura/api',data, options).then(res => {
+		  	this.$http.get(this.base+'Qd_chuandaura/api').then(res => {
 		  		this.file=res.body.file;
 		  	  console.log(res);
 		  	}).catch(err => {
