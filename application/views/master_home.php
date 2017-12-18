@@ -11,6 +11,8 @@
 	<!-- Latest compiled and minified CSS & JS -->
 
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="shortcut icon" type="image/png" href="<?=base_url('assets')?>/build/images/logo_1.png"/>
+	<link rel="shortcut icon" type="image/png" href="<?=base_url('assets')?>/build/images/logo_1.png"/>
 	<link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/css/bootstrap.css">
 	<link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/js/jquery-1.10.2.min.js">
 	<link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/js/bootstrap.min.js">
@@ -33,100 +35,100 @@
 	<link href="<?=base_url('assets')?>/build/css/style.css" rel="stylesheet">
 	<link href="<?=base_url('assets')?>/build/css/StyleSheet.css" rel="stylesheet">
 
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.0.4/dist/vue-awesome-swiper.js"></script>	<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper@3.0.4/dist/vue-awesome-swiper.js"></script>	<script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.15.0/vuedraggable.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
 	<!-- <link rel="stylesheet" href="http://www.cdio.nuce.edu.vn/theme/default/css/StyleSheet.css"> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style>
 
-	.mySidenav ul li a{
+		.mySidenav ul li a{
 		font-size: 10px;
 	}
 	nav{
-		min-height: 40px!important;
-		background: #0F297E!important;
-	}
-	.navbar{
-		margin-bottom: 0px!important;
-		border-radius: 0px!important;
-	}
-	.navbar-nav>ul>li>a{
-		padding-top: 0px!important;
-		padding-bottom: 0px!important;
-	}
-	.open{
-		//border-top: 1px solid red;
-		  color: #0f297e!important;
-    background:  #fff;
-    /* -webkit-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
-    -moz-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1);
-    /* box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
-    -webkit-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
-    -moz-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
-    box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
-    border-bottom: none!important;
-	}
-	.open>a{
+	min-height: 40px!important;
+	background: #0F297E!important;
+}
+.navbar{
+margin-bottom: 0px!important;
+border-radius: 0px!important;
+}
+.navbar-nav>ul>li>a{
+padding-top: 0px!important;
+padding-bottom: 0px!important;
+}
+.open{
+//border-top: 1px solid red;
+color: #0f297e!important;
+background:  #fff;
+/* -webkit-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
+-moz-box-shadow: 0px -10px 0px 0px rgba(219,33,57,1);
+/* box-shadow: 0px -10px 0px 0px rgba(219,33,57,1); */
+-webkit-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+-moz-box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+box-shadow: 0px -5px 0px 0px rgba(219,33,57,1);
+border-bottom: none!important;
+}
+.open>a{
 
-		background: #fff!important;
-		color: #0F297E;
-		border-color: red!important;
-	}
-	.navbar-nav>.open>a:focus{
-		background: #fff!important;
-		color: #000!important;
-		border-color: red!important;
-	}
+background: #fff!important;
+color: #0F297E;
+border-color: red!important;
+}
+.navbar-nav>.open>a:focus{
+background: #fff!important;
+color: #000!important;
+border-color: red!important;
+}
 /*	.navbar-nav>.open>a:hover{
-		background: #fff!important;
-		color: #000!important;
-		border-color: red!important;
-	}*/
-	.navbar-nav>li>a{
-		padding-bottom: 8px!important;
-		text-transform: uppercase;
-		font-size: 14px;
-		font-weight: 700;
-		color: #fff!important;
-	}
-	.container-fluid{
-		padding-right: 0px!important;
-		padding-left: 0px!important;
-	}
+background: #fff!important;
+color: #000!important;
+border-color: red!important;
+}*/
+.navbar-nav>li>a{
+padding-bottom: 8px!important;
+text-transform: uppercase;
+font-size: 14px;
+font-weight: 700;
+color: #fff!important;
+}
+.container-fluid{
+padding-right: 0px!important;
+padding-left: 0px!important;
+}
 
 /*	.navbar-nav>li>a:hover{
-		border-top: 1px solid red;
-		background: #fff!important;
-		color: #000 !important;
-		border-color: red!important;
-	}*/
-	.dropdown-menu{
-		background: #0f297e !important;
-	}
-	.dropdown-menu li a{
-		color:#fff !important;
-	}
-	.dropdown-menu li a:hover span{
-		color:#0f297e !important;
-	}
+border-top: 1px solid red;
+background: #fff!important;
+color: #000 !important;
+border-color: red!important;
+}*/
+.dropdown-menu{
+background: #0f297e !important;
+}
+.dropdown-menu li a{
+color:#fff !important;
+}
+.dropdown-menu li a:hover span{
+color:#0f297e !important;
+}
 
-	iframe{
-		width: 100% !important;
-	}
+iframe{
+width: 100% !important;
+}
 
-	.panel.panel-default.panelhk {
-		height: 115px;
-		font-size: 14px;
-	}
-	.col-md-1.nopad {
-		width: 105px;
-	}
-	#pageDetail {
-    text-align: inherit;
+.panel.panel-default.panelhk {
+height: 115px;
+font-size: 14px;
+}
+.col-md-1.nopad {
+width: 105px;
+}
+#pageDetail {
+text-align: inherit;
 }
 
 
@@ -197,7 +199,7 @@
 								<span class="icon-bar"></span>
 							</button>
 						</div>
-<?php
+						<?php
 $CI = &get_instance();
 $CI->load->model('Menu_model');
 $parent = $CI->Menu_model->get_all('', '', array(), '', '', '', ['position', 'ASC']);
@@ -225,15 +227,15 @@ foreach ($parent as $p) {
 								<?php foreach ($menu as $key => $mn): ?>
 									<li>
 										<?php if (count($mn['child'])): ?>
-										<a href="<?=$mn['parent']->type == 1 ? $mn['parent']->link : base_url($mn['parent']->link)?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $mn['parent']->title ?> <b class="caret"></b></a>
+											<a href="<?=$mn['parent']->type == 1 ? $mn['parent']->link : base_url($mn['parent']->link)?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $mn['parent']->title ?> <b class="caret"></b></a>
 
-										<ul class="dropdown-menu">
-											<?php foreach ($mn['child'] as $key => $value): ?>
-												<li><a href="<?=$value->type == 1 ? $value->link : base_url($value->link)?>" ><span><i class="fa fa-arrow-circle-right"></i>&nbsp;<?php echo $value->title ?></span></a></li>
-											<?php endforeach?>
-										</ul>
-									<?php else: ?>
-										<li class="<?=$this->uri->segment(1) == $mn['parent']->link ? "active" : ""?>"><a  href="<?=$mn['parent']->type == 1 ? $mn['parent']->link : base_url($mn['parent']->link)?>"><?php echo $mn['parent']->title ?></a></li>
+											<ul class="dropdown-menu">
+												<?php foreach ($mn['child'] as $key => $value): ?>
+													<li><a href="<?=$value->type == 1 ? $value->link : base_url($value->link)?>" ><span><i class="fa fa-arrow-circle-right"></i>&nbsp;<?php echo $value->title ?></span></a></li>
+												<?php endforeach?>
+											</ul>
+										<?php else: ?>
+											<li class="<?=$this->uri->segment(1) == $mn['parent']->link ? "active" : ""?>"><a  href="<?=$mn['parent']->type == 1 ? $mn['parent']->link : base_url($mn['parent']->link)?>"><?php echo $mn['parent']->title ?></a></li>
 
 										<?php endif?>
 									</li>

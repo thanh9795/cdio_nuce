@@ -43,14 +43,14 @@
 				<form method="POST" class="form-horizontal form-label-left" enctype="multipart/form-data">
 
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Tên tài liệu</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Tên tài liệu (*)</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" value="<?=set_value('ten_tai_lieu')?>" name="ten_tai_lieu" class="form-control" >
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Mô tả (*)</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="text" value="<?=set_value('mota')?>" name="mota" class="form-control" >
 						</div>

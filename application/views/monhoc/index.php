@@ -22,7 +22,7 @@
 		</div>
 		<div class="x_panel">
 			<div class="x_title">
-				<h2>Quản lý các ngành đào tạo</h2>
+				<h2>Quản lý các môn học</h2>
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
@@ -56,7 +56,7 @@
 								<td><?=$vb->so_tiet_thuc_hanh?></td>
 								<td><?=$vb->ma_hoc_phan_tien_quyet?></td>
 								<td>
-									<button @click="ShowListTailieu(<?= $vb->id ?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?= $vb->attachnumber>0?"success":"default" ?>"> Đề cương</button>
+									<button @click="ShowListTailieu(<?=$vb->id?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"> Đề cương</button>
 									<a href="<?=base_url('monhoc/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
@@ -101,7 +101,7 @@
 						<div class="col-md-4">
 							<form @submit.prevent="SaveFiles" action="" method="POST" role="form">
 								<legend>Thêm mới tài liệu</legend>
-							
+
 								<div v-if="decuongs.length==0">
 										<div class="form-group">
 											<label for="">Kiểu</label>
@@ -119,30 +119,30 @@
 											</div>
 										</div>
 										<div v-if="type==1">
-											
+
 											<div class="form-group">
 												<label for="">Đường dẫn</label>
 												<input type="text" v-model="link" class="form-control" id="" >
 											</div>
-											
+
 										</div>
 										<div v-else>
 											<div class="form-group">
 												<label for="">Chọn file upload</label>
 												<input type="file"  class="form-control" id="fileDecuong" >
 											</div>
-										
+
 										</div>
-											
-										
-										
-									
+
+
+
+
 										<button type="submit" class="btn btn-primary">Thêm mới</button>
 								</div>
 								<div v-else>
 									<div class="alert alert-danger">
 										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-										<strong>Mỗi môn học chỉ có một đề cường, để chỉnh sửa đề cương, xóa file cũ sau đó thêm mới</strong> 
+										<strong>Mỗi môn học chỉ có một đề cường, để chỉnh sửa đề cương, xóa file cũ sau đó thêm mới</strong>
 									</div>
 								</div>
 							</form>
@@ -166,7 +166,7 @@
 		data () {
 		  return {
 		  	currentid:0,
-		  	base:'<?= base_url() ?>',
+		  	base:'<?=base_url()?>',
 		  	link:"",
 		    monhoc:"",
 		    type:1,
@@ -201,7 +201,7 @@
 		  },
 		  deleteitem:function (id,index) {
 	 			var self=this;
-	 			
+
 	 			swal({ title: "Thông báo",
 	 				text: "Bạn có chắc chắn muốn đề cương: "+ self.decuongs[index].link,
 	 				type: "warning",
@@ -230,7 +230,7 @@
 				  }, response => {
 				    // error callback
 				});*/
-			},	
+			},
 		  ShowListTailieu (id,tenmon) {
 		  	this.currentid=id;
 		  	this.getDecuong(id);
@@ -238,7 +238,7 @@
 		    $("#modal-show").modal("show");
 		  },
 		  SaveFiles(){
-		  	NProgress.start() 
+		  	NProgress.start()
 		  	if (this.type==1) {
 		  		let data={
 		  			id_monhoc:this.currentid,
@@ -288,7 +288,7 @@
 		  	}
 		  }
 		}
-	
+
 	})
 </script>
 <script>

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Cdio</title>
+        <link rel="shortcut icon" type="image/png" href="<?=base_url('assets')?>/build/images/logo_1.png"/>
+    <link rel="shortcut icon" type="image/png" href="<?=base_url('assets')?>/build/images/logo_1.png"/>
     <link href="<?=base_url('assets')?>/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <script src="<?=base_url('assets/vendors/')?>jquery/dist/jquery.min.js"></script>
@@ -20,7 +22,7 @@
     <!-- iCheck -->
     <link href="<?=base_url('assets/vendors')?>/iCheck/skins/flat/green.css" rel="stylesheet">
     <link href="<?=base_url('assets/vendors')?>/switchery/dist/switchery.min.css" rel="stylesheet">
-    
+
     <!-- bootstrap-progressbar -->
     <link href="<?=base_url('assets/vendors')?>/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
