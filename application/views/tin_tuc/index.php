@@ -2,17 +2,17 @@
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-6">
-				<a href="<?= base_url('tintuc/add') ?>" class="btn btn-primary">Thêm mới</a>
+				<a href="<?=base_url('tintuc/add')?>" class="btn btn-primary">Thêm mới</a>
 			</div>
 			<div class="col-md-6">
 				<form action="">
-					<div id="imaginary_container"> 
+					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
 							<input type="text" class="form-control" name="key" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
-								</button>  
+								</button>
 							</span>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 						<tr>
 							<th>#</th>
 							<th style="width: 250px;">Tiêu đề</th>
-							<th>Mô tả</th>
+							<th class="wordbreak">Mô tả</th>
 							<th>Ngày tạo</th>
 							<th>STT</th>
 							<th>Thao tác</th>
@@ -54,20 +54,20 @@
 					</thead>
 					<tbody>
 						<?php foreach ($tintucs as $tt): ?>
-							
+
 							<tr>
-								<th scope="row"><?= $tt->id ?></th>
-								<td><?= $tt->tieude ?></td>
-								<td><?= $tt->mota ?></td>
-								<td><?= $tt->date_created ?></td>
-								<td><?= $tt->stt ?></td>
+								<th scope="row"><?=$tt->id?></th>
+								<td><?=$tt->tieude?></td>
+								<td><?=$tt->mota?></td>
+								<td><?=$tt->date_created?></td>
+								<td><?=$tt->stt?></td>
 								<td>
-									<a href="<?= base_url('tintuc/update/'.$tt->id) ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-danger btn-xs btn-xoa" data-id="<?= $tt->id ?>"><i class="fa fa-trash"></i></a>
-									<a href="<?= base_url('tintuc/detail/'.$tt->id) ?>" class="btn btn-success btn-xs" data-id="<?= $tt->id ?>"><i class="fa fa-eye"></i></a>
+									<a href="<?=base_url('tintuc/update/' . $tt->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<a class="btn btn-danger btn-xs btn-xoa" data-id="<?=$tt->id?>"><i class="fa fa-trash"></i></a>
+									<a href="<?=base_url('tintuc/detail/' . $tt->id)?>" class="btn btn-success btn-xs" data-id="<?=$tt->id?>"><i class="fa fa-eye"></i></a>
 								</td>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach?>
 
 					</tbody>
 				</table>
@@ -86,7 +86,7 @@
 			}).then(function (rs) {
 				if (rs) {
 					$.ajax({
-						url: '<?= base_url('tintuc/delete') ?>',
+						url: '<?=base_url('tintuc/delete')?>',
 						type: 'POST',
 						dataType: 'text',
 						data: {id: btnxoa.data('id')},
@@ -96,7 +96,7 @@
 							icon:'success'
 						}).then(function () {
 							location.reload();
-						})	
+						})
 						console.log("success");
 					})
 					.fail(function() {
@@ -105,8 +105,8 @@
 					.always(function() {
 						console.log("complete");
 					});
-					
-					
+
+
 				}
 			});
 		});

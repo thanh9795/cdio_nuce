@@ -24,7 +24,7 @@ $this->load->view('master', $data);
  */
 	public function index() {
 
-		$this->form_validation->set_rules('txt_content', 'Nội dung', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('txt_content', 'Nội dung', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 
 		if ($this->form_validation->run()) {
 			$this->Gioithieu_model->update([

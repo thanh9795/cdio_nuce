@@ -34,7 +34,7 @@ class Tailieu extends CI_Controller {
 
 	public function add() {
 		$this->form_validation->set_rules('ten_tai_lieu', 'Tên tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('mota', 'Mô tả', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('mota', 'Mô tả', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			if ($this->input->post('loai_link') == 2) {
 				$filename = preg_replace('/[[:^print:]]/', '', $_FILES['file_tai_lieu']['name']);
@@ -92,7 +92,7 @@ class Tailieu extends CI_Controller {
 
 	public function update($id = NULL) {
 		$this->form_validation->set_rules('ten_tai_lieu', 'Tên tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('mota', 'Mô tả', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('mota', 'Mô tả', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 
 		if ($this->form_validation->run()) {
 

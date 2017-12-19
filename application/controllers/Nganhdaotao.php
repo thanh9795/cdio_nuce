@@ -123,8 +123,8 @@ class Nganhdaotao extends CDIO_Controller {
 	public function add() {
 		$this->load->helper('Slug');
 		//$this->output->enable_profiler(TRUE);
-		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
+		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			if (!empty($_FILES['chuandaura']['name'])) {
 				$path = 'public/chuandaura/';
@@ -178,8 +178,8 @@ class Nganhdaotao extends CDIO_Controller {
 
 	public function update($id = NULL) {
 		//	$this->output->enable_profiler(TRUE);
-		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
+		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			if ($this->input->post('upload') == 1) {
 				$path = 'public/chuandaura/';
