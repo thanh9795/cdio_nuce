@@ -44,6 +44,9 @@
 							<th style="width: 200px;">Mô tả</th>
 							<th style="width: 88px;">Lượt xem</th>
 							<th style="width: 88px;">Lượt tải</th>
+							<th>Nhóm</th>
+							<th>Lượt xem</th>
+							<th>Lượt tải</th>
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
 							<th>STT</th>
@@ -57,6 +60,7 @@
 								<th scope="row"><?=$vb->id?></th>
 								<td><?=$vb->ten_tai_lieu?></td>
 								<td><?=$vb->mota?></td>
+								<td><?=$vb->ten_nhom?></td>
 								<td><?=$vb->luot_xem?></td>
 								<td><?=$vb->luot_tai?></td>
 								<td><?=date("d/m/Y", strtotime($vb->date_created))?></td>
