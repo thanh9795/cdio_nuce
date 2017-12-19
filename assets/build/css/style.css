@@ -76,3 +76,8 @@ ul.nav.navbar-nav li a:hover{
 .navbar-nav>li a{
     padding: 10px 18px !important;
 }
+
+.wordbreak{
+    width:375px;
+     word-break: break-all;
+}

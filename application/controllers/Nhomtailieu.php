@@ -35,7 +35,7 @@ class Nhomtailieu extends CDIO_Controller {
 	}
 
 	public function add() {
-		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			$this->Nhomtailieu_model->insert([
 				'ten_nhom' => $this->input->post('ten_nhom'),
@@ -55,7 +55,7 @@ class Nhomtailieu extends CDIO_Controller {
 
 	public function update($id = NULL) {
 
-		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('ten_nhom', 'Tên nhóm tài liệu', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			$this->Nhomtailieu_model->update([
 				'ten_nhom' => $this->input->post('ten_nhom'),

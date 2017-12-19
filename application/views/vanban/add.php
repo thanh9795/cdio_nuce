@@ -2,11 +2,11 @@
 <div class="row">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>
-		<div class="alert alert-danger">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-			<?=validation_errors()?>
-		</div>
+				<?=validation_errors()?>
+			</div>
 		<?php endif?>
 		<div class="x_panel">
 			<div class="x_title">
@@ -43,23 +43,22 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">Trích yếu</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<textarea id="trich_yeu" name="trich_yeu" style="width:100% !important;">
-					</textarea>
+							</textarea>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">stt</label>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<textarea id="noi_dung" name="noi_dung">
+							</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">STT</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="number" name="stt" class="form-control" >
 						</div>
 					</div>
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Nội dung (*)</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<textarea id="noi_dung" name="noi_dung">
-					</textarea>
-						</div>
-					</div>
-
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -75,11 +74,11 @@
 </div>
 <script type="text/javascript">
 	$(function() {
-		if(CKEDITOR.instances['noi_dung']) {
-			CKEDITOR.remove(CKEDITOR.instances['noi_dung']);
-		}
-		CKEDITOR.config.width = 750;
-		CKEDITOR.config.height = 300;
-		CKEDITOR.replace('noi_dung',{});
-	})
+	if(CKEDITOR.instances['noi_dung']) {
+	CKEDITOR.remove(CKEDITOR.instances['noi_dung']);
+}
+CKEDITOR.config.width = 750;
+CKEDITOR.config.height = 300;
+CKEDITOR.replace('noi_dung',{});
+})
 </script>

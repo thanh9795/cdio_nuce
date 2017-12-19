@@ -51,8 +51,7 @@ $this->load->view('master', $data);
 	public function add() {
 
 		$this->load->helper('Slug');
-		$this->form_validation->set_rules('so_ky_hieu_vb', 'Số ký hiệu VB', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('noi_dung', 'Nội dung ', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('so_ky_hieu_vb', 'Số ký hiệu VB', 'trim|required', ['required' => "%s Đây là trường bắt buộn"]);
 		if ($this->form_validation->run()) {
 			$insert_id = $this->Vanban_model->insert([
 				'so_ky_hieu_vb' => $this->input->post('so_ky_hieu_vb'),
@@ -75,8 +74,7 @@ $this->load->view('master', $data);
 	}
 
 	public function update($id = NULL) {
-		$this->form_validation->set_rules('so_ky_hieu_vb', 'Số ký hiệu VB', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
-		$this->form_validation->set_rules('noi_dung', 'Nội dung ', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('so_ky_hieu_vb', 'Số ký hiệu VB', 'trim|required', ['required' => "%s Đây là trường bắt buộn"]);
 		if ($this->form_validation->run()) {
 			$this->Vanban_model->update([
 				'so_ky_hieu_vb' => $this->input->post('so_ky_hieu_vb'),

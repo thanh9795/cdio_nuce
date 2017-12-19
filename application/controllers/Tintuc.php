@@ -49,7 +49,7 @@ class Tintuc extends CDIO_Controller {
 
 	public function add() {
 		$this->load->helper('Slug');
-		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			$insert_id = $this->Tintuc_model->insert([
 				'tieude' => $this->input->post('tieude'),
@@ -71,7 +71,7 @@ class Tintuc extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
-		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Day la truong bat buoc"]);
+		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			$this->Tintuc_model->update([
 				'tieude' => $this->input->post('tieude'),
