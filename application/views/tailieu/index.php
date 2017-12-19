@@ -42,6 +42,7 @@
 							<th>#</th>
 							<th style="width: 200px;">Tên tài liệu</th>
 							<th style="width: 200px;">Mô tả</th>
+							<th>Nhóm</th>
 							<th>Lượt xem</th>
 							<th>Lượt tải</th>
 							<th>Ngày tạo</th>
@@ -57,6 +58,7 @@
 								<th scope="row"><?=$vb->id?></th>
 								<td><?=$vb->ten_tai_lieu?></td>
 								<td><?=$vb->mota?></td>
+								<td><?=$vb->ten_nhom?></td>
 								<td><?=$vb->luot_xem?></td>
 								<td><?=$vb->luot_tai?></td>
 								<td><?=$vb->date_created?></td>
