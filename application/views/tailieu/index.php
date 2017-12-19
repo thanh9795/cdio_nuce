@@ -42,8 +42,8 @@
 							<th>#</th>
 							<th style="width: 200px;">Tên tài liệu</th>
 							<th style="width: 200px;">Mô tả</th>
-							<th>Lượt xem</th>
-							<th>Lượt tải</th>
+							<th style="width: 88px;">Lượt xem</th>
+							<th style="width: 88px;">Lượt tải</th>
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
 							<th>STT</th>
@@ -59,8 +59,8 @@
 								<td><?=$vb->mota?></td>
 								<td><?=$vb->luot_xem?></td>
 								<td><?=$vb->luot_tai?></td>
-								<td><?=$vb->date_created?></td>
-								<td><?=$vb->date_updated?></td>
+								<td><?=date("d/m/Y", strtotime($vb->date_created))?></td>
+								<td><?=date("d/m/Y", strtotime($vb->date_created))?></td>
 								<td><?=$vb->stt?></td>
 								<td>
 									<a href="<?=base_url('tailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
