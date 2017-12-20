@@ -39,10 +39,10 @@
 							<th>Mã môn</th>
 							<th>Tên môn</th>
 							<th>Số tín chỉ</th>
-							<th>Số tiết lý thuyết</th>
-							<th>Số tiết thực hành</th>
-							<th>Mã môn học tiền quyết</th>
-							<th>Thời gian cập nhật cuối</th>
+							<th>Số tiết LT</th>
+							<th>Số tiết TH</th>
+							<th>Mã MH tiền quyết</th>
+							<th>T/g cập nhật cuối</th>
 							<th>Cập nhật cuối</th>
 							<th>Thao tác</th>
 						</tr>
@@ -56,8 +56,8 @@
 								<td><?=$vb->so_tiet_ly_thuyet?></td>
 								<td><?=$vb->so_tiet_thuc_hanh?></td>
 								<td><?=$vb->ma_hoc_phan_tien_quyet?></td>
-								<td><?=date('H:i d/m/Y',strtotime($vb->date_updated))?></td>
-								<td><?=$vb->hoten ?></td>
+								<td><?=date('d/m/Y', strtotime($vb->date_updated))?></td>
+								<td><?=$vb->hoten?></td>
 								<td>
 									<button @click="ShowListTailieu(<?=$vb->mhid?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"><i class="fa fa-book" aria-hidden="true"></i></button>
 									<a href="<?=base_url('monhoc/update/' . $vb->mhid)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
