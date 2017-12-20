@@ -42,11 +42,10 @@
 							<th>#</th>
 							<th style="width: 200px;">Tên tài liệu</th>
 							<th style="width: 200px;">Mô tả</th>
+							<th>Nhóm</th>
 							<th style="width: 88px;">Lượt xem</th>
 							<th style="width: 88px;">Lượt tải</th>
-							<th>Nhóm</th>
-							<th>Lượt xem</th>
-							<th>Lượt tải</th>
+	
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
 							<th>STT</th>

@@ -43,6 +43,8 @@
 							<th>Tên ngành</th>
 							<th>STT</th>
 							<th>Số học kỳ</th>
+							<th>Thời gian cập nhật cuối</th>
+							<th>Cập nhật cuối</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,6 +55,8 @@
 								<td><?=$vb->ten_nganh?></td>
 								<td><?=$vb->stt?></td>
 								<td><?=$vb->so_hoc_ky?></td>
+								<td><?=date('d/m/Y H:i',strtotime($vb->last_update))?></td>
+								<td><?=$vb->hoten?></td>
 								<td>
 
 									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs">CTĐT</a>

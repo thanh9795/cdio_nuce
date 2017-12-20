@@ -21,7 +21,7 @@ class Monhoc extends CDIO_Controller {
 		$urlPattern = base_url('Monhoc?page=(:num)');
 		$offset = ($currentPage - 1) * 20;
 		$monhocs = $this->Monhoc_model->getall($key, 20, $offset);
-
+		//var_dump($monhocs);
 		$paginator = new Paginator($totalItems, $itemsPerPage, $currentPage, $urlPattern);
 		$data = [
 			'content' => 'monhoc/index',
@@ -45,7 +45,7 @@ class Monhoc extends CDIO_Controller {
 
 		if ($this->form_validation->run()) {
 			$this->Monhoc_model->insert([
-
+				'last_id'=>$this->session->userdata('id'),
 				'ma_mon' => $this->input->post('ma_mon'),
 				'ten_mon' => $this->input->post('ten_mon'),
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
@@ -75,6 +75,7 @@ class Monhoc extends CDIO_Controller {
 
 		if ($this->form_validation->run()) {
 			$this->Monhoc_model->update([
+				'last_id'=>$this->session->userdata('id'),
 				'ma_mon' => $this->input->post('ma_mon'),
 				'ten_mon' => $this->input->post('ten_mon'),
 				'so_tin_chi' => $this->input->post('so_tin_chi'),

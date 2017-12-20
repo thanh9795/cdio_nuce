@@ -19,12 +19,13 @@ class Monhoc_model extends Cdio_Model {
 	}
 
 	function getall($key, $limit, $offset) {
-		$this->db->select('*,(SELECT count(id) FROM decuong WHERE decuong.id_monhoc=monhoc.id) as attachnumber');
+		$this->db->join('nguoidung', 'nguoidung.id=monhoc.last_id', 'left');
+		$this->db->select('*,monhoc.id as mhid,(SELECT count(id) FROM decuong WHERE decuong.id_monhoc=monhoc.id) as attachnumber');
 		if ($key != NULL) {
 			$this->db->like('ten_mon', $key);
 			$this->db->or_like('ma_mon', $key);
 		}
-		$this->db->order_by('id', 'asc');
+		$this->db->order_by('monhoc.id', 'asc');
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();
 	}
