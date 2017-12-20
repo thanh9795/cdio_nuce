@@ -9,7 +9,7 @@
 				<form action="">
 					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control" name="key" placeholder="Search" >
+							<input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
@@ -55,12 +55,12 @@
 								<td><?=$vb->so_hoc_ky?></td>
 								<td>
 
-									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs">CTĐT</a>
+									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-server" aria-hidden="true"></i></a>
 									<a href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 									<?php if ($vb->chuandaura != NULL): ?>
 
-									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?=$vb->id?>'>Xem chuẩn đầu ra</a>
+									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?=$vb->id?>'><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
 									<div class="modal fade" id="modal-id<?=$vb->id?>">
 										<div class="modal-dialog" style="width:80%">
 											<div class="modal-content">
@@ -88,7 +88,7 @@
 										</div>
 									</div>
 								<?php else: ?>
-									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?=$vb->id?>'>Xem chuẩn đầu ra</a>
+									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?=$vb->id?>'><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
 										<?php endif?>
 
 								</td>
