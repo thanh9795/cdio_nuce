@@ -40,9 +40,10 @@
 					<thead>
 						<tr>
 							<th>Mã Ngành</th>
-							<th>Tên ngành</th>
+							<th class="wordbreak">Tên ngành</th>
 							<th>STT</th>
 							<th>Số học kỳ</th>
+							<th>Thao tác</th>
 						</tr>
 					</thead>
 					<tbody>
