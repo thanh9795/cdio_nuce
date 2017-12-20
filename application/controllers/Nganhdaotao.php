@@ -36,7 +36,15 @@ class Nganhdaotao extends CDIO_Controller {
 	}
 	public function chuongtrinhdaotao($id) {
 		$this->load->model('Nganhdaotao_model');
+		if ($id==NULL) {
+			redirect(base_url('Nganhdaotao'),'refresh');
+			
+		}
 		$nganhdaotao = $this->Nganhdaotao_model->get_ctdt($id);
+		if ($nganhdaotao==NULL) {
+			redirect(base_url('Nganhdaotao'),'refresh');
+		}
+
 		$data = [
 			'content' => 'nganhdaotao/chuongtrinhdaotao',
 			'contentdata' => [
