@@ -12,18 +12,6 @@ class Vanban extends CDIO_Controller {
 
 	// List all your items
 	public function index() {
-/*		$vanbans=$this->Vanban_model->get_all();
-
-$data=[
-'content'=>'vanban/index',
-'contentdata'=>[
-'vanbans'=>$vanbans
-],
-
-];
-$this->load->view('master', $data);
- */
-
 		$this->output->enable_profiler(TRUE);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
