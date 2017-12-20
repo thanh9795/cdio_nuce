@@ -1,20 +1,20 @@
 
-<?php 
-$data['title_page']="Quản lý người dùng";
-$this->load->view('partial/title',$data);
+<?php
+$data['title_page'] = "Quản lý người dùng";
+$this->load->view('partial/title', $data);
 $this->load->view('partial/alert');
 ?>
 
 <div class="row">
 	<div class="col-md-12">
-		<?php if (validation_errors()!=null): ?>
+		<?php if (validation_errors() != null): ?>
 			<script>
 				$(document).ready(function() {
 					$('#addnewuser').modal('show');
 				});
 			</script>
-			
-		<?php endif ?>
+
+		<?php endif?>
 		<a class="btn btn-primary" data-toggle="modal" href='#addnewuser'><i class="fa fa-user-plus"></i> Thêm mới người dùng</a>
 		<div class="modal fade" id="addnewuser">
 			<div class="modal-dialog">
@@ -23,16 +23,16 @@ $this->load->view('partial/alert');
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title">Thêm mới người dùng</h4>
 					</div>
-					<form action="<?= base_url('user') ?>" method="POST" role="form">
+					<form action="<?=base_url('user')?>" method="POST" role="form">
 						<div class="modal-body">
-							<?php if (validation_errors()!=null): ?>
+							<?php if (validation_errors() != null): ?>
 								<div class="alert alert-danger">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 									<strong>Lỗi!</strong>
 									<?php echo validation_errors(); ?>
 
 								</div>
-							<?php endif ?>
+							<?php endif?>
 							<div class="form-group">
 								<label for="">Tên đăng nhập</label>
 								<input name="username" type="text" class="form-control" id="">
@@ -54,8 +54,8 @@ $this->load->view('partial/alert');
 								<select name="id_nhom" id="inputNhom" class="form-control" required="required">
 									<option value="">Chọn nhóm người dùng</option>
 									<?php foreach ($nhoms as $nhom): ?>
-										<option value="<?= $nhom->id ?>"><?= $nhom->tennhom ?></option>
-									<?php endforeach ?>
+										<option value="<?=$nhom->id?>"><?=$nhom->tennhom?></option>
+									<?php endforeach?>
 								</select>
 							</div>
 						</div>
@@ -110,16 +110,16 @@ $this->load->view('partial/alert');
 						<?php foreach ($users as $user): ?>
 
 							<tr>
-								<td><?= $user->userid ?></td>
-								<td><?= $user->username ?></td>
-								<td><?= $user->hoten ?></td>
-								<td><?= $user->tennhom ?></td>
+								<td><?=$user->userid?></td>
+								<td><?=$user->username?></td>
+								<td><?=$user->hoten?></td>
+								<td><?=$user->tennhom?></td>
 								<td>
-									<a href="<?= base_url('user/detail/'.$user->userid) ?>">
+									<a href="<?=base_url('user/detail/' . $user->userid)?>">
 										<button type="button" class=" btn-xs btn btn-info"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
 									</a>
-									<a class="btn btn-danger btn-xs" data-toggle="modal" href='#del<?= $user->userid ?>'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-									<div class="modal fade" id="del<?= $user->userid ?>">
+									<a class="btn btn-danger btn-xs" data-toggle="modal" href='#del<?=$user->userid?>'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+									<div class="modal fade" id="del<?=$user->userid?>">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -127,11 +127,11 @@ $this->load->view('partial/alert');
 													<h4 class="modal-title">Thông báo</h4>
 												</div>
 												<div class="modal-body">
-													Bạn có chắc chắn muốn xóa người dùng này: <strong><?=$user->username ?></strong>
+													Bạn có chắc chắn muốn xóa người dùng này: <strong><?=$user->username?></strong>
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-													<a href="<?= base_url('user/delete/'.$user->userid) ?>" class="btn btn-danger">Xác nhận xóa</a>
+													<a href="<?=base_url('user/delete/' . $user->userid)?>" class="btn btn-danger">Xác nhận xóa</a>
 												</div>
 											</div>
 										</div>
@@ -139,11 +139,11 @@ $this->load->view('partial/alert');
 
 								</td>
 							</tr>
-						<?php endforeach ?>
+						<?php endforeach?>
 
 					</tbody>
 				</table>
-			<?= $phantrang ?>
+			<?=$phantrang?>
 			</div>
 		</div>
 	</div>

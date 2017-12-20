@@ -1,5 +1,11 @@
-<div class="tab" style="background-color: #0f297e; color:#fff; margin-top: 10px;">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Xem theo học kỳ <?php echo $nganhdaotaos->ten_nganh ?></button>
+<div id="pageDetail">
+    <h1 id="pageDetailTitle">
+
+        <a href="<?=base_url('khung-chuong-trinh-dao-tao-nganh.html')?>">Khung chương trình đào tạo</a> » <?php echo $nganhdaotaos->ten_nganh ?>
+    </h1>
+    <div class="pageDetailContent" style="padding:10px 10px !important;">
+      <div class="tab" style="background-color: #0f297e; color:#fff; margin-top: 10px;">
+  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Xem theo học kỳ </button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Xem theo khối lượng giảng dạy</button>
 </div>
 
@@ -108,6 +114,9 @@
 </div>
 </div>
 
+</div>
+</div>
+
 
 <style>
 div.tab {
@@ -184,8 +193,8 @@ document.getElementById("defaultOpen").click();
     },
     methods: {
       Xemdecuong(item){
-     
-       
+
+
             if (item.type==1) {
             //window.location.assign(this.decuongs[0].link);
               window.open(item.link,'_blank');
@@ -194,7 +203,7 @@ document.getElementById("defaultOpen").click();
               window.open('https://docs.google.com/gview?url='+this.base+item.link,'_blank');
             //window.location.assign();
             }
-        
+
       },
       OpenDecuong(item){
         $("#modal-decuong").modal("show");

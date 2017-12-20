@@ -8,7 +8,7 @@
 				<form action="">
 					<div id="imaginary_container">
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control" name="key" placeholder="Search" >
+							<input type="text" class="form-control" name="key" value="<?php echo $this->input->get('key') ?>" placeholder="Search" >
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
@@ -45,7 +45,7 @@
 							<th>Nhóm</th>
 							<th style="width: 88px;">Lượt xem</th>
 							<th style="width: 88px;">Lượt tải</th>
-	
+
 							<th>Ngày tạo</th>
 							<th>Ngày sửa</th>
 							<th>STT</th>

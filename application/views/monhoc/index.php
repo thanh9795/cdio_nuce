@@ -59,7 +59,7 @@
 								<td><?=date('H:i d/m/Y',strtotime($vb->date_updated))?></td>
 								<td><?=$vb->hoten ?></td>
 								<td>
-									<button @click="ShowListTailieu(<?=$vb->mhid?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"> Đề cương</button>
+									<button @click="ShowListTailieu(<?=$vb->mhid?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"><i class="fa fa-book" aria-hidden="true"></i></button>
 									<a href="<?=base_url('monhoc/update/' . $vb->mhid)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->mhid?>"><i class="fa fa-trash"></i></button>
 								</td>
