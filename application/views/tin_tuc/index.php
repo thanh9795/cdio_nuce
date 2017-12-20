@@ -59,7 +59,7 @@
 								<th scope="row"><?=$tt->id?></th>
 								<td><?=$tt->tieude?></td>
 								<td><?=$tt->mota?></td>
-								<td><?=$tt->date_created?></td>
+								<td><?=date("d/m/Y", strtotime($tt->date_created))?></td>
 								<td><?=$tt->stt?></td>
 								<td>
 									<a href="<?=base_url('tintuc/update/' . $tt->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
