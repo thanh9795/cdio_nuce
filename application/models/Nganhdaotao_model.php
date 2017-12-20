@@ -28,6 +28,7 @@ class Nganhdaotao_model extends Cdio_Model {
 	}
 
 	function getall($key, $limit, $offset) {
+		$this->db->join('nguoidung', 'nguoidung.id=nganh_dao_tao.last_id', 'left');
 		if ($key != NULL) {
 			$this->db->like('ten_nganh', $key);
 			$this->db->or_like('ma_nganh', $key);
