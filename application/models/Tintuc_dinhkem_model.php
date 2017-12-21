@@ -9,6 +9,11 @@ class Tintuc_dinhkem_model extends CDIO_Model {
 		parent::__construct();
 
 	}
+	public function deleteByIdTintuc($tintuc)
+	{
+		$this->db->where('id_tintuc', $tintuc);
+		$this->db->delete($this->table_name);
+	}
 
 }
 

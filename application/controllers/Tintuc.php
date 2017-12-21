@@ -81,6 +81,7 @@ class Tintuc extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
+		$this->load->model('Tintuc_dinhkem_model');
 		$this->form_validation->set_rules('tieude', 'Tiêu đề', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		if ($this->form_validation->run()) {
 			$this->Tintuc_model->update([
@@ -91,6 +92,16 @@ class Tintuc extends CDIO_Controller {
 				'date_created' => $this->input->post('date_created'),
 				'date_updated' => $this->input->post('date_updated'),
 			], $id);
+			$this->Tintuc_dinhkem_model->deleteByIdTintuc($id);
+			if (count($this->input->post('dinhkems'))>0) {
+				foreach ($this->input->post('dinhkems') as $key => $value) {
+					if ($value!=NULL&$value!="") {
+						$this->Tintuc_dinhkem_model->insert(
+							['type'=>3,'link'=>$value,'id_tintuc'=>$id]
+						);
+					}
+				}
+			}
 			$this->session->set_flashdata('code', 'success');
 			$this->session->set_flashdata('message', 'Cập nhật thành công');
 		}

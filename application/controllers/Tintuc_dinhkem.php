@@ -73,6 +73,7 @@ class Tintuc_dinhkem extends CI_Controller {
 			$this->Tintuc_dinhkem_model->delete($id);
 		}
 	}
+	
 }
 
 /* End of file Decuong.php */
