@@ -57,6 +57,16 @@ class Tintuc extends CDIO_Controller {
 				'chi_tiet' => $this->input->post('chi_tiet'),
 				'stt' => $this->input->post('stt'),
 			]);
+			if (count($this->input->post('dinhkems'))>0) {
+				$this->load->model('Tintuc_dinhkem_model');
+				foreach ($this->input->post('dinhkems') as $key => $value) {
+					if ($value!=NULL&$value!="") {
+						$this->Tintuc_dinhkem_model->insert(
+							['type'=>3,'link'=>$value,'id_tintuc'=>$insert_id]
+						);
+					}
+				}
+			}
 			$this->session->set_flashdata('code', 'success');
 			$this->session->set_flashdata('message', 'Thêm mới thành công');
 			$slug = to_slug($this->input->post('tieude')) . "-" . $insert_id;
