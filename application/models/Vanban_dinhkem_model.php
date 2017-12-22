@@ -9,5 +9,10 @@ class Vanban_dinhkem_model extends CDIO_Model {
 		parent::__construct();
 
 	}
+	public function deleteByIdVanBan($id_vanban)
+	{
+		$this->db->where('id_vanban', $id_vanban);
+		$this->db->delete($this->table_name);
+	}
 
 }

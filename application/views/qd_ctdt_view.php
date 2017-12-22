@@ -5,7 +5,7 @@ Quyết định ban hành CTĐT
   <div class="pageDetailContent">
       <?php if ($qdctdts->noidung!=NULL): ?>
   		
-  		<object data="<?php echo base_url($qdctdts->noidung) ?>" type="application/pdf" width="100%" height="500px">
+  		<object data="<?=($qdctdts->noidung) ?>" type="application/pdf" width="100%" height="500px">
 		   <p><b>Lỗi</b>: Trình duyệt không hỗ trợ xem pdf<a href="<?php echo base_url($qdctdts->noidung) ?>">Tải xuống PDF</a>.</p>
 		</object>
 	<?php else: ?>

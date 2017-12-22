@@ -48,6 +48,12 @@ class Qd_ctdt extends CI_Controller {
 			}
 		}
 	}
+	public function saveFile()
+	{
+		$path=$this->input->post('path');
+		$this->Qd_ctdt_model->update(['noidung' => $path], 1);
+		
+	}
 	public function api() {
 		$qd = $this->Qd_ctdt_model->get(1);
 		echo json_encode(['file' => $qd->noidung]);

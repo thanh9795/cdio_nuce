@@ -76,8 +76,8 @@
 												<div class="modal-body">
 													<?php if ($vb->chuandaura != NULL): ?>
 
-														<object data="<?=base_url($vb->chuandaura)?>" type="application/pdf" width="100%" height="500px">
-													   <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?=base_url($vb->chuandaura)?>">Download PDF</a>.</p>
+														<object data="<?=($vb->chuandaura)?>" type="application/pdf" width="100%" height="500px">
+													   <p><b>Trình duyệt của bạn không hỗ trợ xem pdf <a href="<?=($vb->chuandaura)?>">Download PDF</a>.</p>
 													</object>
 													<?php else: ?>
 														<div class="alert alert-danger">

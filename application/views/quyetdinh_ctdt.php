@@ -5,8 +5,15 @@
 				<h3 class="panel-title">Quyết định chương trình đào tạo</h3>
 			</div>
 			<div class="panel-body">
-				<div class="col-md-3">
-					<form @submit.prevent="uploadFile" action="" method="POST" role="form">
+				<div class="col-md-5">
+					<form @submit.prevent="saveFile" action="">
+						<div class="input-group">
+						  <input type="text" v-model="file" class="form-control" id="filepdf" placeholder="" aria-describedby="basic-addon2">
+						  <span id="uploadbtn" class="input-group-addon" id="basic-addon2"><i class="fa fa-upload"></i> Upload</span>
+						</div>
+						<button type="submit" class="btn btn-success">Lưu</button>
+					</form>
+					<!-- <form @submit.prevent="uploadFile" action="" method="POST" role="form">
 						<legend>Upload quyết định CTDT</legend>
 					
 						<div class="form-group">
@@ -16,11 +23,11 @@
 					
 					
 						<button type="submit" class="btn btn-primary">Upload</button>
-					</form>
+					</form> -->
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-7">
 					<div v-if="file!=null">
-						<object :data="this.base+file" type="application/pdf" width="100%" height="500px">
+						<object :data="file" type="application/pdf" width="100%" height="500px">
 						   <p><b>Lỗi</b> Trình duyệt không hỗ trợ xem file pdf <a :href="this.base+file">Tải xuống</a>.</p>
 						</object>
 
@@ -31,6 +38,43 @@
 	</div>
 </div>
 <script>
+	$(document).ready(function() {
+		$("#uploadbtn").click(function(event) {
+			/* Act on the event */
+			selectFileWithCKFinder("filepdf");
+
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						var ext=file.getUrl().split(".")
+						ext=ext[ext.length-1];
+						if (ext==="pdf") {
+
+							vm.file=file.getUrl();
+						}else{
+							swal({
+								icon:'info',
+								text:'Định dạng yêu cầu là file pdf'
+							});
+						}
+						//output.value = file.getUrl();
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
 	var vm = new Vue({
 		http: {
 		    emulateJSON: true,
@@ -47,6 +91,20 @@
 			this.getFile();
 		},
 		methods: {
+			saveFile(){
+				let data={
+					path:this.file
+				}
+				this.$http.post(this.base+'Qd_ctdt/saveFile',data).then(res => {
+					swal({
+						icon:'success',
+						text:'Lưu thành công'
+					});
+				  console.log(res);
+				}).catch(err => {
+				  console.log(err);
+				});
+			},
 		  uploadFile () {
   			var formData = new FormData();
 			var file=$('#fileUpload')[0].files[0];

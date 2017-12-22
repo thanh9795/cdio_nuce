@@ -129,11 +129,13 @@ class Nganhdaotao extends CDIO_Controller {
 		echo json_encode($hocky);
 	}
 	public function add() {
+		$this->load->helper('Mydate');
+		//$this->output->enable_profiler(TRUE);
 		$this->load->helper('Slug');
 		//$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
-		if ($this->form_validation->run()) {
+	/*	if ($this->form_validation->run()) {
 			if (!empty($_FILES['chuandaura']['name'])) {
 				$path = 'public/chuandaura/';
 				$conf['upload_path'] = $path;
@@ -174,6 +176,23 @@ class Nganhdaotao extends CDIO_Controller {
 				redirect(base_url('nganhdaotao'), 'refresh');
 			}
 
+		}*/
+		if ($this->form_validation->run()) {
+		
+				$insert_id = $this->Nganhdaotao_model->insert([
+					'ten_nganh' => $this->input->post('ten_nganh'),
+					'ma_nganh' => $this->input->post('ma_nganh'),
+					'stt' => $this->input->post('stt'),
+					'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+					'chuandaura' => $this->input->post('chuandaura'),
+					'last_update' => currentdate(),
+				]);
+				$slug = to_slug($this->input->post('ten_nganh')) . "-" . $insert_id;
+				$this->Nganhdaotao_model->update(['slug' => $slug], $insert_id);
+				$this->session->set_flashdata('code', 'success');
+				$this->session->set_flashdata('message', 'Thêm mới thành công');
+				redirect(base_url('nganhdaotao'), 'refresh');
+
 		}
 
 		$data = [
@@ -185,10 +204,11 @@ class Nganhdaotao extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
+		$this->load->helper('Slug');
 		//	$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_nganh', 'Mã ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('ten_nganh', 'Tên ngành', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
-		if ($this->form_validation->run()) {
+		/*if ($this->form_validation->run()) {
 			if ($this->input->post('upload') == 1) {
 				$path = 'public/chuandaura/';
 				$conf['upload_path'] = $path;
@@ -224,6 +244,22 @@ class Nganhdaotao extends CDIO_Controller {
 				$this->session->set_flashdata('message', 'Cập nhật thành công');
 				redirect(base_url('nganhdaotao'), 'refresh');
 			}
+
+		}*/
+		if ($this->form_validation->run()) {
+			$insert_id = $this->Nganhdaotao_model->update([
+					'ten_nganh' => $this->input->post('ten_nganh'),
+					'ma_nganh' => $this->input->post('ma_nganh'),
+					'stt' => $this->input->post('stt'),
+					'so_hoc_ky' => $this->input->post('so_hoc_ky'),
+					'chuandaura' => $this->input->post('chuandaura'),
+				],$id);
+				$slug = to_slug($this->input->post('ten_nganh')) . "-" . $insert_id;
+				$this->Nganhdaotao_model->update(['slug' => $slug], $insert_id);
+				$this->session->set_flashdata('code', 'success');
+				$this->session->set_flashdata('message', 'Cập nhật thành công');
+				redirect(base_url('nganhdaotao'), 'refresh');
+
 
 		}
 		$nganhdaotao = $this->Nganhdaotao_model->get($id);

@@ -1,4 +1,3 @@
-
 <div class="row" id="demo">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>
@@ -48,6 +47,21 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12">STT</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
 							<input type="number" name="stt" class="form-control" >
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">
+							Đính kèm <br>
+							<button @click="addfile" type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						</label>
+						<div class="col-md-9 col-sm-9 col-xs-12">
+							<div class="input-group" v-for="(item,index) in dinhkem">
+						      <input name="dinhkems[]" type="text" :id="'tbx'+index" readonly="" class="form-control">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default btn-pick" :data-textbox="'tbx'+index" type="button">Chọn file</button>
+						      </span>
+						    </div>
 						</div>
 					</div>
 				<!-- 	<div class="form-group">
@@ -110,21 +124,56 @@ CKEDITOR.config.width = 750;
 CKEDITOR.config.height = 300;
 CKEDITOR.replace('noi_dung',{});
 })
+	$(document).ready(function() {
+		/*$(".btn-pick").click(function(event) {
+			selectFileWithCKFinder($(this).data('textbox'));
+		});*/
+		$(document).on('click', '.btn-pick', function(event) {
+			event.preventDefault();
+			selectFileWithCKFinder($(this).data('textbox'));
+
+			/* Act on the event */
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						output.value = file.getUrl();
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
+
 	var vm = new Vue({
 	
 		el: "#demo",
 		data () {
 		  return {
-		    dinhkem:2,
-		    dinhkems:[],
+		    dinhkem:3,
 		  };
 		},
 		methods: {
-		  adddk () {
-		    this.dinhkems.push({
-		    	type:this.dinhkem,
-		    });
-		  }
+		  addfile () {
+		  	if (this.dinhkem>=5) {
+		  		swal({
+		  			icon:'info',
+		  			text:'Bạn chỉ được chọn tối đa 5 file'
+		  		});
+			  }else{
+			    this.dinhkem++;
+			  }
+		  	}
 		}
 	
 	})

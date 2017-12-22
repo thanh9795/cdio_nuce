@@ -1,16 +1,3 @@
-<script>
-	$(document).ready(function() {
-		$('input[type=radio][name=loai_link]').change(function() {
-			if (this.value == '1') {
-				vm.link=true;
-			}
-			else if (this.value == '2') {
-				vm.link=false;
-			}
-		});
-	});
-
-</script>
 <div class="row" id="tailieu">
 	<div class="col-md-12">
 		<?php if (validation_errors() != NULL): ?>

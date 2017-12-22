@@ -58,75 +58,89 @@
 						</div>
 					</div>
 
-
 					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12">Quản lý files</label>
-						<div class="col-md-9 col-sm-9 col-xs-12">
-							<div class="row">
-								<div class="col-md-8">
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th>Kiểu</th>
-												<th>Đường dẫn</th>
-												<th>Ngày tạo</th>
-												<th>Xóa</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr v-for="(item,index) in decuongs">
-												<td>{{item.type2}}</td>
-												<td>
-													<a :href="item.type==2?base+item.link:item.link">{{item.link|shorter}}</a>
-												</td>
-												<td>{{item.date_created}}</td>
-												<td><button @click="deleteitem(item.id,index)" type="button" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></button></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="col-md-4">
-									<legend>Thêm mới link văn bản</legend>
-
-									<div class="form-group">
-										<label for="">Kiểu</label>
-										<div class="radio">
-											<label>
-												<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
-												Link
-											</label>
-										</div>
-										<div class="radio">
-											<label>
-												<input type="radio" name="type" id="" value="2" v-model="type">
-												Đính kèm
-											</label>
-										</div>
-									</div>
-									<div v-if="type==1">
-
-										<div class="form-group">
-											<label for="">Đường dẫn</label>
-											<input type="text" v-model="link" class="form-control" id="" >
-										</div>
-
-									</div>
-									<div v-else>
-										<div class="form-group">
-											<label for="">Chọn file upload</label>
-											<input type="file"  class="form-control" id="fileDecuong" >
-										</div>
-
-									</div>
-
-
-
-
-									<button type="button" @click="SaveFiles" class="btn btn-primary">Thêm mới</button>
-								</div>
-							</div>
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">
+							Đính kèm <br>
+							<button @click="addfile" type="button" class="btn btn-default btn-xs"><i class="fa fa-plus"></i></button>
+						</label>
+								<div class="col-md-9 col-sm-9 col-xs-12">
+							<div class="input-group" v-for="(item,index) in decuongs">
+						      <input name="dinhkems[]" type="text" :value="item.link" :id="'tbx'+index" readonly="" class="form-control">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default btn-pick" :data-textbox="'tbx'+index" type="button">Chọn file</button>
+						        <button class="btn btn-danger" @click="deletefile(index)" type="button"><i class="fa fa-trash"></i></button>
+						      </span>
+						    </div>
 						</div>
 					</div>
+			<!-- 		<div class="form-group">
+				<label class="control-label col-md-3 col-sm-3 col-xs-12">Quản lý files</label>
+				<div class="col-md-9 col-sm-9 col-xs-12">
+					<div class="row">
+						<div class="col-md-8">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Kiểu</th>
+										<th>Đường dẫn</th>
+										<th>Ngày tạo</th>
+										<th>Xóa</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="(item,index) in decuongs">
+										<td>{{item.type2}}</td>
+										<td>
+											<a :href="item.type==2?base+item.link:item.link">{{item.link|shorter}}</a>
+										</td>
+										<td>{{item.date_created}}</td>
+										<td><button @click="deleteitem(item.id,index)" type="button" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-4">
+							<legend>Thêm mới link văn bản</legend>
+			
+							<div class="form-group">
+								<label for="">Kiểu</label>
+								<div class="radio">
+									<label>
+										<input type="radio" name="type" id="" value="1" v-model="type" checked="checked">
+										Link
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input type="radio" name="type" id="" value="2" v-model="type">
+										Đính kèm
+									</label>
+								</div>
+							</div>
+							<div v-if="type==1">
+			
+								<div class="form-group">
+									<label for="">Đường dẫn</label>
+									<input type="text" v-model="link" class="form-control" id="" >
+								</div>
+			
+							</div>
+							<div v-else>
+								<div class="form-group">
+									<label for="">Chọn file upload</label>
+									<input type="file"  class="form-control" id="fileDecuong" >
+								</div>
+			
+							</div>
+			
+			
+			
+			
+							<button type="button" @click="SaveFiles" class="btn btn-primary">Thêm mới</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -141,6 +155,37 @@
 	</div>
 </div>
 <script>
+	$(document).ready(function() {
+		/*$(".btn-pick").click(function(event) {
+			selectFileWithCKFinder($(this).data('textbox'));
+		});*/
+		$(document).on('click', '.btn-pick', function(event) {
+			event.preventDefault();
+			selectFileWithCKFinder($(this).data('textbox'));
+
+			/* Act on the event */
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						output.value = file.getUrl();
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
+
 	var vm = new Vue({
 		http: {
 			emulateJSON: true,
@@ -154,7 +199,8 @@
 				link:"",
 				monhoc:"",
 				type:1,
-				decuongs:[]
+				decuongs:[],
+				dinhkem:3,
 			};
 		},
 		filters: {
@@ -172,10 +218,23 @@
 			this.getDecuong(this.currentid);
 		},
 		methods: {
+			addfile () {
+		  	if (this.decuongs.length>=5) {
+		  		swal({
+		  			icon:'info',
+		  			text:'Bạn chỉ được chọn tối đa 5 file'
+		  		});
+			  }else{
+				this.decuongs.push({link:""});
+			  }
+		  	},
 			getDecuong(id){
 				this.$http.get(this.base+'Vanban_dinhkem/index/'+id).then(res => {
 					console.log(res);
 					this.decuongs=res.body;
+					if (this.decuongs.length==0) {
+						this.decuongs.push({link:""});
+					}
 				}).catch(err => {
 					console.log(err);
 				});
@@ -218,6 +277,16 @@
 				    // error callback
 				});*/
 			},
+			deletefile(index){
+				//alert(index);
+				if (this.decuongs.length==1) {
+					this.decuongs[0].link="";
+
+				}else{
+					this.decuongs.splice(index,1);
+				}
+				//this.decuongs[index]={};
+			},	
 			ShowListTailieu (id,tenmon) {
 				this.currentid=id;
 				this.getDecuong(id);

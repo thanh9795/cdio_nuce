@@ -48,6 +48,11 @@ class Qd_chuandaura extends CI_Controller {
 			}
 		}
 	}
+	public function saveFile()
+	{
+		$path=$this->input->post('path');
+		$this->Quyetdinh_chuandaura_model->update(['noidung' => $path], 1);
+	}
 	public function api() {
 		$qd = $this->Quyetdinh_chuandaura_model->get(1);
 		echo json_encode(['file' => $qd->noidung]);

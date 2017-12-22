@@ -73,6 +73,7 @@ class Vanban_dinhkem extends CI_Controller {
 			$this->Vanban_dinhkem_model->delete($id);
 		}
 	}
+
 }
 
 /* End of file Decuong.php */

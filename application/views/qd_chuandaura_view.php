@@ -5,7 +5,7 @@ Quyết định ban hành chuẩn đầu ra
   <div class="pageDetailContent">
   	<?php if ($qds->noidung!=NULL): ?>
   		
-  		<object data="<?php echo base_url($qds->noidung) ?>" type="application/pdf" width="100%" height="500px">
+  		<object data="<?=($qds->noidung) ?>" type="application/pdf" width="100%" height="500px">
 		   <p><b>Lỗi</b>: Trình duyệt không hỗ trợ xem pdf<a href="<?php echo base_url($qds->noidung) ?>">Tải xuống PDF</a>.</p>
 		</object>
 	<?php else: ?>
