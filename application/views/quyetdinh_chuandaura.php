@@ -5,8 +5,15 @@
 				<h3 class="panel-title">Quyết định chuẩn đầu ra</h3>
 			</div>
 			<div class="panel-body">
-				<div class="col-md-3">
-					<form @submit.prevent="uploadFile" action="" method="POST" role="form">
+				<div class="col-md-5">
+					<label for="">Chọn file chuẩn đầu ra <small>(định dạng pdf)</small></label>
+					
+					<div class="input-group">
+					  <input type="text" v-model="file" class="form-control" id="filepdf" placeholder="Recipient's username" aria-describedby="basic-addon2">
+					  <span id="uploadbtn" class="input-group-addon" id="basic-addon2"><i class="fa fa-upload"></i> Upload</span>
+					</div>
+
+					<!-- <form @submit.prevent="uploadFile" action="" method="POST" role="form">
 						<legend>Upload chuẩn đầu ra</legend>
 					
 						<div class="form-group">
@@ -16,9 +23,9 @@
 					
 					
 						<button type="submit" class="btn btn-primary">Upload</button>
-					</form>
+					</form> -->
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-7">
 					<div v-if="file!=null">
 						<object :data="this.base+file" type="application/pdf" width="100%" height="500px">
 						   <p><b>Lỗi</b> Trình duyệt không hỗ trợ xem file pdf <a :href="this.base+file">Tải xuống</a>.</p>
@@ -31,6 +38,32 @@
 	</div>
 </div>
 <script>
+	$(document).ready(function() {
+		$("#uploadbtn").click(function(event) {
+			/* Act on the event */
+			selectFileWithCKFinder("filepdf");
+			
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						output.value = file.getUrl();
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
 	var vm = new Vue({
 		http: {
 		    emulateJSON: true,
