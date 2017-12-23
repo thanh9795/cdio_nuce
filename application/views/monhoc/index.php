@@ -36,6 +36,7 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
+							<th>STT</th>
 							<th>Mã môn</th>
 							<th>Tên môn</th>
 							<th>Số tín chỉ</th>
@@ -48,8 +49,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($monhocs as $vb): ?>
+						<?php
+$sott = $this->input->get('page') ? ($this->input->get('page') - 1) * 20 : 0;
+?>
+						<?php foreach ($monhocs as $key => $vb): ?>
 							<tr>
+								<td scope="row"><?=$sott + $key + 1?></td>
 								<td scope="row"><?=$vb->ma_mon?></td>
 								<td><?=$vb->ten_mon?></td>
 								<td><?=$vb->so_tin_chi?></td>

@@ -93,7 +93,7 @@
         <th>Số tiết LT</th>
         <th>Số tiết TH</th>
         <th>Mã hp tiên quyết</th>
-        <th>Học kỳ</th>
+        <th>HK</th>
         <th>Thao tác</th>
       </tr>
     </thead>

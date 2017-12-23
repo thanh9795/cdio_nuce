@@ -12,7 +12,6 @@ class Tintuc extends CDIO_Controller {
 
 	// List all your items
 	public function index() {
-		$this->output->enable_profiler(TRUE);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Tintuc_model->countall($key);
@@ -57,12 +56,12 @@ class Tintuc extends CDIO_Controller {
 				'chi_tiet' => $this->input->post('chi_tiet'),
 				'stt' => $this->input->post('stt'),
 			]);
-			if (count($this->input->post('dinhkems'))>0) {
+			if (count($this->input->post('dinhkems')) > 0) {
 				$this->load->model('Tintuc_dinhkem_model');
 				foreach ($this->input->post('dinhkems') as $key => $value) {
-					if ($value!=NULL&$value!="") {
+					if ($value != NULL & $value != "") {
 						$this->Tintuc_dinhkem_model->insert(
-							['type'=>3,'link'=>$value,'id_tintuc'=>$insert_id]
+							['type' => 3, 'link' => $value, 'id_tintuc' => $insert_id]
 						);
 					}
 				}
@@ -93,11 +92,11 @@ class Tintuc extends CDIO_Controller {
 				'date_updated' => $this->input->post('date_updated'),
 			], $id);
 			$this->Tintuc_dinhkem_model->deleteByIdTintuc($id);
-			if (count($this->input->post('dinhkems'))>0) {
+			if (count($this->input->post('dinhkems')) > 0) {
 				foreach ($this->input->post('dinhkems') as $key => $value) {
-					if ($value!=NULL&$value!="") {
+					if ($value != NULL & $value != "") {
 						$this->Tintuc_dinhkem_model->insert(
-							['type'=>3,'link'=>$value,'id_tintuc'=>$id]
+							['type' => 3, 'link' => $value, 'id_tintuc' => $id]
 						);
 					}
 				}

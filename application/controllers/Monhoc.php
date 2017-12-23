@@ -12,7 +12,6 @@ class Monhoc extends CDIO_Controller {
 
 	public function index() {
 
-		$this->output->enable_profiler(TRUE);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Monhoc_model->countall($key);
@@ -45,7 +44,7 @@ class Monhoc extends CDIO_Controller {
 
 		if ($this->form_validation->run()) {
 			$this->Monhoc_model->insert([
-				'last_id'=>$this->session->userdata('id'),
+				'last_id' => $this->session->userdata('id'),
 				'ma_mon' => $this->input->post('ma_mon'),
 				'ten_mon' => $this->input->post('ten_mon'),
 				'so_tin_chi' => $this->input->post('so_tin_chi'),
@@ -68,14 +67,13 @@ class Monhoc extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
-		$this->output->enable_profiler(TRUE);
 		$this->form_validation->set_rules('ma_mon', 'Mã môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('ten_mon', 'Tên môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('so_tin_chi', 'Số tín chỉ', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 
 		if ($this->form_validation->run()) {
 			$this->Monhoc_model->update([
-				'last_id'=>$this->session->userdata('id'),
+				'last_id' => $this->session->userdata('id'),
 				'ma_mon' => $this->input->post('ma_mon'),
 				'ten_mon' => $this->input->post('ten_mon'),
 				'so_tin_chi' => $this->input->post('so_tin_chi'),

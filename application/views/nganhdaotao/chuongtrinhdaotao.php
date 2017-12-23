@@ -149,10 +149,10 @@
 				</div>
 				<div class="x_content">
 
-					<p>
+					<p class="pull-right">
 						<?php if ($nganhdaotao->hoten): ?>
 
-						Cập nhật lần cuối <?=date('H:i d/m/Y', strtotime($nganhdaotao->last_update))?> bởi <span class="label label-success"><?=$nganhdaotao->hoten?></span>
+							Cập nhật lần cuối <?=date('H:i d/m/Y', strtotime($nganhdaotao->last_update))?> bởi <span class="label label-success"><?=$nganhdaotao->hoten?></span>
 						<?php endif?>
 					</p>
 					<div class="col-xs-2">
@@ -199,8 +199,8 @@
 
 
 		<div class="col-md-4">
-			<button type="button" @click="save" class="btn btn-default">Lưu</button>
-			<a @click="showCTDT" class="btn btn-primary" data-toggle="modal" href='#modal-id'>Xem trước CTĐT</a>
+			<button type="button" @click="save" class="btn btn-primary">Lưu</button>
+			<a @click="showCTDT" class="btn btn-primary" data-toggle="modal" href='#modal-id'>Xem theo từng HK</a>
 			<div class="modal fade" style="" id="modal-id">
 				<div class="modal-dialog" style="width: 90%">
 					<div class="modal-content">
@@ -245,6 +245,51 @@
 					</div>
 				</div>
 			</div>
+			<a @click="showCTDT" class="btn btn-primary" data-toggle="modal" href='#modal-id-gd'>Xem theo KLGD</a>
+			<div class="modal fade" style="" id="modal-id-gd">
+				<div class="modal-dialog" style="width: 90%">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 class="modal-title">Chương trình đào tạo <?=$nganhdaotao->ten_nganh?></h4>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>STT</th>
+											<th>Mã hp</th>
+											<th>Tên hp</th>
+											<th>STC</th>
+											<th>Số tiết LT</th>
+											<th>Số tiết TH</th>
+											<th>Mã hp tiên quyết</th>
+											<th>Học kỳ</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr v-for="(item,index) in dsmonhoc">
+											<td>{{index+1}}</td>
+											<td>{{item.ma_mon}}</td>
+											<td>{{item.ten_mon}}</td>
+											<td>{{item.so_tin_chi}}</td>
+											<td>{{item.so_tiet_ly_thuyet}}</td>
+											<td>{{item.so_tiet_thuc_hanh}}</td>
+											<td>{{item.ma_hoc_phan_tien_quyet}}</td>
+											<td>{{item.hoc_ky}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 	</div>
@@ -262,11 +307,12 @@
 		el: "#ctdtao",
 		data () {
 			return {
-		   		type:1,
-		 	 	link:"",
-		  		id_monhoc:0,
-		    	monhoc:"",
-		    	decuongs:[],
+				dsmonhoc:[],
+				type:1,
+				link:"",
+				id_monhoc:0,
+				monhoc:"",
+				decuongs:[],
 				tinchi:[],
 				total:0,
 				max:0,
@@ -281,42 +327,42 @@
 		},
 		methods: {
 			getDecuong(){
-			let data={
-				id_monhoc:this.id_monhoc,
-				id_nganh:this.dtid
-			};
-		  	this.$http.get(this.base+'Highdecuong/index/',{params:data}).then(res => {
-		  	  console.log(res);
-		  	  this.decuongs=res.body;
-		  	}).catch(err => {
-		  	  console.log(err);
-		  	});
-		  },
-		  reset(){
-		  	this.link="";
-		    this.type=1;
-		    $('#fileDecuong').val("");
+				let data={
+					id_monhoc:this.id_monhoc,
+					id_nganh:this.dtid
+				};
+				this.$http.get(this.base+'Highdecuong/index/',{params:data}).then(res => {
+					console.log(res);
+					this.decuongs=res.body;
+				}).catch(err => {
+					console.log(err);
+				});
+			},
+			reset(){
+				this.link="";
+				this.type=1;
+				$('#fileDecuong').val("");
 
-		  },
-		  deleteitem:function (id,index) {
-	 			var self=this;
+			},
+			deleteitem:function (id,index) {
+				var self=this;
 
-	 			swal({ title: "Thông báo",
-	 				text: "Bạn có chắc chắn muốn đề cương: "+ self.decuongs[index].link,
-	 				type: "warning",
-	 				showCancelButton: true,
-	 				confirmButtonColor: "#DD6B55",
-	 				confirmButtonText: "Ok, xóa nó đi!",
-	 				closeOnConfirm: false}).then(
-	 				function(result) {
-	 					if (result) {
-	 						self.$http.post(self.base+'/decuong/delete', {id: self.decuongs[index].id}).then(response => {
-	 							self.decuongs.splice(index,1);
-	 							swal("Đã xóa!", "", "success")
-	 						}, response => {
+				swal({ title: "Thông báo",
+					text: "Bạn có chắc chắn muốn đề cương: "+ self.decuongs[index].link,
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#DD6B55",
+					confirmButtonText: "Ok, xóa nó đi!",
+					closeOnConfirm: false}).then(
+					function(result) {
+						if (result) {
+							self.$http.post(self.base+'/decuong/delete', {id: self.decuongs[index].id}).then(response => {
+								self.decuongs.splice(index,1);
+								swal("Đã xóa!", "", "success")
+							}, response => {
 							    // error callback
 							});
-	 					}
+						}
 					    // handle Confirm button click
 					    // result is an optional parameter, needed for modals with input
 					}, function(dismiss) {
@@ -330,72 +376,72 @@
 				    // error callback
 				});*/
 			},
-		  ShowListTailieu (id,tenmon) {
-		  	this.currentid=id;
-		  	this.getDecuong(id);
-		  	this.monhoc=tenmon;
-		    $("#modal-show").modal("show");
-		  },
-		  OpenDecuong(item){
+			ShowListTailieu (id,tenmon) {
+				this.currentid=id;
+				this.getDecuong(id);
+				this.monhoc=tenmon;
+				$("#modal-show").modal("show");
+			},
+			OpenDecuong(item){
 				$("#modal-decuong").modal("show");
 				this.monhoc=item.ten_mon;
 				this.id_monhoc=item.id;
-		  		this.getDecuong();
+				this.getDecuong();
 
 			},
 
-		  SaveFiles(){
-		  	NProgress.start()
-		  	if (this.type==1) {
-		  		let data={
-		  			id_monhoc:this.id_monhoc,
-		  			id_nganh:this.dtid,
-		  			type:this.type,
-		  			link:this.link
-		  		}
-		  		this.$http.post(this.base+'Highdecuong/add', data).then(response => {
-					console.log(response);
-		  			this.getDecuong(this.currentid);
-		  			NProgress.done();
-		  			this.reset();
-		  			swal({
-		  				icon:response.body.code,
-		  				text:response.body.message
-		  			});
-				  }, response => {
+			SaveFiles(){
+				NProgress.start()
+				if (this.type==1) {
+					let data={
+						id_monhoc:this.id_monhoc,
+						id_nganh:this.dtid,
+						type:this.type,
+						link:this.link
+					}
+					this.$http.post(this.base+'Highdecuong/add', data).then(response => {
+						console.log(response);
+						this.getDecuong(this.currentid);
+						NProgress.done();
+						this.reset();
+						swal({
+							icon:response.body.code,
+							text:response.body.message
+						});
+					}, response => {
 				    // error callback
-				  });
-		  	}else{
- 				var formData = new FormData();
- 				var file=$('#fileDecuong')[0].files[0];
-				if (file!=null) {
-					formData.append('fileattach',file) ;
+				});
 				}else{
-					swal({
-						icon:'error',
-						text:'Bạn phải chọn file trước khi upload'
-					});
-					return;
-				}
- 				formData.append('type',this.type);
- 				formData.append('id_monhoc',this.id_monhoc);
- 				formData.append('id_nganh',this.dtid);
- 				var self=this;
-				this.$http.post(this.base+'Highdecuong/add', formData).then(response => {
-					console.log(response);
-					NProgress.done() ;
-					this.getDecuong(this.currentid);
-		  			this.reset();
-					swal({
-		  				icon:response.body.code,
-		  				text:response.body.message
-		  			});
-				  }, response => {
+					var formData = new FormData();
+					var file=$('#fileDecuong')[0].files[0];
+					if (file!=null) {
+						formData.append('fileattach',file) ;
+					}else{
+						swal({
+							icon:'error',
+							text:'Bạn phải chọn file trước khi upload'
+						});
+						return;
+					}
+					formData.append('type',this.type);
+					formData.append('id_monhoc',this.id_monhoc);
+					formData.append('id_nganh',this.dtid);
+					var self=this;
+					this.$http.post(this.base+'Highdecuong/add', formData).then(response => {
+						console.log(response);
+						NProgress.done() ;
+						this.getDecuong(this.currentid);
+						this.reset();
+						swal({
+							icon:response.body.code,
+							text:response.body.message
+						});
+					}, response => {
 				    // error callback
-				  });
+				});
 
-		  	}
-		  },
+				}
+			},
 
 			gethocky() {
 				this.$http.get(this.base+'nganhdaotao/apihocky',{params:{id:this.dtid}}).then(res => {
@@ -465,7 +511,7 @@
 					var total=0;
 					self.total=0;
 					self.max=0;
-						self.tinchi=[];
+					self.tinchi=[];
 					val.so_hoc_ky.forEach(function (item) {
 						var totalki=0;
 						self.max=val['hocki'+item].length>self.max?val['hocki'+item].length:self.max;
@@ -475,9 +521,9 @@
 							totalki+=parseInt(item2.so_tin_chi);
 							monhocs.forEach(function (mh) {
 								if ((item2.ma_hoc_phan_tien_quyet.indexOf(mh.ma_mon)>=0||mh.ma_mon.indexOf(item2.ma_hoc_phan_tien_quyet)>=0||item2.ma_hoc_phan_tien_quyet==mh.ma_mon)&&mh.ma_mon!=""&&item2.ma_hoc_phan_tien_quyet!="") {
-										console.log(mh.bg);
-										console.log(item2.bg);
-										console.log("========");
+									console.log(mh.bg);
+									console.log(item2.bg);
+									console.log("========");
 									if (item2.bg==null&&mh.bg==null) {
 
 										item2.bg=mau[index];
@@ -504,6 +550,8 @@
 						self.tinchi.push(totalki);
 						self.total+=totalki;
 					});
+					this.dsmonhoc=monhocs;
+
 					console.log(monhocs);
 				},
 				deep: true

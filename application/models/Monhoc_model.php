@@ -25,7 +25,7 @@ class Monhoc_model extends Cdio_Model {
 			$this->db->like('ten_mon', $key);
 			$this->db->or_like('ma_mon', $key);
 		}
-		$this->db->order_by('monhoc.id', 'asc');
+		$this->db->order_by('monhoc.ma_mon', 'asc');
 		$this->db->limit($limit, $offset);
 		return $this->db->get($this->table_name)->result();
 	}

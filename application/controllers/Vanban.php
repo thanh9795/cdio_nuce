@@ -12,7 +12,6 @@ class Vanban extends CDIO_Controller {
 
 	// List all your items
 	public function index() {
-		$this->output->enable_profiler(TRUE);
 		$this->load->library('Paginator');
 		$key = $this->input->get('key');
 		$totalItems = $this->Vanban_model->countall($key);
@@ -37,7 +36,6 @@ class Vanban extends CDIO_Controller {
 	}
 
 	public function add() {
-		$this->output->enable_profiler(TRUE);
 		$this->load->helper('Slug');
 		$this->form_validation->set_rules('so_ky_hieu_vb', 'Số ký hiệu VB', 'trim|required', ['required' => "%s Đây là trường bắt buộn"]);
 		if ($this->form_validation->run()) {
@@ -51,11 +49,11 @@ class Vanban extends CDIO_Controller {
 			$this->session->set_flashdata('message', 'Thêm mới thành công');
 			$slug = to_slug($this->input->post('trich_yeu')) . "-" . $insert_id;
 			$this->Vanban_model->update(['slug' => $slug], $insert_id);
-			if (count($this->input->post('dinhkems'))>0) {
+			if (count($this->input->post('dinhkems')) > 0) {
 				$this->load->model('Vanban_dinhkem_model');
 				foreach ($this->input->post('dinhkems') as $key => $value) {
-					if ($value!=NULL&&$value!="") {
-						$this->Vanban_dinhkem_model->insert(['type'=>3,'link'=>$value,'id_vanban'=>$insert_id]);
+					if ($value != NULL && $value != "") {
+						$this->Vanban_dinhkem_model->insert(['type' => 3, 'link' => $value, 'id_vanban' => $insert_id]);
 					}
 				}
 			}
@@ -81,11 +79,11 @@ class Vanban extends CDIO_Controller {
 			], $id);
 			$this->load->model('Vanban_dinhkem_model');
 			$this->Vanban_dinhkem_model->deleteByIdVanBan($id);
-			if (count($this->input->post('dinhkems'))>0) {
+			if (count($this->input->post('dinhkems')) > 0) {
 				$this->load->model('Vanban_dinhkem_model');
 				foreach ($this->input->post('dinhkems') as $key => $value) {
-					if ($value!=NULL&&$value!="") {
-						$this->Vanban_dinhkem_model->insert(['type'=>3,'link'=>$value,'id_vanban'=>$id]);
+					if ($value != NULL && $value != "") {
+						$this->Vanban_dinhkem_model->insert(['type' => 3, 'link' => $value, 'id_vanban' => $id]);
 					}
 				}
 			}

@@ -58,7 +58,7 @@
 							<tr>
 								<th scope="row"><?=$tt->id?></th>
 								<td><?=$tt->tieude?></td>
-								<td><?=$tt->mota?></td>
+								<td class="wordbreak"><?=$tt->mota?></td>
 								<td><?=date("d/m/Y", strtotime($tt->date_created))?></td>
 								<td><?=$tt->stt?></td>
 								<td>
@@ -71,45 +71,45 @@
 
 					</tbody>
 				</table>
-<?php echo $paginator ?>
+				<?php echo $paginator ?>
 			</div>
 		</div>
 	</div>
 </div>
 <script>
 	$(document).ready(function() {
-		$(".btn-xoa").click(function(event) {
-			var btnxoa=$(this);
-			swal({
-				icon:"info",
-				buttons: ["Huy", "Xoa"],
-			}).then(function (rs) {
-				if (rs) {
-					$.ajax({
-						url: '<?=base_url('tintuc/delete')?>',
-						type: 'POST',
-						dataType: 'text',
-						data: {id: btnxoa.data('id')},
-					})
-					.done(function() {
-						swal({
-							icon:'success'
-						}).then(function () {
-							location.reload();
-						})
-						console.log("success");
-					})
-					.fail(function() {
-						console.log("error");
-					})
-					.always(function() {
-						console.log("complete");
-					});
+	$(".btn-xoa").click(function(event) {
+	var btnxoa=$(this);
+	swal({
+	icon:"info",
+	buttons: ["Huy", "Xoa"],
+}).then(function (rs) {
+if (rs) {
+$.ajax({
+url: '<?=base_url('tintuc/delete')?>',
+type: 'POST',
+dataType: 'text',
+data: {id: btnxoa.data('id')},
+})
+.done(function() {
+swal({
+icon:'success'
+}).then(function () {
+location.reload();
+})
+console.log("success");
+})
+.fail(function() {
+console.log("error");
+})
+.always(function() {
+console.log("complete");
+});
 
 
-				}
-			});
-		});
-	});
+}
+});
+});
+});
 </script>
 

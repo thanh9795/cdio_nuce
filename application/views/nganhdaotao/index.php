@@ -93,7 +93,7 @@
 										</div>
 									</div>
 								<?php else: ?>
-									<a class="btn btn-primary btn-xs" disabled="" data-toggle="modal" href='#modal-id<?=$vb->id?>'><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+									<a class="btn btn-primary btn-xs" disabled="" data-toggle="tooltip" href='#modal-id<?=$vb->id?>' data-toggle="tooltip" title="Chưa có chuẩn đầu ra!"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
 										<?php endif?>
 
 								</td>
@@ -143,5 +143,10 @@
 			});
 		});
 	});
+</script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
 </script>
 
