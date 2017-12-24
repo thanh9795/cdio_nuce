@@ -57,7 +57,7 @@
 										<td>{{item.type}}</td>
 										<td><a :href="item.link">{{item.link|shorter}}</a></td>
 										<td>{{item.date_created}}</td>
-										<td><button @click="deleteitem(item.id,index)" type="button" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></button></td>
+										<td><button  @click="deleteitem(item.id,index)" type="button" class="btn btn-default btn-xs"><i class="fa fa-trash"></i></button></td>
 									</tr>
 								</tbody>
 							</table>

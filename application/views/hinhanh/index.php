@@ -32,45 +32,61 @@
 											<label for="">Liên kết đến</label>
 											<input type="text" v-model="linkto" class="form-control" id="" >
 										</div>
-										<div class="form-group">
-											<div class="radio">
-												<label>
-													<input type="radio" v-model="type" id="input" value="1" checked="checked">
-													Link
+											<div class="form-group">
+												<label class="control-label">
+													Đề cương
 												</label>
+														<div class="">
+													<div class="input-group">
+												      <input name="decuong" v-model="link" type="text" value="" id="decuong" readonly="" class="form-control">
+												      <span class="input-group-btn">
+												        <button class="btn btn-default btn-pick" data-textbox="decuong" type="button">Chọn file</button>
+												      </span>
+												    </div>
+												</div>
 											</div>
-											<div class="radio">
-												<label>
-													<input type="radio" v-model="type" id="input" value="2" checked="checked">
-													Upload
-												</label>
-											</div>
-										</div>
+											<div style="clear: both;"></div>
+
+<!-- 										<div class="form-group">
+	<div class="radio">
+		<label>
+			<input type="radio" v-model="type" id="input" value="1" checked="checked">
+			Link
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" v-model="type" id="input" value="2" checked="checked">
+			Upload
+		</label>
+	</div>
+</div>
 
 
-										<div v-if="type==1" class="form-group">
-											<label for="">Đường link ảnh</label>
-											<span v-if="!vali" class="label label-warning">Đường dẫn ảnh chưa hợp lệ</span>
-											<span v-else class="label label-success">Hợp lệ</span>
-											<input type="text" v-model="link" class="form-control" id="">
-										</div>
+<div v-if="type==1" class="form-group">
+	<label for="">Đường link ảnh</label>
+	<span v-if="!vali" class="label label-warning">Đường dẫn ảnh chưa hợp lệ</span>
+	<span v-else class="label label-success">Hợp lệ</span>
+	<input type="text" v-model="link" class="form-control" id="">
+</div>
 
-										<div v-else class="form-group">
-											<label for="">Chọn file ảnh </label>
-											<input type="file" class="form-control" id="fileUpload" placeholder="Input field">
-										</div>
+<div v-else class="form-group">
+	<label for="">Chọn file ảnh </label>
+	<input type="file" class="form-control" id="fileUpload" placeholder="Input field">
+</div>
 
-										
+
+ -->
 
 									</div>
 									<div class="modal-footer">
 										<div v-if="edit">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-											<button type="submit" :disabled="!vali" class="btn btn-primary">Cập nhật</button>
+											<button type="submit" class="btn btn-primary">Cập nhật</button>
 										</div>
 										<div v-else>
 											<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-											<button type="submit" :disabled="!vali" class="btn btn-primary">Thêm mới</button>
+											<button type="submit"  class="btn btn-primary">Thêm mới</button>
 										</div>
 									</div>
 								</form>
@@ -313,3 +329,36 @@
 
 	})
 </script>
+<script>
+		$(document).ready(function() {
+		/*$(".btn-pick").click(function(event) {
+			selectFileWithCKFinder($(this).data('textbox'));
+		});*/
+		$(document).on('click', '.btn-pick', function(event) {
+			event.preventDefault();
+			selectFileWithCKFinder($(this).data('textbox'));
+
+			/* Act on the event */
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						//output.value = file.getUrl();
+						vm.link=file.getUrl()
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
+	</script>

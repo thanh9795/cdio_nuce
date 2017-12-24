@@ -26,6 +26,9 @@ $config = array();
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_authentication
 
 $config['authentication'] = function () {
+    if ($_COOKIE['cdio_dir']==NULL) {
+        return false;
+    }
     return true;
 };
 
@@ -66,7 +69,7 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => '/cdio_nuce/public/ckfinder/userfiles/',
+    'baseUrl'      => '/cdio_nuce/public/ckfinder/userfiles/'.$_COOKIE['cdio_dir'],
 //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,

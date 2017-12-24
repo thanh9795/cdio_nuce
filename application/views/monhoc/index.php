@@ -64,9 +64,9 @@ $sott = $this->input->get('page') ? ($this->input->get('page') - 1) * 20 : 0;
 								<td><?=date('d/m/Y', strtotime($vb->date_updated))?></td>
 								<td><?=$vb->hoten?></td>
 								<td>
-									<button @click="ShowListTailieu(<?=$vb->mhid?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"><i class="fa fa-book" aria-hidden="true"></i></button>
-									<a href="<?=base_url('monhoc/update/' . $vb->mhid)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->mhid?>"><i class="fa fa-trash"></i></button>
+									<!-- <button data-toggle="tooltip" title="Xem đề cương" @click="ShowListTailieu(<?=$vb->mhid?>,'<?=$vb->ten_mon?>')" class="btn btn-xs btn-<?=$vb->attachnumber > 0 ? "success" : "default"?>"><i class="fa fa-book" aria-hidden="true"></i></button> -->
+									<a data-toggle="tooltip" title="Chỉnh sửa môn học" href="<?=base_url('monhoc/update/' . $vb->mhid)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button data-toggle="tooltip" title="Xóa môn học" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->mhid?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
 						<?php endforeach?>

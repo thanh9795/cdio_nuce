@@ -26,15 +26,7 @@
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
-					</li>
+
 					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
 				</ul>
@@ -61,8 +53,8 @@
 								<td><?=$vb->trich_yeu?></td>
 								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?=base_url('vanban/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
+									<a data-toggle="tooltip" title="Sửa thông tin văn bản"  href="<?=base_url('vanban/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button data-toggle="tooltip" title="Xóa văn bản" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
 						<?php endforeach?>

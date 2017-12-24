@@ -9,6 +9,17 @@ class Decuong_model extends Cdio_Model {
 		parent::__construct();
 
 	}
+	public function deleteByIdMonHoc($id)
+	{
+		$this->db->delete($this->table_name, [
+			'id_monhoc'=>$id
+		]);
+	}
+	public function getByIdMonhoc($id)
+	{
+		$this->db->where('id_monhoc', $id);
+		return $this->db->get($this->table_name)->row();
+	}
 }
 
 /* End of file Nganhdaotao_model.php */

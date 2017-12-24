@@ -36,6 +36,7 @@ class Monhoc extends CDIO_Controller {
 	}
 
 	public function add() {
+		$this->load->model('Decuong_model');
 		$this->form_validation->set_rules('ma_mon', 'Mã môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('ten_mon', 'Tên môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('so_tin_chi', 'Số tín chỉ', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
@@ -43,7 +44,7 @@ class Monhoc extends CDIO_Controller {
 		$monhocs = $this->Monhoc_model->get_all();
 
 		if ($this->form_validation->run()) {
-			$this->Monhoc_model->insert([
+			$id=$this->Monhoc_model->insert([
 				'last_id' => $this->session->userdata('id'),
 				'ma_mon' => $this->input->post('ma_mon'),
 				'ten_mon' => $this->input->post('ten_mon'),
@@ -52,6 +53,11 @@ class Monhoc extends CDIO_Controller {
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
 				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet')) ? implode('|', $this->input->post('ma_hoc_phan_tien_quyet')) : "",
 
+			]);
+			$this->Decuong_model->insert([
+				'type'=>3,
+				'link'=>$this->input->post('decuong'),
+				'id_monhoc'=>$id
 			]);
 			$this->session->set_flashdata('code', 'success');
 			$this->session->set_flashdata('message', 'Thêm mới thành công');
@@ -67,6 +73,7 @@ class Monhoc extends CDIO_Controller {
 	}
 
 	public function update($id = NULL) {
+		$this->load->model('Decuong_model');
 		$this->form_validation->set_rules('ma_mon', 'Mã môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('ten_mon', 'Tên môn', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
 		$this->form_validation->set_rules('so_tin_chi', 'Số tín chỉ', 'trim|required', ['required' => "%s Đây là trường bắt buộc"]);
@@ -81,11 +88,19 @@ class Monhoc extends CDIO_Controller {
 				'so_tiet_thuc_hanh' => $this->input->post('so_tiet_thuc_hanh'),
 				'ma_hoc_phan_tien_quyet' => count($this->input->post('ma_hoc_phan_tien_quyet')) ? implode('|', $this->input->post('ma_hoc_phan_tien_quyet')) : "",
 			], $id);
+			$this->Decuong_model->deleteByIdMonHoc($id);
+			$this->Decuong_model->insert([
+				'type'=>3,
+				'link'=>$this->input->post('decuong'),
+				'id_monhoc'=>$id
+			]);
+
 			$this->session->set_flashdata('code', 'success');
 			$this->session->set_flashdata('message', 'Cập nhật thành công');
 			redirect(base_url('monhoc'), 'refresh');
 		}
-
+		$this->load->model('Decuong_model');
+		$decuong=$this->Decuong_model->getByIdMonhoc($id);
 		$monhoc = $this->Monhoc_model->get($id);
 		$monhocs = $this->Monhoc_model->get_all();
 		$data = [
@@ -93,6 +108,7 @@ class Monhoc extends CDIO_Controller {
 			'contentdata' => [
 				'monhoc' => $monhoc,
 				'monhocs' => $monhocs,
+				'decuong' => $decuong,
 			],
 		];
 

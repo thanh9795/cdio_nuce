@@ -60,12 +60,12 @@
 								<td><?=date('d/m/Y', strtotime($vb->last_update))?></td>
 								<td>
 
-									<a href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-server" aria-hidden="true"></i></a>
-									<a href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
+									<a data-toggle="tooltip" title="Khung chương trình đào tạo!" href="<?=base_url('nganhdaotao/chuongtrinhdaotao/' . $vb->id)?>" class="btn btn-success btn-xs"><i class="fa fa-server" aria-hidden="true"></i></a>
+									<a data-toggle="tooltip" title="Cập nhật thông tin chương trình đào tạo!" href="<?=base_url('nganhdaotao/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button data-toggle="tooltip" title="Xóa chương trình đào tạo!" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 									<?php if ($vb->chuandaura != NULL): ?>
 
-									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?=$vb->id?>'><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+									<a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-id<?=$vb->id?>'><i data-toggle="tooltip" title="Xem chuẩn đầu ra!"  class="fa fa-graduation-cap" aria-hidden="true"></i></a>
 									<div class="modal fade" id="modal-id<?=$vb->id?>">
 										<div class="modal-dialog" style="width:80%">
 											<div class="modal-content">

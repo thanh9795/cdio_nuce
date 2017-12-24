@@ -66,8 +66,8 @@
 								<td><?=date("d/m/Y", strtotime($vb->date_created))?></td>
 								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?=base_url('tailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
+									<a data-toggle="tooltip" title="Chỉnh sửa tài liệu" href="<?=base_url('tailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button data-toggle="tooltip" title="Xóa tài liệu" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
 						<?php endforeach?>

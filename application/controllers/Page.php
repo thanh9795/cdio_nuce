@@ -35,6 +35,7 @@ class Page extends CI_Controller {
 	}
 	public function login_submit()
 	{
+		$this->load->helper('cookie');
 		$username=$this->input->post('username');
 		$password=md5(SALT.$this->input->post('password'));
 		$this->load->model('User_Model');
@@ -49,6 +50,7 @@ class Page extends CI_Controller {
 				'tennhom'=>$user->tennhom,
 				'avatar'=>$user->avatar,
 			);
+			setcookie('cdio_dir',md5("CDIO".$username),time() + (86400 * 5),"/");
 			$this->session->set_userdata($session);
 			echo json_encode(array(
 				'code'=>"success",

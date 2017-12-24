@@ -78,7 +78,20 @@
 							</select>
 						</div>
 					</div>
-
+					
+					<div class="form-group">
+						<label class="control-label col-md-3 col-sm-3 col-xs-12">
+							Đề cương
+						</label>
+								<div class="col-md-9 col-sm-9 col-xs-12">
+							<div class="input-group">
+						      <input name="decuong" type="text" value="" id="decuong" readonly="" class="form-control">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default btn-pick" data-textbox="decuong" type="button">Chọn file</button>
+						      </span>
+						    </div>
+						</div>
+					</div>
 					<div class="ln_solid"></div>
 					<div class="form-group">
 						<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
@@ -92,3 +105,36 @@
 		</div>
 	</div>
 </div>
+
+	<script>
+		$(document).ready(function() {
+		/*$(".btn-pick").click(function(event) {
+			selectFileWithCKFinder($(this).data('textbox'));
+		});*/
+		$(document).on('click', '.btn-pick', function(event) {
+			event.preventDefault();
+			selectFileWithCKFinder($(this).data('textbox'));
+
+			/* Act on the event */
+		});
+		function selectFileWithCKFinder( elementId ) {
+			CKFinder.popup( {
+				chooseFiles: true,
+				width: 800,
+				height: 600,
+				onInit: function( finder ) {
+					finder.on( 'files:choose', function( evt ) {
+						var file = evt.data.files.first();
+						var output = document.getElementById( elementId );
+						output.value = file.getUrl();
+					} );
+
+					finder.on( 'file:choose:resizedImage', function( evt ) {
+						var output = document.getElementById( elementId );
+						output.value = evt.data.resizedUrl;
+					} );
+				}
+			} );
+		}
+	});
+	</script>

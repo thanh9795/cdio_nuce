@@ -59,8 +59,8 @@
 								<td><?=$vb->ten_nhom?></td>
 								<td><?=$vb->stt?></td>
 								<td>
-									<a href="<?=base_url('nhomtailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<button class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
+									<a data-toggle="tooltip" title="Chỉnh sửa nhóm tài liệu" href="<?=base_url('nhomtailieu/update/' . $vb->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<button data-toggle="tooltip" title="Xóa nhóm" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$vb->id?>"><i class="fa fa-trash"></i></button>
 								</td>
 							</tr>
 						<?php endforeach?>

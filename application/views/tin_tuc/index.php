@@ -25,15 +25,7 @@
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
-					</li>
+
 					<li><a class="close-link"><i class="fa fa-close"></i></a>
 					</li>
 				</ul>
@@ -62,9 +54,9 @@
 								<td><?=date("d/m/Y", strtotime($tt->date_created))?></td>
 								<td><?=$tt->stt?></td>
 								<td>
-									<a href="<?=base_url('tintuc/update/' . $tt->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-									<a class="btn btn-danger btn-xs btn-xoa" data-id="<?=$tt->id?>"><i class="fa fa-trash"></i></a>
-									<a href="<?=base_url('tintuc/detail/' . $tt->id)?>" class="btn btn-success btn-xs" data-id="<?=$tt->id?>"><i class="fa fa-eye"></i></a>
+									<a data-toggle="tooltip" title="Sửa tin tức" href="<?=base_url('tintuc/update/' . $tt->id)?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+									<a data-toggle="tooltip" title="Xóa tin tức" class="btn btn-danger btn-xs btn-xoa" data-id="<?=$tt->id?>"><i class="fa fa-trash"></i></a>
+									
 								</td>
 							</tr>
 						<?php endforeach?>
