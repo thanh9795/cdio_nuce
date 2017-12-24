@@ -170,7 +170,7 @@
 						<!-- Tab panes -->
 						<div class="tab-content">
 							<div v-for="(item,index) in ctdt['so_hoc_ky']" class="tab-pane" :class="{'active':index==0}" :id="'hocki'+item">
-								<p class="lead">Học kỳ {{item}} <small>({{tinchi[item-1]}} tín chỉ)</small></p>
+								<p class="lead">Học kỳ {{item}} <small>({{somonhoc[index]}} môn học /{{tinchi[index]}} tín chỉ)</small></p>
 								<draggable v-model="ctdt['hocki'+item]" class="dragArea dra-content" :options="{group:'monhoc'}">
 									<div v-for="item in ctdt['hocki'+item]" class="con">
 										<div class="panel panel-default">
@@ -314,6 +314,7 @@
 				monhoc:"",
 				decuongs:[],
 				tinchi:[],
+				somonhoc:[],
 				total:0,
 				max:0,
 				key:"",
@@ -512,13 +513,16 @@
 					self.total=0;
 					self.max=0;
 					self.tinchi=[];
+					self.somonhoc=[];
 					val.so_hoc_ky.forEach(function (item) {
 						var totalki=0;
+						var somon=0;
 						self.max=val['hocki'+item].length>self.max?val['hocki'+item].length:self.max;
 						//self.max=val['hocki'+item].length>self.max?val['hocki'+item].length:self.max;
 						val['hocki'+item].forEach(function (item2) {
 							monhocs.push(item2);
 							totalki+=parseInt(item2.so_tin_chi);
+							somon++;
 							monhocs.forEach(function (mh) {
 								if ((item2.ma_hoc_phan_tien_quyet.indexOf(mh.ma_mon)>=0||mh.ma_mon.indexOf(item2.ma_hoc_phan_tien_quyet)>=0||item2.ma_hoc_phan_tien_quyet==mh.ma_mon)&&mh.ma_mon!=""&&item2.ma_hoc_phan_tien_quyet!="") {
 									console.log(mh.bg);
@@ -548,6 +552,7 @@
 							});
 						});
 						self.tinchi.push(totalki);
+						self.somonhoc.push(somon);
 						self.total+=totalki;
 					});
 					this.dsmonhoc=monhocs;
